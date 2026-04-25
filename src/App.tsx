@@ -896,7 +896,7 @@ export default function GravityClubWebsitePreview() {
   <p>Gravity Club turns fitness into a night out.</p>
   <p>Dark room. Loud sound. 20 people moving in sync.</p>
   <p>It’s not only about working out.</p>
-  <p className="text-[#1FE4D6]">It’s about showing up.</p>
+  <p className="text-[#1FE4D6] my-[0.6em]">It’s about showing up.</p>
   <p>
     Built as a boutique pop-up experience in Zurich, each session combines training,
     music and atmosphere into something people don’t just try once - but come back
