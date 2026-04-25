@@ -770,22 +770,11 @@ export default function GravityClubWebsitePreview() {
 
               <div className="mt-3 text-[2rem] leading-[0.94] text-[#1FE4D6] sm:text-[3rem] lg:text-[5rem]" style={HEADING_STYLE}>
                <span className="block sm:hidden text-[2.35rem] leading-[0.98]">
-  Zurich&apos;s <span className="whitespace-nowrap">rebounder fitness</span>
-  <br />
-  in a club atmosphere
-</span>
-                <span className="hidden sm:block">
-                  Zurich&apos;s
-                  <br />
-                  rebounder
-                  <br />
-                  fitness
-                  <br />
-                  <span className="whitespace-nowrap">in a club</span>
-                  <br />
-                  atmosphere
-                </span>
-              </div>
+  Zurich&apos;s
+<br />
+<span className="whitespace-nowrap">rebounder fitness</span>
+<br />
+<span className="whitespace-nowrap">in a club atmosphere</span>
 
               <p className="mt-4 max-w-xl text-[15px] leading-7 text-[#D9D9D9]/70 sm:mt-5 sm:max-w-2xl sm:text-[18px] sm:leading-8">
                 50-minute boutique rebounder fitness classes in Zurich with sound, lighting, energy and limited 20-person capacity.
