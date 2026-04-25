@@ -48,9 +48,6 @@ const FAQ_ITEMS = [
 const HERO_IMAGES = [
   "/hero.jpg",
 ] as const;
-  "https://images.unsplash.com/photo-1579758629938-03607ccdbaba?q=80&w=1200&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1518611012118-696072aa579a?q=80&w=1200&auto=format&fit=crop",
-] as const;
 
 const CLASS_ITEMS = [
   {
