@@ -682,7 +682,7 @@ export default function GravityClubWebsitePreview() {
       <header className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-[#0A0A0A]/90 backdrop-blur-2xl">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 sm:px-6 lg:px-10">
           <div className="flex items-center">
-  <img src="/logo.png" alt="Gravity Club" className="h-7 w-auto sm:h-8" />
+  <img src="/logo.png" alt="Gravity Club" className="h-10 w-auto sm:h-12" />
 </div>
 
           <nav className="hidden items-center gap-2 md:flex">
