@@ -760,7 +760,7 @@ export default function GravityClubWebsitePreview() {
                 Zürich Launch · 20 Spots
               </div>
 
-              <h1 className="mt-4 text-[2.4rem] leading-[0.9] text-[#D9D9D9] sm:text-[4.2rem] lg:text-[6.2rem]" style={HEADING_STYLE}>
+              <h1 className="mt-4 text-[2.15rem] leading-[0.95] text-[#D9D9D9] sm:text-[4.2rem] lg:text-[6.2rem]" style={HEADING_STYLE}>
                 <span className="sm:hidden">Rebound. Sweat. Connect.</span>
                 <span className="hidden sm:block">
                   Rebound.
