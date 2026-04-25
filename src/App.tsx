@@ -761,14 +761,11 @@ export default function GravityClubWebsitePreview() {
               </div>
 
               <h1 className="mt-4 text-[2.15rem] leading-[0.95] text-[#D9D9D9] sm:text-[4.2rem] lg:text-[6.2rem]" style={HEADING_STYLE}>
-                <span className="sm:hidden">Rebound. Sweat. Connect.</span>
-                <span className="hidden sm:block">
-                  Rebound.
-                  <br />
-                  Sweat.
-                  <br />
-                  Connect.
-                </span>
+                <span>
+  Rebound.<br />
+  Sweat.<br />
+  Connect.
+</span>
               </h1>
 
               <div className="mt-3 text-[2rem] leading-[0.94] text-[#1FE4D6] sm:text-[3rem] lg:text-[5rem]" style={HEADING_STYLE}>
