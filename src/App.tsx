@@ -772,11 +772,11 @@ export default function GravityClubWebsitePreview() {
               </h1>
 
               <div className="mt-3 text-[2rem] leading-[0.94] text-[#1FE4D6] sm:text-[3rem] lg:text-[5rem]" style={HEADING_STYLE}>
-                <span className="block sm:hidden">
-                  Zurich&apos;s rebounder fitness
-                  <br />
-                  in a club atmosphere
-                </span>
+               <span className="block sm:hidden text-[2.35rem] leading-[0.98]">
+  Zurich&apos;s <span className="whitespace-nowrap">rebounder fitness</span>
+  <br />
+  in a club atmosphere
+</span>
                 <span className="hidden sm:block">
                   Zurich&apos;s
                   <br />
