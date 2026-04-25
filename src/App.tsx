@@ -892,7 +892,7 @@ export default function GravityClubWebsitePreview() {
         <section id="concept" className="border-y border-white/10 bg-white/[0.02]">
   <div className="mx-auto grid max-w-6xl gap-8 px-4 py-14 sm:px-6 sm:py-20 lg:grid-cols-[0.9fr_1.1fr] lg:gap-12 lg:px-10 lg:py-28">
     <SectionTitle eyebrow="The Concept" title={<>More than a class.<br />A city ritual.</>} />
-    <div className="max-w-[680px] text-[17px] leading-[1.45] text-[#D9D9D9]/78">
+   <div className="max-w-[680px] text-[17px] leading-[1.45] text-[#D9D9D9]/78">
   <div className="space-y-[1em]">
     <p className="m-0 text-[#D9D9D9]">Gravity Club turns fitness into a night out.</p>
     <p className="m-0">Dark room. Loud sound. 20 people moving in sync.</p>
