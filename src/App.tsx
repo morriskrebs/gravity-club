@@ -857,15 +857,16 @@ export default function GravityClubWebsitePreview() {
                 </div>
               </Card>
               <img
-                src={HERO_IMAGES[1]}
-                alt="Workout detail"
-                className="h-36 w-full rounded-[28px] border border-white/10 object-cover sm:h-44 lg:h-48"
-              />
-              <img
-                src={HERO_IMAGES[2]}
-                alt="Community detail"
-                className="h-36 w-full rounded-[28px] border border-white/10 object-cover sm:h-44 lg:h-48"
-              />
+  src="/woman.jpg"
+  alt="Energy training"
+  className="h-36 w-full rounded-[28px] border border-white/10 object-cover sm:h-44 lg:h-48"
+/>
+
+<img
+  src="/man.jpg"
+  alt="Strength training"
+  className="h-36 w-full rounded-[28px] border border-white/10 object-cover sm:h-44 lg:h-48"
+/>
             </div>
           </div>
         </section>
