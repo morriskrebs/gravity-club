@@ -1009,6 +1009,7 @@ export default function GravityClubWebsitePreview() {
           <div className="mt-12 grid gap-6 lg:grid-cols-3">
             {PRICING_ITEMS.map((item, index) => (
              <div
+<div
   key={item.name}
   role="link"
   tabIndex={0}
@@ -1018,11 +1019,12 @@ export default function GravityClubWebsitePreview() {
     trackMetaEvent("InitiateCheckout", { content_name: `${item.name} Pricing Click` });
     trackGaEvent("pricing_click", { event_category: "conversion", event_label: item.name });
   }}
+  onKeyDown={(e) => {
+    if (e.key === "Enter") {
+      window.location.href = "https://www.eversports.ch/sp/gravity-club";
+    }
+  }}
 >
-                onKeyDown={(e) => {
-                  if (e.key === "Enter" || e.key === " ") {
-                    e.preventDefault();
-                    window.location.href = "https://www.eversports.ch/sp/gravity-club";
                     trackMetaEvent("InitiateCheckout", { content_name: `${item.name} Pricing Click` });
                     trackGaEvent("pricing_click", { event_category: "conversion", event_label: item.name });
                   }
