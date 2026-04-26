@@ -708,7 +708,7 @@ export default function GravityClubWebsitePreview() {
                 }
                 scrollToSection("booking");
               }}
-              <button
+              button
   className="gc-cta-pulse rounded-full bg-[#1FE4D6] px-6 py-3 text-black sm:inline-flex"
               style={HEADING_STYLE}
             >
