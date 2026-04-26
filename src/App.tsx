@@ -1024,12 +1024,7 @@ export default function GravityClubWebsitePreview() {
     }
   }}
 >
-                    trackMetaEvent("InitiateCheckout", { content_name: `${item.name} Pricing Click` });
-                    trackGaEvent("pricing_click", { event_category: "conversion", event_label: item.name });
-                  }
-                }}
-                className="cursor-pointer"
-                <Card
+             <Card
                   className={`h-full p-8 ${
                     index === 1
                       ? "border-[#1FE4D6]/30 bg-[linear-gradient(180deg,rgba(31,228,214,0.18),rgba(217,217,217,0.04))] lg:scale-[1.03]"
