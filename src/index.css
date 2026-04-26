@@ -30,9 +30,10 @@ body {
 }
 
 .gc-cta-pulse:hover {
-  transform: translateY(-2px) scale(1.03);
-  animation: gcPulse 1.25s infinite;
-  filter: brightness(1.08);
+  transform: translateY(-2px) scale(1.03) !important;
+  animation: gcPulse 1.25s infinite !important;
+  filter: brightness(1.08) !important;
+  box-shadow: 0 0 0 10px rgba(31, 228, 214, 0.18) !important;
 }
 
 /* Cards (Pricing + Classes) */
