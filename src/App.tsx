@@ -1004,12 +1004,11 @@ export default function GravityClubWebsitePreview() {
         </section>
 
         <section id="pricing" className="mx-auto max-w-6xl px-4 py-14 sm:px-6 sm:py-20 lg:px-10 lg:py-28">
-          <div className="text-center">
+          <div className="text-left">
             <SectionTitle
               eyebrow="Pricing"
               title={<>Choose your training rhythm.</>}
               copy="Start with the intro offer to experience your first sessions, then move into class packs to build consistency and train regularly."
-              centered
             />
           </div>
           <div className="mt-12 grid gap-5 lg:grid-cols-4">
