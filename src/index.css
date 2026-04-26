@@ -10,3 +10,38 @@ body {
   margin: 0;
   background: #0A0A0A;
 }
+/* ===== Gravity Club Effects ===== */
+
+@keyframes gcPulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(31, 228, 214, 0.45);
+  }
+  70% {
+    box-shadow: 0 0 0 14px rgba(31, 228, 214, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(31, 228, 214, 0);
+  }
+}
+
+/* CTA Buttons */
+.gc-cta-pulse {
+  transition: transform 180ms ease, box-shadow 180ms ease, filter 180ms ease;
+}
+
+.gc-cta-pulse:hover {
+  transform: translateY(-2px) scale(1.03);
+  animation: gcPulse 1.25s infinite;
+  filter: brightness(1.08);
+}
+
+/* Cards (Pricing + Classes) */
+.gc-card-hover {
+  transition: transform 220ms ease, border-color 220ms ease, box-shadow 220ms ease;
+}
+
+.gc-card-hover:hover {
+  transform: translateY(-6px);
+  border-color: rgba(31, 228, 214, 0.4);
+  box-shadow: 0 20px 60px rgba(31, 228, 214, 0.12);
+}
