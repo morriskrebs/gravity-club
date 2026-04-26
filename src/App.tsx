@@ -1008,7 +1008,6 @@ export default function GravityClubWebsitePreview() {
           </div>
           <div className="mt-12 grid gap-6 lg:grid-cols-3">
             {PRICING_ITEMS.map((item, index) => (
-             <div
 <div
   key={item.name}
   role="link"
