@@ -1010,7 +1010,7 @@ export default function GravityClubWebsitePreview() {
               copy="Start with the intro offer to experience your first sessions, then move into class packs to build consistency and train regularly."
             />
           </div>
-          <div className="mt-12 grid gap-5 lg:grid-cols-4">
+          <div className="mt-12 grid gap-6 lg:grid-cols-3">
             {PRICING_ITEMS.map((item, index) => (
               <div
                 key={item.name}
