@@ -821,7 +821,7 @@ export default function GravityClubWebsitePreview() {
                     <div className="text-[10px] uppercase tracking-[0.18em] text-[#D9D9D9]/55 sm:text-[11px] sm:tracking-[0.24em]">
                       Launch countdown · 1 June 2026 · 18:00 Zurich
                     </div>
-                    <div className="mt-3 grid grid-cols-3 gap-2 sm:mt-4 sm:gap-3">
+                    <div className="mt-3 grid grid-cols-4 gap-2 sm:mt-4 sm:gap-3">
                       {Object.entries(timeLeft).map(([label, value]) => (
                         <div
                           key={label}
