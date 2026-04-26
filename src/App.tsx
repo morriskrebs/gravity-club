@@ -787,10 +787,7 @@ export default function GravityClubWebsitePreview() {
                     }
                     scrollToSection("booking");
                   }}
-                  className={`w-full rounded-full bg-[#1FE4D6] px-7 py-3 text-sm text-black shadow-[0_0_24px_rgba(31,228,214,0.35)] sm:w-auto ${
-                    isLive ? "animate-pulse" : ""
-                  }`}
-                  style={HEADING_STYLE}
+                  className={`gc-cta-pulse w-full rounded-full bg-[#1FE4D6] px-7 py-3 text-sm font-semibold text-black shadow-[0_0_24px_rgba(31,228,214,0.35)] sm:w-auto`}
                 >
                   {isLive ? "Book now" : "Secure your spot"}
                 </button>
