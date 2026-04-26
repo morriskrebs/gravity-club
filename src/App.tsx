@@ -709,7 +709,7 @@ export default function GravityClubWebsitePreview() {
                 scrollToSection("booking");
               }}
               button
-  className="gc-cta-pulse rounded-full bg-[#1FE4D6] px-5 py-2 text-sm font-semibold text-black shadow-[0_0_24px_rgba(31,228,214,0.35)]"
+  className="gc-cta-pulse rounded-full bg-[#1FE4D6] px-5 py-2 text-sm font-semibold text-black shadow-[0_0_24px_rgba(31,228,214,0.25)]"
             >
               {isLive ? "Book now" : "Secure your spot"}
             </button>
