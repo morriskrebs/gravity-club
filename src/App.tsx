@@ -989,7 +989,7 @@ export default function GravityClubWebsitePreview() {
                     trackMetaEvent("InitiateCheckout", { content_name: "Eversports Booking Click" });
                     trackGaEvent("booking_click", { event_category: "engagement" });
                   }}
-className="gc-cta-pulse mt-6 rounded-full bg-[#1FE4D6] px-5 py-2 text-sm font-semibold text-black shadow-[0_0_24px_rgba(31,228,214,0.25)]"                >
+className="gc-cta-pulse mt-8 rounded-full bg-[#1FE4D6] px-5 py-2 text-sm font-semibold text-black shadow-[0_0_24px_rgba(31,228,214,0.25)]"                >
                   Book on Eversports
                 </a>
               </div>
