@@ -1028,7 +1028,6 @@ export default function GravityClubWebsitePreview() {
                   }
                 }}
                 className="cursor-pointer"
-              >
                 <Card
                   className={`h-full p-8 ${
                     index === 1
