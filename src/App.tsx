@@ -710,7 +710,6 @@ export default function GravityClubWebsitePreview() {
               }}
               button
   className="gc-cta-pulse rounded-full bg-[#1FE4D6] px-6 py-3 text-black sm:inline-flex"
-              style={HEADING_STYLE}
             >
               {isLive ? "Book now" : "Secure your spot"}
             </button>
