@@ -66,7 +66,6 @@ const PRICING_ITEMS = [
   { name: "Drop In", price: "CHF 34", note: "Valid for 7 days." },
   { name: "Intro Offer", price: "CHF 34", note: "2 classes · valid for 14 days." },
   { name: "10 Classes", price: "CHF 306", note: "30.60 / class · valid for 3 months." },
-  { name: "15 Classes", price: "CHF 434", note: "28.90 / class · valid for 4 months." },
 ] as const;
 
 const HEADING_STYLE: React.CSSProperties = {
