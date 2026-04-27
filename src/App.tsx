@@ -838,7 +838,7 @@ export default function GravityClubWebsitePreview() {
               </div>
             </div>
 
-            <div <div className="mt-2 hidden grid-cols-2 gap-5 self-end sm:grid">
+              <div className="mt-2 hidden grid-cols-2 gap-5 self-end sm:grid">
               <Card className="relative col-span-2 overflow-hidden p-0">
                 <img
                   src={HERO_IMAGES[0]}
