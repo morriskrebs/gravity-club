@@ -63,9 +63,24 @@ const CLASS_ITEMS = [
 ] as const;
 
 const PRICING_ITEMS = [
-  { name: "Drop In", price: "CHF 34", note: "Valid for 7 days." },
-  { name: "Intro Offer", price: "CHF 34", note: "2 classes · valid for 14 days." },
-  { name: "10 Classes", price: "CHF 306", note: "30.60 / class · valid for 3 months." },
+  {
+    name: "Drop In",
+    price: "CHF 34",
+    note: "Valid for 7 days.",
+    link: "https://www.eversports.ch/o/gravity-club/00dece7f-68ed-49cf-9d1b-2848f71d4b73",
+  },
+  {
+    name: "Intro Offer",
+    price: "CHF 34",
+    note: "2 classes · valid for 14 days.",
+    link: "https://www.eversports.ch/o/gravity-club/0ffed2c3-231d-422c-a320-08bd68e8f439",
+  },
+  {
+    name: "10 Classes",
+    price: "CHF 306",
+    note: "30.60 / class · valid for 3 months.",
+    link: "https://www.eversports.ch/o/gravity-club/204549cb-193b-4101-8ca9-3f2697562283",
+  },
 ] as const;
 
 const HEADING_STYLE: React.CSSProperties = {
@@ -1012,13 +1027,13 @@ className="gc-cta-pulse mt-8 inline-flex w-fit rounded-full bg-[#1FE4D6] px-5 py
   tabIndex={0}
   className="gc-card-hover cursor-pointer"
   onClick={() => {
-    window.location.href = "https://www.eversports.ch/sp/gravity-club";
+    window.location.href = item.link;
     trackMetaEvent("InitiateCheckout", { content_name: `${item.name} Pricing Click` });
     trackGaEvent("pricing_click", { event_category: "conversion", event_label: item.name });
   }}
  onKeyDown={(e) => {
   if (e.key === "Enter") {
-    window.location.href = "https://www.eversports.ch/sp/gravity-club";
+    window.location.href = item.link;
 
     trackMetaEvent("InitiateCheckout", {
       content_name: `${item.name} Pricing Click`,
