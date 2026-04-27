@@ -757,7 +757,7 @@ export default function GravityClubWebsitePreview() {
                 Zürich Launch · 20 Spots
               </div>
 
-            <h1 className="mt-4 text-[2.4rem] leading-[0.9] text-[#D9D9D9] sm:text-[4.2rem] lg:text-[6.2rem]" style={HEADING_STYLE}>
+            <h1 className="mt-5 text-[2.4rem] leading-[0.9] text-[#D9D9D9] sm:text-[4.2rem] lg:text-[6.2rem]" style={HEADING_STYLE}>
   Rebound.<br />
   Sweat.<br />
   Connect.
@@ -774,7 +774,7 @@ export default function GravityClubWebsitePreview() {
                 50-minute boutique rebounder fitness classes in Zurich with sound, lighting, energy and limited 20-person capacity.
               </p>
 
-              <div className="mt-5 flex flex-col gap-3 sm:mt-6 sm:flex-row sm:flex-wrap">
+              <div className="mt-6 flex flex-col gap-4 sm:mt-6 sm:flex-row sm:flex-wrap">
                 <button
                   type="button"
                   onClick={() => {
@@ -805,7 +805,7 @@ export default function GravityClubWebsitePreview() {
                 50 minutes · 20 spots · Zurich pop-up launch
               </div>
 
-              <div className="mt-6 w-full max-w-xl rounded-[24px] border border-[#1FE4D6]/20 bg-white/[0.04] p-4 backdrop-blur-xl sm:mt-8 sm:rounded-[28px] sm:p-5">
+              <div className="mt-8 w-full max-w-xl rounded-[24px] border border-[#1FE4D6]/20 bg-white/[0.04] p-4 backdrop-blur-xl sm:mt-8 sm:rounded-[28px] sm:p-5">
                 {isLive ? (
                   <div className="text-center">
                     <div className="text-[11px] uppercase tracking-[0.24em] text-[#D9D9D9]/55">Launch status</div>
@@ -838,7 +838,7 @@ export default function GravityClubWebsitePreview() {
               </div>
             </div>
 
-            <div className="mt-2 hidden grid-cols-2 gap-3 self-end sm:grid sm:gap-5">
+            <div className="mt-2 hidden grid-cols-2 gap-3 items-center sm:grid sm:gap-5">
               <Card className="relative col-span-2 overflow-hidden p-0">
                 <img
                   src={HERO_IMAGES[0]}
