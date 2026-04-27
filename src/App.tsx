@@ -712,7 +712,6 @@ export default function GravityClubWebsitePreview() {
 
           <div className="flex items-center gap-3">
             <button
-            <button
   type="button"
   onClick={() => {
     window.location.href = "https://www.eversports.ch/scl/gravity-club";
