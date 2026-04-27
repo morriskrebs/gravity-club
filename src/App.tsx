@@ -855,13 +855,13 @@ export default function GravityClubWebsitePreview() {
               <img
   src="/woman.jpg"
   alt="Energy training"
-  className="h-36 w-full rounded-[28px] border border-white/10 object-cover object-[center_30%] sm:h-44 lg:h-48"
+  className="aspect-[4/5] w-full rounded-[28px] border border-white/10 object-cover object-[center_35%]"
 />
 
 <img
   src="/man.jpg"
   alt="Strength training"
-  className="h-36 w-full rounded-[28px] border border-white/10 object-cover object-[center_30%] sm:h-44 lg:h-48"
+  className="aspect-[4/5] w-full rounded-[28px] border border-white/10 object-cover object-[center_45%]"
 />
             </div>
           </div>
