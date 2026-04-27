@@ -712,23 +712,24 @@ export default function GravityClubWebsitePreview() {
 
           <div className="flex items-center gap-3">
             <button
-              type="button"
-              onClick={() => {
-                if (isLive) {
-                  trackMetaEvent("InitiateCheckout", { content_name: "Hero CTA Live" });
-                  trackGaEvent("hero_cta_live", { event_category: "conversion" });
-                } else {
-                  trackMetaEvent("ViewContent", { content_name: "Booking Section" });
-                  trackGaEvent("view_booking_section", { event_category: "engagement" });
-                }
-                scrollToSection("booking");
-              }}
-              button
-  className="gc-cta-pulse rounded-full bg-[#1FE4D6] px-5 py-2 text-sm font-semibold text-black shadow-[0_0_24px_rgba(31,228,214,0.25)]"
-            >
-              {isLive ? "Book now" : "Secure your spot"}
-            </button>
             <button
+  type="button"
+  onClick={() => {
+    window.location.href = "https://www.eversports.ch/scl/gravity-club";
+
+    trackMetaEvent("InitiateCheckout", {
+      content_name: "Header CTA Click",
+    });
+
+    trackGaEvent("cta_click", {
+      event_category: "conversion",
+      event_label: "header",
+    });
+  }}
+  className="gc-cta-pulse rounded-full bg-[#1FE4D6] px-5 py-2 text-sm font-semibold text-black shadow-[0_0_24px_rgba(31,228,214,0.25)]"
+>
+  {isLive ? "Book now" : "Secure your spot"}
+</button>
               type="button"
               onClick={() => setMobileMenuOpen((v) => !v)}
               className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/5 md:hidden"
