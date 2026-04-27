@@ -838,7 +838,7 @@ export default function GravityClubWebsitePreview() {
               </div>
             </div>
 
-            <div className="mt-2 hidden grid-cols-2 gap-3 items-center sm:grid sm:gap-5">
+            <div <div className="mt-2 hidden grid-cols-2 gap-5 self-end sm:grid">
               <Card className="relative col-span-2 overflow-hidden p-0">
                 <img
                   src={HERO_IMAGES[0]}
@@ -855,12 +855,12 @@ export default function GravityClubWebsitePreview() {
               <img
   src="/woman.jpg"
   alt="Energy training"
-className="aspect-[4/5] w-full max-w-[190px] rounded-[28px] border border-white/10 object-cover object-[center_35%] mx-auto"/>
+className="aspect-[4/5] w-full rounded-[28px] border border-white/10 object-cover"/>
 
 <img
   src="/man.jpg"
   alt="Strength training"
-className="aspect-[4/5] w-full max-w-[190px] rounded-[28px] border border-white/10 object-cover object-[center_45%] mx-auto"/>
+className="aspect-[4/5] w-full rounded-[28px] border border-white/10 object-cover"/>
             </div>
           </div>
         </section>
