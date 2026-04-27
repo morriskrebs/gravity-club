@@ -107,11 +107,16 @@ Your data is handled responsibly and never sold to third parties.
 You can request information, correction or deletion of your data at any time by contacting us at hello@gravityclub-rebound.com.`;
 
 const TERMS_TEXT = `Gravity Club is a boutique fitness experience with limited capacity per session.
+
 Bookings are binding. Cancellation is free up to 12 hours before the class starts. Late cancellations and no-shows are charged in full.
+
 Participation is at your own risk. By attending a class, you confirm that you are physically fit, in good health, and able to take part in high-intensity exercise. You agree to follow all instructions given by the coach at all times.
+
 For safety reasons, all rebounders (fitness trampolines) used during classes are designed for a maximum user weight of 140 kg. By participating, you confirm that you do not exceed this limit. Gravity Club reserves the right to refuse or terminate participation at any time if there are reasonable concerns regarding safety, health, or compliance with instructions.
 Participation despite exceeding the stated weight limit, providing false information, or disregarding instructions is strictly at your own risk and releases Gravity Club from any and all liability.
+
 Gravity Club is not liable for injuries, accidents, health issues or loss of personal belongings, except in cases of gross negligence or intent.
+
 By booking a class, you acknowledge and accept these terms in full.`;
 
 const META_PIXEL_ID = "4479962442290722";
