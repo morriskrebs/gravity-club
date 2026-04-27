@@ -795,15 +795,17 @@ export default function GravityClubWebsitePreview() {
                 <button
                   type="button"
                   onClick={() => {
-                    if (isLive) {
-                      trackMetaEvent("InitiateCheckout", { content_name: "Hero CTA Live" });
-                      trackGaEvent("hero_cta_live", { event_category: "conversion" });
-                    } else {
-                      trackMetaEvent("ViewContent", { content_name: "Booking Section" });
-                      trackGaEvent("view_booking_section", { event_category: "engagement" });
-                    }
-                    scrollToSection("booking");
-                  }}
+  window.location.href = "https://www.eversports.ch/scl/gravity-club";
+
+  trackMetaEvent("InitiateCheckout", {
+    content_name: "Hero CTA Click",
+  });
+
+  trackGaEvent("cta_click", {
+    event_category: "conversion",
+    event_label: "hero",
+  });
+}}
                   className={`gc-cta-pulse w-full rounded-full bg-[#1FE4D6] px-7 py-3 text-sm font-semibold text-black shadow-[0_0_24px_rgba(31,228,214,0.35)] sm:w-auto`}
                 >
                   {isLive ? "Book now" : "Secure your spot"}
