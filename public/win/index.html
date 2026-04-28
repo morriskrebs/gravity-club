@@ -776,7 +776,6 @@ trackMetaEvent('Lead', { content_name: 'QR Landingpage Form Submit' });
     const wins = Number(localStorage.getItem('gc_wins') || 0) + 1;
     localStorage.setItem('gc_wins', String(wins));
     saveWinner(email, winnerCode);
-    trackMetaEvent('Lead', { content_name: 'Gravity Club Free Class' });
     trackGtagEvent('generate_lead');
     trackGtagEvent('win');
     setLoader(false);
