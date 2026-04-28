@@ -590,8 +590,12 @@ function applyStoredConsent() {
 
 function setTrackingConsent(value) {
   localStorage.setItem('gravity_tracking_consent', value);
+
   const banner = document.getElementById('consentBanner');
-  if (banner) banner.classList.add('consent-hidden');
+  if (banner) {
+    banner.classList.add('consent-hidden');
+    banner.style.display = 'none';
+  }
 
   if (value === 'improve') {
     initMetaPixel();
