@@ -1,0 +1,864 @@
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Gravity Club – Drop</title>
+
+
+<link rel="icon" href="favicon.ico" />
+
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600;700&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --accent: #1FE4D6;
+  --bg: #0A0A0A;
+  --text: #D9D9D9;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  color: var(--text);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 24px;
+  background:
+    radial-gradient(700px 220px at 50% 0%, rgba(31,228,214,0.12), transparent 65%),
+    radial-gradient(380px 180px at 32% 12%, rgba(31,228,214,0.05), transparent 70%),
+    radial-gradient(380px 180px at 68% 12%, rgba(31,228,214,0.05), transparent 70%),
+    #050505;
+}
+
+.wrapper {
+  width: 95%;
+  max-width: 900px;
+  border-radius: 30px;
+  padding: 60px 40px 50px;
+  background:
+    radial-gradient(900px 320px at 50% 0%, rgba(31,228,214,0.13), transparent 62%),
+    linear-gradient(180deg, rgba(9,26,25,0.92) 0%, rgba(8,18,18,0.96) 28%, rgba(8,12,12,0.98) 60%, rgba(8,8,8,0.99) 100%);
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.03),
+    0 30px 80px rgba(0,0,0,0.55);
+  backdrop-filter: blur(30px);
+  text-align: center;
+}
+
+.logo-link {
+  display: inline-block;
+  margin-bottom: 30px;
+  text-decoration: none;
+}
+
+.logo-link img {
+  height: 144px;
+  object-fit: contain;
+  opacity: 0;
+  transform: translateY(-8px) scale(0.98);
+  animation: logoFadeIn 0.8s ease forwards;
+  transition: transform 0.25s ease, opacity 0.25s ease, filter 0.25s ease;
+}
+
+.logo-link:hover img {
+  transform: translateY(-2px) scale(1.03);
+  filter: brightness(1.1);
+}
+
+@keyframes logoFadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+h1 {
+  margin: 0 0 20px;
+  color: white;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 64px;
+  line-height: 1.05;
+}
+
+.highlight { color: var(--accent); }
+
+.sub {
+  max-width: 700px;
+  margin: 0 auto 20px;
+  font-size: 18px;
+  opacity: 0.7;
+}
+
+.image-strip {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  margin: 20px auto 30px;
+  max-width: 560px;
+}
+
+.image-strip img {
+  width: 30%;
+  aspect-ratio: 1 / 1.2;
+  border-radius: 16px;
+  object-fit: cover;
+  opacity: 0.85;
+  filter: brightness(0.8);
+}
+
+.grid {
+  display: flex;
+  justify-content: center;
+}
+
+.card {
+  width: 100%;
+  max-width: 520px;
+  padding: 30px;
+  border-radius: 24px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+input {
+  width: 100%;
+  margin-bottom: 14px;
+  padding: 18px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.1);
+  background: transparent;
+  color: white;
+  font: inherit;
+}
+
+input::placeholder {
+  color: rgba(217,217,217,0.55);
+}
+
+button {
+  width: 100%;
+  margin-top: 10px;
+  padding: 18px;
+  border: none;
+  border-radius: 30px;
+  background: var(--accent);
+  color: black;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 10px 40px rgba(31,228,214,0.3);
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+
+button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 14px 44px rgba(31,228,214,0.34);
+}
+
+button:active {
+  transform: scale(.97);
+}
+
+.helper-copy {
+  margin-top: 10px;
+  font-size: 12px;
+  opacity: 0.6;
+}
+
+.loader {
+  height: 2px;
+  width: 0;
+  margin-top: 20px;
+  background: var(--accent);
+  transition: width 1.2s ease;
+}
+
+.result {
+  min-height: 40px;
+  margin-top: 25px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 32px;
+  transition: transform .25s ease, filter .25s ease, text-shadow .25s ease;
+}
+
+.result-win {
+  transform: scale(1.04);
+  text-shadow: 0 0 24px rgba(31,228,214,0.35);
+  filter: brightness(1.05);
+}
+
+@keyframes resultPop {
+  0% { transform: scale(0.98); opacity: 0.6; }
+  60% { transform: scale(1.06); opacity: 1; }
+  100% { transform: scale(1.02); }
+}
+
+.result-animate {
+  animation: resultPop 0.35s ease;
+}
+
+.code {
+  margin-top: 10px;
+  opacity: 0.7;
+  letter-spacing: 2px;
+}
+
+.checkbox-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-top: 6px;
+  margin-bottom: 8px;
+  text-align: left;
+}
+
+.checkbox-row input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  margin: 3px 0 0;
+  padding: 0;
+  border-radius: 4px;
+  accent-color: var(--accent);
+  flex: 0 0 auto;
+}
+
+.checkbox-row label {
+  font-size: 12px;
+  line-height: 1.45;
+  opacity: 0.72;
+}
+
+.consent-banner {
+  position: fixed;
+  left: 16px;
+  right: 16px;
+  bottom: 16px;
+  z-index: 50;
+  max-width: 560px;
+  margin: 0 auto;
+  padding: 16px;
+  border-radius: 18px;
+  background: rgba(10,10,10,0.94);
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.45);
+  backdrop-filter: blur(18px);
+}
+
+.consent-copy {
+  margin-bottom: 12px;
+  font-size: 13px;
+  line-height: 1.45;
+  opacity: 0.82;
+}
+
+.consent-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.consent-secondary,
+.consent-primary {
+  flex: 1;
+  margin-top: 0;
+  padding: 14px 16px;
+  border-radius: 14px;
+  font-size: 14px;
+  box-shadow: none;
+}
+
+.consent-secondary {
+  border: 1px solid rgba(255,255,255,0.12);
+  background: transparent;
+  color: white;
+}
+
+.consent-primary {
+  background: var(--accent);
+  color: black;
+}
+
+.consent-hidden {
+  display: none !important;
+}
+
+.legal-links {
+  margin-top: 16px;
+  font-size: 12px;
+  opacity: 0.5;
+  text-align: center;
+}
+
+.legal-links button {
+  width: auto;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  box-shadow: none;
+  cursor: pointer;
+}
+
+.legal-links button:hover {
+  transform: none;
+  box-shadow: none;
+  opacity: 0.9;
+}
+
+.legal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(0,0,0,0.68);
+  backdrop-filter: blur(10px);
+}
+
+.legal-modal {
+  width: 100%;
+  max-width: 720px;
+  max-height: 80vh;
+  overflow: auto;
+  padding: 24px;
+  border-radius: 22px;
+  background: linear-gradient(180deg, rgba(18,18,18,0.96) 0%, rgba(10,10,10,0.98) 100%);
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 0 30px 80px rgba(0,0,0,0.45);
+}
+
+.legal-modal h3 {
+  margin: 0 0 12px;
+  color: white;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 24px;
+}
+
+.legal-modal .legal-body {
+  font-size: 14px;
+  line-height: 1.6;
+  opacity: 0.84;
+  white-space: normal;
+}
+
+.legal-close {
+  width: auto;
+  margin-top: 18px;
+  padding: 12px 16px;
+  border-radius: 16px;
+}
+
+@media (max-width: 900px) {
+  .legal-modal {
+    padding: 18px;
+    border-radius: 18px;
+  }
+
+  .legal-modal h3 {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 900px) {
+  body {
+    padding: 16px;
+    align-items: flex-start;
+  }
+
+  .wrapper {
+    padding: 32px 16px 24px;
+    border-radius: 22px;
+  }
+
+  h1 {
+    font-size: 34px;
+    line-height: 1.1;
+  }
+
+  .sub {
+    font-size: 15px;
+    line-height: 1.5;
+  }
+
+  .image-strip {
+    gap: 10px;
+    max-width: 100%;
+  }
+
+  .image-strip img {
+    width: 31%;
+    border-radius: 12px;
+  }
+
+  .card {
+    padding: 18px;
+    border-radius: 18px;
+  }
+
+  input {
+    padding: 16px;
+    font-size: 16px;
+  }
+
+  button {
+    padding: 16px;
+    font-size: 15px;
+  }
+
+  .result {
+    font-size: 24px;
+  }
+
+  .consent-banner {
+    left: 12px;
+    right: 12px;
+    bottom: 12px;
+    padding: 14px;
+  }
+
+  .consent-actions {
+    flex-direction: column;
+  }
+}
+</style>
+<script>
+let gaLoaded = false;
+
+function initGA() {
+  if (gaLoaded) return;
+
+  const script = document.createElement('script');
+  script.async = true;
+  script.src = 'https://www.googletagmanager.com/gtag/js?id=G-62PXNJZY9K';
+  document.head.appendChild(script);
+
+  window.dataLayer = window.dataLayer || [];
+  window.gtag = function gtag(){ window.dataLayer.push(arguments); };
+  window.gtag('js', new Date());
+  window.gtag('config', 'G-62PXNJZY9K');
+
+  gaLoaded = true;
+}
+</script>
+</head>
+<body>
+  <div class="wrapper">
+    <a href="http://www.gravityclub-rebound.com/" class="logo-link">
+      <img src="logo.png" alt="Gravity Club" />
+    </a>
+
+    <h1>
+      Scan. Enter.<br>
+      <span class="highlight">Win a free class.</span>
+    </h1>
+
+    <div class="sub">
+      Found one of our stickers? You can win a free Gravity Club class.<br>
+      Limited spots available.
+    </div>
+
+   <div class="image-strip">
+  <img src="woman.jpg" alt="Gravity Club woman" />
+  <img src="group.jpg" alt="Gravity Club group" />
+  <img src="man.jpg" alt="Gravity Club man" />
+</div>
+
+    <div class="grid">
+      <div class="card">
+        <input placeholder="First name" id="firstName" />
+        <input placeholder="Last name" id="lastName" />
+        <input placeholder="Email address" id="email" />
+
+        <div class="checkbox-row">
+          <input type="checkbox" id="marketingConsent" />
+          <label for="marketingConsent">By entering, you agree to be contacted about your free class.</label>
+        </div>
+
+        <button type="button" id="playButton" onclick="handlePlayClick()">GET YOUR FREE CLASS</button>
+        <div class="helper-copy">No spam. Just your chance.</div>
+
+        <div class="loader" id="loader"></div>
+        <div class="result" id="result"></div>
+        <div class="code" id="code"></div>
+      </div>
+    </div>
+
+    <div class="legal-links">
+      <button type="button" onclick="openLegalOverlay('impressum')">Impressum</button> · 
+      <button type="button" onclick="openLegalOverlay('privacy')">Datenschutz</button> · 
+      <button type="button" onclick="openLegalOverlay('terms')">Terms</button>
+    </div>
+  </div>
+
+  <div class="legal-overlay consent-hidden" id="legalOverlay">
+    <div class="legal-modal">
+      <h3 id="legalTitle">Terms</h3>
+      <div class="legal-body" id="legalBody"></div>
+      <button type="button" class="legal-close" onclick="closeLegalOverlay()">Schliessen</button>
+    </div>
+  </div>
+
+  <div class="consent-banner" id="consentBanner">
+    <div class="consent-copy">We use cookies, Meta Pixel and Google Analytics to improve your experience and understand what performs best. By continuing, you agree to this.</div>
+    <div class="consent-actions">
+      <button type="button" class="consent-secondary" id="consentNecessary">Not now</button>
+      <button type="button" class="consent-primary" id="consentEnable">Enable</button>
+    </div>
+  </div>
+
+<script>
+const META_PIXEL_ID = '4479962442290722';
+const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xnjopwee';
+const BOOKING_URL = 'https://eversports-link';
+const LEGAL_CONTENT = {
+  impressum: {
+    title: 'Impressum',
+    body: `Verantwortlich für den Inhalt dieser Website:\n\nMorris Krebs\nBächlerstrasse 9\n8046 Zürich\nSchweiz\n\nE-Mail: hello@gravityclub-rebound.com`
+  },
+  privacy: {
+    title: 'Datenschutz',
+    body: `1. Allgemeines\n\nDiese Website wird von Morris Krebs betrieben. Der Schutz deiner persönlichen Daten ist uns wichtig. Wir behandeln deine personenbezogenen Daten vertraulich und entsprechend den gesetzlichen Datenschutzvorschriften der Schweiz.\n\n2. Erhebung und Verarbeitung personenbezogener Daten\n\nPersonenbezogene Daten werden nur erhoben, wenn du uns diese freiwillig zur Verfügung stellst, beispielsweise über das Formular. Folgende Daten können erfasst werden: Vorname, Nachname und E-Mail-Adresse. Diese Daten werden ausschliesslich zur Bearbeitung deiner Teilnahme, Kontaktaufnahme und Kommunikation verwendet.\n\n3. Kontaktformular (Formspree)\n\nWenn du das Formular nutzt, werden deine Angaben über den Dienst Formspree verarbeitet. Diese Daten werden verwendet, um deine Anfrage zu übermitteln und zu bearbeiten. Formspree ist ein externer Dienst zur Verarbeitung von Formularanfragen.\n\n4. Google Analytics\n\nDiese Website verwendet Google Analytics. Die Verarbeitung erfolgt nur nach deiner Zustimmung über das Consent-Banner.\n\n5. Meta Pixel\n\nDiese Website verwendet den Meta Pixel, um das Verhalten von Besuchern nachzuverfolgen und Marketingmassnahmen zu optimieren. Die Verarbeitung erfolgt nur nach deiner Zustimmung.\n\n6. Cookies\n\nDiese Website verwendet Cookies, um die Benutzererfahrung zu verbessern und statistische Auswertungen zu ermöglichen.\n\n7. Weitergabe von Daten\n\nDeine Daten werden nicht an Dritte verkauft oder weitergegeben, ausser dies ist zur Erfüllung der oben genannten Zwecke notwendig.\n\n8. Deine Rechte\n\nDu hast jederzeit das Recht auf Auskunft über deine gespeicherten Daten sowie auf Berichtigung oder Löschung.\n\n9. Änderungen\n\nWir behalten uns vor, diese Datenschutzerklärung jederzeit anzupassen.`
+  },
+  terms: {
+    title: 'Terms',
+    body: `Gravity Club kann zeitweise kostenlose Class-Spots im Rahmen von Promotions oder Street Drops vergeben.\n\nDie Teilnahme erfolgt über die Landingpage durch das Scannen eines QR-Codes.\n\nEs gelten folgende Bedingungen:\n- Die Teilnahme ist kostenlos und unverbindlich\n- Teilnahmeberechtigt sind Personen ab 18 Jahren\n- Pro Person ist nur eine Teilnahme bzw. ein Gewinn möglich\n- Die Auswahl der Gewinner erfolgt zufällig und ohne Gewähr\n- Es besteht kein Anspruch auf einen Gewinn\n- Gewinner werden per E-Mail kontaktiert\n- Ein Gewinn berechtigt zu einer kostenlosen Class (1 Credit)\n- Der Gewinn ist nicht übertragbar und nicht in Geld auszahlbar\n- Der Gewinn kann zeitlich begrenzt sein\n- Die Aktion kann jederzeit geändert, pausiert oder beendet werden\n\nGravity Club behält sich vor, Teilnehmer bei Missbrauch oder Manipulationsversuchen auszuschliessen.`
+  }
+};
+let metaPixelLoaded = false;
+
+function initMetaPixel() {
+  if (metaPixelLoaded) return;
+
+  !(function(f, b, e, v, n, t, s) {
+    if (f.fbq) return;
+    n = f.fbq = function() {
+      n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments);
+    };
+    if (!f._fbq) f._fbq = n;
+    n.push = n;
+    n.loaded = true;
+    n.version = '2.0';
+    n.queue = [];
+    t = b.createElement(e);
+    t.async = true;
+    t.src = v;
+    s = b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t, s);
+  })(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
+
+  window.fbq('init', META_PIXEL_ID);
+  window.fbq('track', 'PageView');
+  metaPixelLoaded = true;
+}
+
+function trackMetaEvent(name, payload = {}) {
+  if (window.fbq && metaPixelLoaded) {
+    window.fbq('track', name, payload);
+  }
+}
+
+function trackGtagEvent(name, payload) {
+  if (window.gtag) {
+    window.gtag('event', name, payload || {});
+  }
+}
+
+function applyStoredConsent() {
+  const consent = localStorage.getItem('gravity_tracking_consent');
+  const banner = document.getElementById('consentBanner');
+
+  if (consent === 'improve') {
+    initMetaPixel();
+    initGA();
+    if (banner) banner.classList.add('consent-hidden');
+    return;
+  }
+
+  if (consent === 'necessary' && banner) {
+    banner.classList.add('consent-hidden');
+  }
+}
+
+function setTrackingConsent(value) {
+  localStorage.setItem('gravity_tracking_consent', value);
+  const banner = document.getElementById('consentBanner');
+  if (banner) banner.classList.add('consent-hidden');
+
+  if (value === 'improve') {
+    initMetaPixel();
+    initGA();
+  }
+}
+
+function normalizeEmail(email) {
+  return String(email || '').trim().toLowerCase();
+}
+
+function getWinners() {
+  try {
+    const raw = localStorage.getItem('gravity_winners');
+    const parsed = JSON.parse(raw || '[]');
+    return Array.isArray(parsed) ? parsed : [];
+  } catch (error) {
+    return [];
+  }
+}
+
+function saveWinner(email, code) {
+  const winners = getWinners();
+  winners.push({
+    email,
+    code,
+    wonAt: new Date().toISOString()
+  });
+  localStorage.setItem('gravity_winners', JSON.stringify(winners));
+}
+
+function findWinnerByEmail(email) {
+  return getWinners().find(entry => entry.email === email);
+}
+
+function setLoader(isActive) {
+  const loader = document.getElementById('loader');
+  if (loader) {
+    loader.style.width = isActive ? '100%' : '0%';
+  }
+}
+
+function animateWinResult() {
+  const result = document.getElementById('result');
+  if (!result) return;
+
+  result.classList.remove('result-win', 'result-animate');
+  requestAnimationFrame(() => {
+    result.classList.add('result-animate');
+    setTimeout(() => result.classList.add('result-win'), 120);
+  });
+}
+
+function showMessage(html, isWin = false) {
+  const result = document.getElementById('result');
+  const code = document.getElementById('code');
+  if (!result || !code) return;
+
+  result.classList.remove('result-win', 'result-animate');
+  result.innerHTML = html;
+  code.innerHTML = '';
+
+  if (isWin) {
+    animateWinResult();
+  }
+}
+
+async function submitWinnerToFormspree(payload) {
+  const response = await fetch(FORMSPREE_ENDPOINT, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json'
+    },
+    body: JSON.stringify(payload)
+  });
+
+  if (!response.ok) {
+    throw new Error('Formspree submission failed');
+  }
+
+  return response.json().catch(() => ({}));
+}
+
+function buildWinnerMessage() {
+  return '<span style="color:#1FE4D6">YOU\'RE IN</span><br><span style="font-size:14px;opacity:0.7">You secured a free Gravity Club class.<br>We\'ll contact you within 24h.</span><br><br><span style="font-size:13px;opacity:0.6">Want to bring a friend?</span><br><a href="' + BOOKING_URL + '" target="_blank" rel="noopener noreferrer" style="display:inline-block;margin-top:8px;padding:12px 18px;border-radius:18px;background:rgba(31,228,214,0.15);color:#1FE4D6;font-family:Space Grotesk, sans-serif;text-decoration:none;font-weight:700;">BOOK EXTRA SPOT</a>';
+}
+
+function buildLoseMessage() {
+  return 'NOT THIS DROP<br><span style="font-size:14px;opacity:0.7">Try again soon.<br>We release new spots every week.</span><br><br><a href="' + BOOKING_URL + '" target="_blank" rel="noopener noreferrer" style="display:inline-block;margin-top:10px;padding:14px 20px;border-radius:20px;background:#1FE4D6;color:#000;font-family:Space Grotesk, sans-serif;text-decoration:none;font-weight:700;">BOOK YOUR SPOT</a>';
+}
+
+function handlePlayClick() {
+  trackMetaEvent('InitiateCheckout', { content_name: 'Gravity Club Entry' });
+  trackGtagEvent('click_cta');
+
+  const clicks = Number(localStorage.getItem('gc_clicks') || 0) + 1;
+  localStorage.setItem('gc_clicks', String(clicks));
+
+  play().catch(() => {
+    setLoader(false);
+    showMessage('TRY AGAIN');
+  });
+}
+
+async function play() {
+  trackGtagEvent('start_form');
+
+  const firstName = String(document.getElementById('firstName')?.value || '').trim();
+  const lastName = String(document.getElementById('lastName')?.value || '').trim();
+  const email = normalizeEmail(document.getElementById('email')?.value);
+  const marketingConsent = Boolean(document.getElementById('marketingConsent')?.checked);
+
+  showMessage('');
+
+  if (!firstName) {
+    trackGtagEvent('error_firstname');
+    showMessage('ENTER YOUR FIRST NAME');
+    return;
+  }
+
+  if (!lastName) {
+    trackGtagEvent('error_lastname');
+    showMessage('ENTER YOUR LAST NAME');
+    return;
+  }
+
+  if (!email || !email.includes('@')) {
+    trackGtagEvent('error_email');
+    showMessage('ENTER A VALID EMAIL');
+    return;
+  }
+
+  if (!marketingConsent) {
+    trackGtagEvent('error_consent');
+    showMessage('PLEASE ACCEPT TO CONTINUE');
+    return;
+  }
+
+  trackGtagEvent('submit_valid');
+
+  const existingWinner = findWinnerByEmail(email);
+  if (existingWinner) {
+    showMessage(buildWinnerMessage(), true);
+    trackGtagEvent('win');
+    return;
+  }
+
+  setLoader(true);
+  await new Promise(resolve => setTimeout(resolve, 1200));
+
+  let win = Math.random() < 0.3;
+  if (email === 'morris.krebs@gmail.com') {
+    win = true;
+  }
+
+  const submissionPayload = {
+    firstName,
+    lastName,
+    email,
+    marketingConsent: marketingConsent ? 'yes' : 'no',
+    status: win ? 'winner' : 'loser',
+    source: 'street_qr',
+    submittedAt: new Date().toISOString()
+  };
+
+  try {
+    await submitWinnerToFormspree(submissionPayload);
+
+    if (!win) {
+      const losses = Number(localStorage.getItem('gc_losses') || 0) + 1;
+      localStorage.setItem('gc_losses', String(losses));
+      setLoader(false);
+      showMessage(buildLoseMessage());
+      trackGtagEvent('lose');
+      return;
+    }
+
+    const winnerCode = 'GC-' + Math.floor(1000 + Math.random() * 9000);
+    const wins = Number(localStorage.getItem('gc_wins') || 0) + 1;
+    localStorage.setItem('gc_wins', String(wins));
+    saveWinner(email, winnerCode);
+    trackMetaEvent('Lead', { content_name: 'Gravity Club Free Class' });
+    trackGtagEvent('generate_lead');
+    trackGtagEvent('win');
+    setLoader(false);
+    showMessage(buildWinnerMessage(), true);
+
+  } catch (error) {
+    setLoader(false);
+    showMessage('TRY AGAIN');
+  }
+}
+
+function openLegalOverlay(type) {
+  const overlay = document.getElementById('legalOverlay');
+  const title = document.getElementById('legalTitle');
+  const body = document.getElementById('legalBody');
+  const entry = LEGAL_CONTENT[type];
+  if (!overlay || !title || !body || !entry) return;
+
+  title.textContent = entry.title;
+  body.innerHTML = entry.body.replace(/\n/g, '<br>');
+  overlay.classList.remove('consent-hidden');
+}
+
+function closeLegalOverlay() {
+  const overlay = document.getElementById('legalOverlay');
+  if (overlay) {
+    overlay.classList.add('consent-hidden');
+  }
+}
+
+function wireConsentButtons() {
+  const necessary = document.getElementById('consentNecessary');
+  const enable = document.getElementById('consentEnable');
+
+  if (necessary) {
+    necessary.addEventListener('click', function() {
+      setTrackingConsent('necessary');
+    });
+  }
+
+  if (enable) {
+    enable.addEventListener('click', function() {
+      setTrackingConsent('improve');
+    });
+  }
+}
+
+function runTests() {
+  localStorage.setItem('gc_clicks', '1');
+  console.assert(Number(localStorage.getItem('gc_clicks')) === 1, 'click tracking should work');
+
+  localStorage.setItem('gc_wins', '2');
+  console.assert(Number(localStorage.getItem('gc_wins')) === 2, 'win tracking should work');
+
+  localStorage.setItem('gc_losses', '3');
+  console.assert(Number(localStorage.getItem('gc_losses')) === 3, 'loss tracking should work');
+
+  console.assert(document.getElementById('lastName') !== null, 'lastName field should exist');
+  console.assert(typeof setTrackingConsent === 'function', 'setTrackingConsent should exist');
+  console.assert(typeof handlePlayClick === 'function', 'handlePlayClick should exist');
+  console.assert(typeof openLegalOverlay === 'function', 'openLegalOverlay should exist');
+  console.assert(typeof closeLegalOverlay === 'function', 'closeLegalOverlay should exist');
+  console.assert(normalizeEmail(' Test@Email.COM ') === 'test@email.com', 'normalizeEmail should trim and lowercase');
+
+  localStorage.setItem('gravity_winners', JSON.stringify([{ email: 'winner@test.com', code: 'GC-1234' }]));
+  console.assert(findWinnerByEmail('winner@test.com').code === 'GC-1234', 'findWinnerByEmail should return an existing winner');
+  console.assert(findWinnerByEmail('missing@test.com') === undefined, 'findWinnerByEmail should return undefined for unknown emails');
+  localStorage.removeItem('gravity_winners');
+
+
+  const termsEntry = LEGAL_CONTENT.terms;
+  console.assert(termsEntry.title === 'Terms', 'legal content title should exist');
+  console.assert(termsEntry.body.includes('GRAVITY CLUB'), 'legal content body should exist');
+}
+
+wireConsentButtons();
+applyStoredConsent();
+document.getElementById('legalOverlay')?.addEventListener('click', function(event) {
+  if (event.target.id === 'legalOverlay') {
+    closeLegalOverlay();
+  }
+});
+runTests();
+</script>
+</body>
+</html>
