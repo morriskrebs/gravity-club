@@ -761,6 +761,8 @@ async function play() {
   try {
     await submitWinnerToFormspree(submissionPayload);
 
+trackMetaEvent('Lead', { content_name: 'QR Landingpage Form Submit' });
+
     if (!win) {
       const losses = Number(localStorage.getItem('gc_losses') || 0) + 1;
       localStorage.setItem('gc_losses', String(losses));
