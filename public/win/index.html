@@ -514,12 +514,12 @@ function initGA() {
 
   <div class="consent-actions">
     <button type="button" class="consent-secondary" id="consentNecessary" onclick="setTrackingConsent('necessary')">
-      Not now
-    </button>
+  Not now
+</button>
 
-    <button type="button" class="consent-primary" id="consentEnable" onclick="setTrackingConsent('improve')">
-      Enable
-    </button>
+   <button type="button" class="consent-primary" id="consentEnable" onclick="setTrackingConsent('improve')">
+  Enable
+</button>
   </div>
 </div>
 
@@ -859,7 +859,7 @@ function runTests() {
   console.assert(termsEntry.body.includes('GRAVITY CLUB'), 'legal content body should exist');
 }
 
-applyStoredConsent
+applyStoredConsent();
 });
 // runTests();
 </script>
