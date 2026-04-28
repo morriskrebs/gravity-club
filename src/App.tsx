@@ -870,7 +870,7 @@ export default function GravityClubWebsitePreview() {
                 <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#0A0A0A] via-[#0A0A0A]/65 to-transparent p-6">
                   <div className="text-[11px] uppercase tracking-[0.28em] text-[#1FE4D6]">Signature Experience</div>
                   <div className="mt-2 text-2xl text-[#D9D9D9]" style={HEADING_STYLE}>
-                    Club energy. Boutique precision.
+                    Club energy. Boutique. Precision.
                   </div>
                 </div>
               </Card>
