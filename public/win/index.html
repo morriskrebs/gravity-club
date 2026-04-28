@@ -579,12 +579,10 @@ function applyStoredConsent() {
   if (consent === 'improve') {
     initMetaPixel();
     initGA();
-    if (banner) banner.classList.add('consent-hidden');
-    return;
   }
 
-  if (consent === 'necessary' && banner) {
-    banner.classList.add('consent-hidden');
+  if (consent && banner) {
+    banner.remove();
   }
 }
 
@@ -593,8 +591,8 @@ function setTrackingConsent(value) {
 
   const banner = document.getElementById('consentBanner');
   if (banner) {
-    banner.classList.add('consent-hidden');
-    banner.style.display = 'none';
+  banner.remove();
+}
   }
 
   if (value === 'improve') {
