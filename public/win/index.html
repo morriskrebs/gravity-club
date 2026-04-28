@@ -510,8 +510,8 @@ function initGA() {
   <div class="consent-banner" id="consentBanner">
     <div class="consent-copy">We use cookies, Meta Pixel and Google Analytics to improve your experience and understand what performs best. By continuing, you agree to this.</div>
     <div class="consent-actions">
-      <button type="button" class="consent-secondary" id="consentNecessary">Not now</button>
-      <button type="button" class="consent-primary" id="consentEnable">Enable</button>
+      <button type="button" class="consent-secondary" id="consentNecessary" onclick="setTrackingConsent('necessary')">Not now</button>
+      <button type="button" class="consent-primary" id="consentEnable" onclick="setTrackingConsent('improve')">Enable</button>
     </div>
   </div>
 
