@@ -590,10 +590,9 @@ function setTrackingConsent(value) {
   localStorage.setItem('gravity_tracking_consent', value);
 
   const banner = document.getElementById('consentBanner');
-  if (banner) {
+ if (banner) {
   banner.remove();
 }
-  }
 
   if (value === 'improve') {
     initMetaPixel();
@@ -853,12 +852,7 @@ function runTests() {
   console.assert(termsEntry.body.includes('GRAVITY CLUB'), 'legal content body should exist');
 }
 
-wireConsentButtons();
-applyStoredConsent();
-document.getElementById('legalOverlay')?.addEventListener('click', function(event) {
-  if (event.target.id === 'legalOverlay') {
-    closeLegalOverlay();
-  }
+applyStoredConsent
 });
 // runTests();
 </script>
