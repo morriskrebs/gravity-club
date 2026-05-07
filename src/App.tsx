@@ -30,7 +30,7 @@ const FAQ_ITEMS = [
   },
   {
     category: "Class",
-    question: "Do you have changing rooms or showers on-site",
+    question: "Do you have changing rooms or showers on-site?",
     answer: "As Gravity Club is a pop-up experience, our space is intentionally minimal and focused purely on the workout.",
   },
   {
