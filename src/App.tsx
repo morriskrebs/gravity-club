@@ -1121,12 +1121,12 @@ src="/PEAQ_Logo_white_Claim.png"
                 />
               </Card>
               <img
-                src="peaq_sip.JPG"
+                src="peaq_sip.jpg"
                 alt="hydration"
                 className="h-28 w-full rounded-[20px] object-cover sm:h-36 lg:h-44"
               />
               <img
-                src="peaq_bottle.JPG"
+                src="peaq_bottle.jpg"
                 alt="hydration"
                 className="h-28 w-full rounded-[20px] object-cover sm:h-36 lg:h-44"
               />
