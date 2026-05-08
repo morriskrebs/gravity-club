@@ -733,16 +733,19 @@ export default function GravityClubWebsitePreview() {
             <button
   type="button"
   onClick={() => {
-    window.location.href = "https://www.eversports.ch/scl/gravity-club";
-
     trackMetaEvent("InitiateCheckout", {
       content_name: "Header CTA Click",
     });
 
-    trackGaEvent("cta_click", {
+    trackGaEvent("begin_checkout", {
       event_category: "conversion",
       event_label: "header",
+      currency: "CHF",
     });
+
+    setTimeout(() => {
+      window.location.href = "https://www.eversports.ch/scl/gravity-club";
+    }, 200);
   }}
   className="gc-cta-pulse rounded-full bg-[#1FE4D6] px-5 py-2 text-sm font-semibold text-black shadow-[0_0_24px_rgba(31,228,214,0.25)]"
 >
