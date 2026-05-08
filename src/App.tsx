@@ -1117,11 +1117,16 @@ Part of every session. Part of the experience.`}
                 <img
 src="/PEAQ_Logo_white_Claim.png"
                   alt="PEAQ Nutrition logo"
-                  className="h-10 object-contain"
+                  className="h-20 object-contain"
                 />
               </Card>
               <img
-                src="https://images.unsplash.com/photo-1554284126-aa88f22d8b74?q=80&w=800&auto=format&fit=crop"
+                src="peaq_sip.JPG"
+                alt="hydration"
+                className="h-28 w-full rounded-[20px] object-cover sm:h-36 lg:h-44"
+              />
+              <img
+                src="peaq_bottle.JPG"
                 alt="hydration"
                 className="h-28 w-full rounded-[20px] object-cover sm:h-36 lg:h-44"
               />
