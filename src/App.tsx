@@ -480,23 +480,36 @@ export default function GravityClubWebsitePreview() {
     };
 
     if (GA_MEASUREMENT_ID) {
-      win.dataLayer = win.dataLayer || [];
-      if (!win.gtag) {
-        win.gtag = (...args: unknown[]) => {
-          win.dataLayer?.push(args);
-        };
-      }
-      win.gtag("js", new Date());
-      win.gtag("config", GA_MEASUREMENT_ID, { send_page_view: true });
+  win.dataLayer = win.dataLayer || [];
 
-      const gaSrc = `https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`;
-      if (!document.querySelector(`script[src="${gaSrc}"]`)) {
-        const script = document.createElement("script");
-        script.async = true;
-        script.src = gaSrc;
-        document.head.appendChild(script);
-      }
-    }
+  if (!win.gtag) {
+    win.gtag = (...args: unknown[]) => {
+      win.dataLayer?.push(args);
+    };
+  }
+
+  win[`ga-disable-${GA_MEASUREMENT_ID}`] = false;
+
+  const gaSrc = `https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`;
+
+  const initializeGA = () => {
+    win.gtag?.("js", new Date());
+    win.gtag?.("config", GA_MEASUREMENT_ID, { send_page_view: true });
+    win.gtag?.("event", "page_view");
+  };
+
+  const existingScript = document.querySelector<HTMLScriptElement>(`script[src="${gaSrc}"]`);
+
+  if (existingScript) {
+    initializeGA();
+  } else {
+    const script = document.createElement("script");
+    script.async = true;
+    script.src = gaSrc;
+    script.onload = initializeGA;
+    document.head.appendChild(script);
+  }
+}
 
     if (META_PIXEL_ID) {
       if (!win.fbq) {
@@ -576,17 +589,10 @@ export default function GravityClubWebsitePreview() {
   }
 
   const win = window as Window & {
-    gtag?: (...args: unknown[]) => void;
     [key: string]: unknown;
   };
 
   win[`ga-disable-${GA_MEASUREMENT_ID}`] = false;
-
-  if (typeof win.gtag === "function") {
-    win.gtag("js", new Date());
-    win.gtag("config", GA_MEASUREMENT_ID);
-    win.gtag("event", "page_view");
-  }
 };
 
   const declineTracking = () => {
