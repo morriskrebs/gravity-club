@@ -583,11 +583,11 @@ export default function GravityClubWebsitePreview() {
 
   win[`ga-disable-${GA_MEASUREMENT_ID}`] = false;
 
-  win.dataLayer = win.dataLayer || [];
-
-  win.gtag = function gtag(...args: unknown[]) {
-    win.dataLayer?.push(args);
-  };
+  if (typeof win.gtag === "function") {
+    win.gtag("config", GA_MEASUREMENT_ID);
+    win.gtag("event", "page_view");
+  }
+};
 
   win.gtag("js", new Date());
   win.gtag("config", GA_MEASUREMENT_ID);
