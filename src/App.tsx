@@ -1115,28 +1115,13 @@ Part of every session. Part of the experience.`}
             <div className="grid grid-cols-2 gap-3 sm:gap-4">
               <Card className="col-span-2 flex items-center justify-center p-7">
                 <img
-                  src="https://peaqnutrition.com/cdn/shop/files/PEAQ_Logo_Black.png"
+src="/PEAQ_Logo_white_Claim.png"
                   alt="PEAQ Nutrition logo"
                   className="h-10 object-contain"
                 />
               </Card>
               <img
                 src="https://images.unsplash.com/photo-1554284126-aa88f22d8b74?q=80&w=800&auto=format&fit=crop"
-                alt="hydration"
-                className="h-28 w-full rounded-[20px] object-cover sm:h-36 lg:h-44"
-              />
-              <img
-                src="https://images.unsplash.com/photo-1546484959-f9a0c3b2e3c1?q=80&w=800&auto=format&fit=crop"
-                alt="hydration"
-                className="h-28 w-full rounded-[20px] object-cover sm:h-36 lg:h-44"
-              />
-              <img
-                src="https://images.unsplash.com/photo-1579758629938-03607ccdbaba?q=80&w=800&auto=format&fit=crop"
-                alt="hydration"
-                className="h-28 w-full rounded-[20px] object-cover sm:h-36 lg:h-44"
-              />
-              <img
-                src="https://images.unsplash.com/photo-1518611012118-696072aa579a?q=80&w=800&auto=format&fit=crop"
                 alt="hydration"
                 className="h-28 w-full rounded-[20px] object-cover sm:h-36 lg:h-44"
               />
