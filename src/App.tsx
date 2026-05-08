@@ -567,19 +567,32 @@ export default function GravityClubWebsitePreview() {
   };
 
   const acceptTracking = () => {
-    setTrackingConsent("accepted");
+  setTrackingConsent("accepted");
 
-    try {
-      window.localStorage.setItem(TRACKING_CONSENT_KEY, "accepted");
-    } catch {
-      // ignore localStorage access issues
-    }
+  try {
+    window.localStorage.setItem(TRACKING_CONSENT_KEY, "accepted");
+  } catch {
+    // ignore localStorage access issues
+  }
 
-    const win = window as Window & {
-      [key: string]: unknown;
-    };
-    win[`ga-disable-${GA_MEASUREMENT_ID}`] = false;
+  const win = window as Window & {
+    dataLayer?: unknown[];
+    gtag?: (...args: unknown[]) => void;
+    [key: string]: unknown;
   };
+
+  win[`ga-disable-${GA_MEASUREMENT_ID}`] = false;
+
+  win.dataLayer = win.dataLayer || [];
+
+  win.gtag = function gtag(...args: unknown[]) {
+    win.dataLayer?.push(args);
+  };
+
+  win.gtag("js", new Date());
+  win.gtag("config", GA_MEASUREMENT_ID);
+  win.gtag("event", "page_view");
+};
 
   const declineTracking = () => {
     const hadAccepted = trackingConsent === "accepted";
