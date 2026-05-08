@@ -566,7 +566,7 @@ export default function GravityClubWebsitePreview() {
     }
   };
 
-  const acceptTracking = () => {
+ const acceptTracking = () => {
   setTrackingConsent("accepted");
 
   try {
@@ -576,7 +576,6 @@ export default function GravityClubWebsitePreview() {
   }
 
   const win = window as Window & {
-    dataLayer?: unknown[];
     gtag?: (...args: unknown[]) => void;
     [key: string]: unknown;
   };
@@ -584,14 +583,10 @@ export default function GravityClubWebsitePreview() {
   win[`ga-disable-${GA_MEASUREMENT_ID}`] = false;
 
   if (typeof win.gtag === "function") {
+    win.gtag("js", new Date());
     win.gtag("config", GA_MEASUREMENT_ID);
     win.gtag("event", "page_view");
   }
-};
-
-  win.gtag("js", new Date());
-  win.gtag("config", GA_MEASUREMENT_ID);
-  win.gtag("event", "page_view");
 };
 
   const declineTracking = () => {
