@@ -816,17 +816,19 @@ export default function GravityClubWebsitePreview() {
               <div className="mt-6 flex flex-col gap-4 sm:mt-6 sm:flex-row sm:flex-wrap">
                 <button
                   type="button"
-                  onClick={() => {
-  window.location.href = "https://www.eversports.ch/scl/gravity-club";
-
+                onClick={() => {
   trackMetaEvent("InitiateCheckout", {
     content_name: "Hero CTA Click",
   });
 
-  trackGaEvent("cta_click", {
+  trackGaEvent("begin_checkout", {
     event_category: "conversion",
     event_label: "hero",
   });
+
+  setTimeout(() => {
+    window.location.href = "https://www.eversports.ch/scl/gravity-club";
+  }, 200);
 }}
                   className={`gc-cta-pulse w-full rounded-full bg-[#1FE4D6] px-7 py-3 text-sm font-semibold text-black shadow-[0_0_24px_rgba(31,228,214,0.35)] sm:w-auto`}
                 >
