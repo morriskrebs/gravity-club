@@ -1053,24 +1053,35 @@ className="gc-cta-pulse mt-8 inline-flex w-fit rounded-full bg-[#1FE4D6] px-5 py
   tabIndex={0}
   className="gc-card-hover cursor-pointer"
   onClick={() => {
-    window.location.href = item.link;
-    trackMetaEvent("InitiateCheckout", { content_name: `${item.name} Pricing Click` });
-    trackGaEvent("pricing_click", { event_category: "conversion", event_label: item.name });
-  }}
- onKeyDown={(e) => {
-  if (e.key === "Enter") {
-    window.location.href = item.link;
-
     trackMetaEvent("InitiateCheckout", {
       content_name: `${item.name} Pricing Click`,
     });
 
-    trackGaEvent("pricing_click", {
+    trackGaEvent("begin_checkout", {
       event_category: "conversion",
       event_label: item.name,
     });
-  }
-}}
+
+    setTimeout(() => {
+      window.location.href = item.link;
+    }, 200);
+  }}
+  onKeyDown={(e) => {
+    if (e.key === "Enter") {
+      trackMetaEvent("InitiateCheckout", {
+        content_name: `${item.name} Pricing Click`,
+      });
+
+      trackGaEvent("begin_checkout", {
+        event_category: "conversion",
+        event_label: item.name,
+      });
+
+      setTimeout(() => {
+        window.location.href = item.link;
+      }, 200);
+    }
+  }}
 >
              <Card
                   className={`h-full p-8 ${
