@@ -1027,9 +1027,11 @@ className="gc-cta-pulse mt-8 inline-flex w-fit rounded-full bg-[#1FE4D6] px-5 py
 
         <section id="pricing" className="mx-auto max-w-6xl px-4 py-14 sm:px-6 sm:py-20 lg:px-10 lg:py-28">
           <div className="text-left">
-            <SectionTitle
-              eyebrow="Pricing"
-            />
+           <SectionTitle
+  eyebrow="Pricing"
+  title="POP-UP CREDIT"
+  copy="Book one pop-up class."
+/>
           </div>
           <div className="mt-12 grid gap-6 lg:grid-cols-1">
             {PRICING_ITEMS.map((item, index) => (
