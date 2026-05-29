@@ -1321,4 +1321,3 @@ src="/PEAQ_Logo_white_Claim.png"
       </footer>
     </div>
   );
-}
