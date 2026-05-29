@@ -1117,7 +1117,6 @@ className="gc-cta-pulse mt-8 inline-flex w-fit rounded-full bg-[#1FE4D6] px-5 py
   </div>
 </Card>
               </div>
-            ))}
           </div>
         </section>
 
