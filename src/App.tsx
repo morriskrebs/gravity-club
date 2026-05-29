@@ -1055,39 +1055,38 @@ className="gc-cta-pulse mt-8 inline-flex w-fit rounded-full bg-[#1FE4D6] px-5 py
 />
 
 <div className="mt-12 grid gap-6 lg:grid-cols-1">
-            {PRICING_ITEMS.map((item, index) => (
 <div
-  key={item.name}
+  key="POP-UP CREDIT"
   role="link"
   tabIndex={0}
   className="gc-card-hover cursor-pointer"
   onClick={() => {
     trackMetaEvent("InitiateCheckout", {
-      content_name: `${item.name} Pricing Click`,
+      content_name: "POP-UP CREDIT Pricing Click",
     });
 
     trackGaEvent("begin_checkout", {
       event_category: "conversion",
-      event_label: item.name,
+      event_label: "POP-UP CREDIT",
     });
 
     setTimeout(() => {
-      window.location.href = item.link;
+      window.location.href = "https://www.eversports.ch/phoenix/additional-information?cartId=a3037600-aa68-4dc3-8123-8257891665bb&origin=eversport&venueId=26d10fcc-dcc2-4239-9546-956bd4bcb5bc";
     }, 200);
   }}
   onKeyDown={(e) => {
     if (e.key === "Enter") {
       trackMetaEvent("InitiateCheckout", {
-        content_name: `${item.name} Pricing Click`,
+        content_name: "POP-UP CREDIT Pricing Click",
       });
 
       trackGaEvent("begin_checkout", {
         event_category: "conversion",
-        event_label: item.name,
+        event_label: "POP-UP CREDIT",
       });
 
       setTimeout(() => {
-        window.location.href = item.link;
+        window.location.href = "https://www.eversports.ch/phoenix/additional-information?cartId=a3037600-aa68-4dc3-8123-8257891665bb&origin=eversport&venueId=26d10fcc-dcc2-4239-9546-956bd4bcb5bc";
       }, 200);
     }
   }}
