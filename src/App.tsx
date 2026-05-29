@@ -1295,20 +1295,22 @@ src="/PEAQ_Logo_white_Claim.png"
       </main>
 
       <footer className="border-t border-white/10 px-4 py-6 text-xs text-[#D9D9D9]/50 sm:px-6 lg:px-10">
-        <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-3">
-          <div>© {new Date().getFullYear()} Gravity Club</div>
-          <div className="flex gap-4">
-            <button type="button" onClick={() => setLegalModal("imprint")} className="hover:text-[#1FE4D6]">
-              Impressum
-            </button>
-            <button type="button" onClick={() => setLegalModal("privacy")} className="hover:text-[#1FE4D6]">
-              Datenschutz
-            </button>
-            <button type="button" onClick={() => setLegalModal("terms")} className="hover:text-[#1FE4D6]">
-              Terms
-            </button>
-          </div>
-        </div>
-      </footer>
+  <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-3">
+    <div>© {new Date().getFullYear()} Gravity Club</div>
+    <div className="flex gap-4">
+      <button type="button" onClick={() => setLegalModal("imprint")} className="hover:text-[#1FE4D6]">
+        Impressum
+      </button>
+      <button type="button" onClick={() => setLegalModal("privacy")} className="hover:text-[#1FE4D6]">
+        Datenschutz
+      </button>
+      <button type="button" onClick={() => setLegalModal("terms")} className="hover:text-[#1FE4D6]">
+        Terms
+      </button>
     </div>
-  );
+  </div>
+</footer>
+
+</main>
+</div>
+);
