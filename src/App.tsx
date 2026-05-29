@@ -69,22 +69,10 @@ const CLASS_ITEMS = [
 
 const PRICING_ITEMS = [
   {
-    name: "Drop In",
+    name: "POP-UP Credit",
     price: "CHF 34",
     note: "Valid for 7 days.",
     link: "https://www.eversports.ch/o/gravity-club/00dece7f-68ed-49cf-9d1b-2848f71d4b73",
-  },
-  {
-    name: "Intro Offer",
-    price: "CHF 34",
-    note: "2 classes · valid for 14 days.",
-    link: "https://www.eversports.ch/o/gravity-club/0ffed2c3-231d-422c-a320-08bd68e8f439",
-  },
-  {
-    name: "10 Classes",
-    price: "CHF 306",
-    note: "30.60 / class · valid for 3 months.",
-    link: "https://www.eversports.ch/o/gravity-club/204549cb-193b-4101-8ca9-3f2697562283",
   },
 ] as const;
 
@@ -1062,10 +1050,6 @@ className="gc-cta-pulse mt-8 inline-flex w-fit rounded-full bg-[#1FE4D6] px-5 py
           <div className="text-left">
             <SectionTitle
               eyebrow="Pricing"
-              title={<>Choose your training rhythm.</>}
-              copy="Start with the intro offer to experience your first sessions, then move into class packs to build consistency and train regularly."
-            />
-          </div>
           <div className="mt-12 grid gap-6 lg:grid-cols-3">
             {PRICING_ITEMS.map((item, index) => (
 <div
