@@ -1048,9 +1048,13 @@ className="gc-cta-pulse mt-8 inline-flex w-fit rounded-full bg-[#1FE4D6] px-5 py
 
         <section id="pricing" className="mx-auto max-w-6xl px-4 py-14 sm:px-6 sm:py-20 lg:px-10 lg:py-28">
           <div className="text-left">
-            <SectionTitle
-              eyebrow="Pricing"
-          <div className="mt-12 grid gap-6 lg:grid-cols-3">
+           <SectionTitle
+  eyebrow="Pricing"
+  title="Choose your training rhythm."
+  copy="Start with a single class and experience Gravity Club first-hand."
+/>
+
+<div className="mt-12 grid gap-6 lg:grid-cols-1">
             {PRICING_ITEMS.map((item, index) => (
 <div
   key={item.name}
