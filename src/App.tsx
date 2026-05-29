@@ -69,23 +69,12 @@ const CLASS_ITEMS = [
 
 const PRICING_ITEMS = [
   {
-    name: "Drop In",
+    name: "POP-UP CREDIT",
     price: "CHF 34",
-    note: "Valid for 7 days.",
-    link: "https://www.eversports.ch/o/gravity-club/00dece7f-68ed-49cf-9d1b-2848f71d4b73",
+    note: "Valid for one pop-up class.",
+    link: "https://www.eversports.ch/phoenix/additional-information?cartId=a3037600-aa68-4dc3-8123-8257891665bb&origin=eversport&venueId=26d10fcc-dcc2-4239-9546-956bd4bcb5bc",
   },
-  {
-    name: "Intro Offer",
-    price: "CHF 34",
-    note: "2 classes · valid for 14 days.",
-    link: "https://www.eversports.ch/o/gravity-club/0ffed2c3-231d-422c-a320-08bd68e8f439",
-  },
-  {
-    name: "10 Classes",
-    price: "CHF 306",
-    note: "30.60 / class · valid for 3 months.",
-    link: "https://www.eversports.ch/o/gravity-club/204549cb-193b-4101-8ca9-3f2697562283",
-  },
+];
 ] as const;
 
 const HEADING_STYLE: React.CSSProperties = {
@@ -1041,11 +1030,9 @@ className="gc-cta-pulse mt-8 inline-flex w-fit rounded-full bg-[#1FE4D6] px-5 py
           <div className="text-left">
             <SectionTitle
               eyebrow="Pricing"
-              title={<>Choose your training rhythm.</>}
-              copy="Start with the intro offer to experience your first sessions, then move into class packs to build consistency and train regularly."
             />
           </div>
-          <div className="mt-12 grid gap-6 lg:grid-cols-3">
+          <div className="mt-12 grid gap-6 lg:grid-cols-1">
             {PRICING_ITEMS.map((item, index) => (
 <div
   key={item.name}
