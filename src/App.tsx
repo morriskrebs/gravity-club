@@ -69,10 +69,22 @@ const CLASS_ITEMS = [
 
 const PRICING_ITEMS = [
   {
-    name: "POP-UP Credit",
+    name: "Drop In",
     price: "CHF 34",
     note: "Valid for 7 days.",
     link: "https://www.eversports.ch/o/gravity-club/00dece7f-68ed-49cf-9d1b-2848f71d4b73",
+  },
+  {
+    name: "Intro Offer",
+    price: "CHF 34",
+    note: "2 classes · valid for 14 days.",
+    link: "https://www.eversports.ch/o/gravity-club/0ffed2c3-231d-422c-a320-08bd68e8f439",
+  },
+  {
+    name: "10 Classes",
+    price: "CHF 306",
+    note: "30.60 / class · valid for 3 months.",
+    link: "https://www.eversports.ch/o/gravity-club/204549cb-193b-4101-8ca9-3f2697562283",
   },
 ] as const;
 
@@ -804,19 +816,17 @@ export default function GravityClubWebsitePreview() {
               <div className="mt-6 flex flex-col gap-4 sm:mt-6 sm:flex-row sm:flex-wrap">
                 <button
                   type="button"
-                onClick={() => {
+                  onClick={() => {
+  window.location.href = "https://www.eversports.ch/scl/gravity-club";
+
   trackMetaEvent("InitiateCheckout", {
     content_name: "Hero CTA Click",
   });
 
-  trackGaEvent("begin_checkout", {
+  trackGaEvent("cta_click", {
     event_category: "conversion",
     event_label: "hero",
   });
-
-  setTimeout(() => {
-    window.location.href = "https://www.eversports.ch/scl/gravity-club";
-  }, 200);
 }}
                   className={`gc-cta-pulse w-full rounded-full bg-[#1FE4D6] px-7 py-3 text-sm font-semibold text-black shadow-[0_0_24px_rgba(31,228,214,0.35)] sm:w-auto`}
                 >
@@ -926,37 +936,18 @@ className="aspect-[4/5] w-full rounded-[28px] border border-white/10 object-cove
                 role="link"
                 tabIndex={0}
                 onClick={() => {
-  trackMetaEvent("InitiateCheckout", {
-    content_name: `${item.title} Card Click`,
-  });
-
-  trackGaEvent("begin_checkout", {
-    event_category: "conversion",
-    event_label: item.title,
-  });
-
-  setTimeout(() => {
-    window.location.href = "https://www.eversports.ch/scl/gravity-club";
-  }, 200);
-}}
-onKeyDown={(e) => {
-  if (e.key === "Enter" || e.key === " ") {
-    e.preventDefault();
-
-    trackMetaEvent("InitiateCheckout", {
-      content_name: `${item.title} Card Click`,
-    });
-
-    trackGaEvent("begin_checkout", {
-      event_category: "conversion",
-      event_label: item.title,
-    });
-
-    setTimeout(() => {
-      window.location.href = "https://www.eversports.ch/scl/gravity-club";
-    }, 200);
-  }
-}}
+                  window.location.href = "https://www.eversports.ch/scl/gravity-club";
+                  trackMetaEvent("InitiateCheckout", { content_name: `${item.title} Card Click` });
+                  trackGaEvent("class_card_click", { event_category: "engagement", event_label: item.title });
+                }}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" || e.key === " ") {
+                    e.preventDefault();
+                    window.location.href = "https://www.eversports.ch/scl/gravity-club";
+                    trackMetaEvent("InitiateCheckout", { content_name: `${item.title} Card Click` });
+                    trackGaEvent("class_card_click", { event_category: "engagement", event_label: item.title });
+                  }
+                }}
                 className="block h-full rounded-[28px] cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1FE4D6] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0A0A0A]"
                 aria-label={`Open ${item.title} booking on Eversports`}
               >
@@ -1048,75 +1039,74 @@ className="gc-cta-pulse mt-8 inline-flex w-fit rounded-full bg-[#1FE4D6] px-5 py
 
         <section id="pricing" className="mx-auto max-w-6xl px-4 py-14 sm:px-6 sm:py-20 lg:px-10 lg:py-28">
           <div className="text-left">
-           <SectionTitle
-  eyebrow="Pricing"
-/>
-
-<div className="mt-12 grid gap-6 lg:grid-cols-1">
+            <SectionTitle
+              eyebrow="Pricing"
+              title={<>Choose your training rhythm.</>}
+              copy="Start with the intro offer to experience your first sessions, then move into class packs to build consistency and train regularly."
+            />
+          </div>
+          <div className="mt-12 grid gap-6 lg:grid-cols-3">
+            {PRICING_ITEMS.map((item, index) => (
 <div
-  key="POP-UP CREDIT"
+  key={item.name}
   role="link"
   tabIndex={0}
   className="gc-card-hover cursor-pointer"
   onClick={() => {
+    window.location.href = item.link;
+    trackMetaEvent("InitiateCheckout", { content_name: `${item.name} Pricing Click` });
+    trackGaEvent("pricing_click", { event_category: "conversion", event_label: item.name });
+  }}
+ onKeyDown={(e) => {
+  if (e.key === "Enter") {
+    window.location.href = item.link;
+
     trackMetaEvent("InitiateCheckout", {
-      content_name: "POP-UP CREDIT Pricing Click",
+      content_name: `${item.name} Pricing Click`,
     });
 
-    trackGaEvent("begin_checkout", {
+    trackGaEvent("pricing_click", {
       event_category: "conversion",
-      event_label: "POP-UP CREDIT",
+      event_label: item.name,
     });
-
-    setTimeout(() => {
-      window.location.href = "https://www.eversports.ch/phoenix/additional-information?cartId=a3037600-aa68-4dc3-8123-8257891665bb&origin=eversport&venueId=26d10fcc-dcc2-4239-9546-956bd4bcb5bc";
-    }, 200);
-  }}
-  onKeyDown={(e) => {
-    if (e.key === "Enter") {
-      trackMetaEvent("InitiateCheckout", {
-        content_name: "POP-UP CREDIT Pricing Click",
-      });
-
-      trackGaEvent("begin_checkout", {
-        event_category: "conversion",
-        event_label: "POP-UP CREDIT",
-      });
-
-      setTimeout(() => {
-        window.location.href = "https://www.eversports.ch/phoenix/additional-information?cartId=a3037600-aa68-4dc3-8123-8257891665bb&origin=eversport&venueId=26d10fcc-dcc2-4239-9546-956bd4bcb5bc";
-      }, 200);
-    }
-  }}
+  }
+}}
 >
              <Card
-                 className="h-full p-8">
-  <div className="grid h-full grid-rows-[36px_auto_1fr]">
-    <div className="flex items-start">
-      <div className="inline-flex items-center rounded-full border border-[#1FE4D6]/30 bg-[#1FE4D6]/10 px-3 py-1 text-[11px] uppercase tracking-[0.2em] text-[#1FE4D6]">
-        POP-UP CREDIT
-      </div>
-    </div>
+                  className={`h-full p-8 ${
+                    index === 1
+                      ? "border-[#1FE4D6]/30 bg-[linear-gradient(180deg,rgba(31,228,214,0.18),rgba(217,217,217,0.04))] lg:scale-[1.03]"
+                      : ""
+                  }`}
+                >
+                  <div className="grid h-full grid-rows-[36px_auto_1fr]">
+                    <div className="flex items-start">
+                      {index === 1 ? (
+                        <div className="inline-flex items-center rounded-full border border-[#1FE4D6]/30 bg-[#1FE4D6]/10 px-3 py-1 text-[11px] uppercase tracking-[0.2em] text-[#1FE4D6]">
+                          Intro Offer
+                        </div>
+                      ) : (
+                        <div className="text-xs uppercase tracking-[0.25em] text-[#D9D9D9]/50">{item.name}</div>
+                      )}
+                    </div>
 
-    <div>
-      <div
-        className="text-4xl text-[#1FE4D6]"
-        style={HEADING_STYLE}
-      >
-        CHF 34
-      </div>
-    </div>
+                    <div>
+                      <div
+                        className={`text-4xl ${index === 1 ? "text-[#1FE4D6]" : "text-[#D9D9D9]"}`}
+                        style={HEADING_STYLE}
+                      >
+                        {item.price}
+                      </div>
+                    </div>
 
-    <p className="mt-6 text-sm leading-7 text-[#D9D9D9]/60">
-      Valid for one pop-up class.
-    </p>
-
-    <div className="mt-4 text-[10px] uppercase tracking-[0.2em] text-[#D9D9D9]/35">
-      Tap to choose →
-    </div>
-  </div>
-</Card>
+                    <p className="mt-6 text-sm leading-7 text-[#D9D9D9]/60">{item.note}</p>
+                    <div className="mt-4 text-[10px] uppercase tracking-[0.2em] text-[#D9D9D9]/35">
+                      Tap to choose →
+                    </div>
+                  </div>
+                </Card>
               </div>
+            ))}
           </div>
         </section>
 
@@ -1294,22 +1284,21 @@ src="/PEAQ_Logo_white_Claim.png"
       </main>
 
       <footer className="border-t border-white/10 px-4 py-6 text-xs text-[#D9D9D9]/50 sm:px-6 lg:px-10">
-  <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-3">
-    <div>© {new Date().getFullYear()} Gravity Club</div>
-    <div className="flex gap-4">
-      <button type="button" onClick={() => setLegalModal("imprint")} className="hover:text-[#1FE4D6]">
-        Impressum
-      </button>
-      <button type="button" onClick={() => setLegalModal("privacy")} className="hover:text-[#1FE4D6]">
-        Datenschutz
-      </button>
-      <button type="button" onClick={() => setLegalModal("terms")} className="hover:text-[#1FE4D6]">
-        Terms
-      </button>
+        <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-3">
+          <div>© {new Date().getFullYear()} Gravity Club</div>
+          <div className="flex gap-4">
+            <button type="button" onClick={() => setLegalModal("imprint")} className="hover:text-[#1FE4D6]">
+              Impressum
+            </button>
+            <button type="button" onClick={() => setLegalModal("privacy")} className="hover:text-[#1FE4D6]">
+              Datenschutz
+            </button>
+            <button type="button" onClick={() => setLegalModal("terms")} className="hover:text-[#1FE4D6]">
+              Terms
+            </button>
+          </div>
+        </div>
+      </footer>
     </div>
-  </div>
-</footer>
-
-</main>
-</div>
-);
+  );
+}
