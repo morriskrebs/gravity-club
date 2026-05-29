@@ -1050,8 +1050,6 @@ className="gc-cta-pulse mt-8 inline-flex w-fit rounded-full bg-[#1FE4D6] px-5 py
           <div className="text-left">
            <SectionTitle
   eyebrow="Pricing"
-  title="Choose your training rhythm."
-  copy="Start with a single class and experience Gravity Club first-hand."
 />
 
 <div className="mt-12 grid gap-6 lg:grid-cols-1">
@@ -1092,38 +1090,32 @@ className="gc-cta-pulse mt-8 inline-flex w-fit rounded-full bg-[#1FE4D6] px-5 py
   }}
 >
              <Card
-                  className={`h-full p-8 ${
-                    index === 1
-                      ? "border-[#1FE4D6]/30 bg-[linear-gradient(180deg,rgba(31,228,214,0.18),rgba(217,217,217,0.04))] lg:scale-[1.03]"
-                      : ""
-                  }`}
-                >
-                  <div className="grid h-full grid-rows-[36px_auto_1fr]">
-                    <div className="flex items-start">
-                      {index === 1 ? (
-                        <div className="inline-flex items-center rounded-full border border-[#1FE4D6]/30 bg-[#1FE4D6]/10 px-3 py-1 text-[11px] uppercase tracking-[0.2em] text-[#1FE4D6]">
-                          Intro Offer
-                        </div>
-                      ) : (
-                        <div className="text-xs uppercase tracking-[0.25em] text-[#D9D9D9]/50">{item.name}</div>
-                      )}
-                    </div>
+                 className="h-full p-8">
+  <div className="grid h-full grid-rows-[36px_auto_1fr]">
+    <div className="flex items-start">
+      <div className="inline-flex items-center rounded-full border border-[#1FE4D6]/30 bg-[#1FE4D6]/10 px-3 py-1 text-[11px] uppercase tracking-[0.2em] text-[#1FE4D6]">
+        POP-UP CREDIT
+      </div>
+    </div>
 
-                    <div>
-                      <div
-                        className={`text-4xl ${index === 1 ? "text-[#1FE4D6]" : "text-[#D9D9D9]"}`}
-                        style={HEADING_STYLE}
-                      >
-                        {item.price}
-                      </div>
-                    </div>
+    <div>
+      <div
+        className="text-4xl text-[#1FE4D6]"
+        style={HEADING_STYLE}
+      >
+        CHF 34
+      </div>
+    </div>
 
-                    <p className="mt-6 text-sm leading-7 text-[#D9D9D9]/60">{item.note}</p>
-                    <div className="mt-4 text-[10px] uppercase tracking-[0.2em] text-[#D9D9D9]/35">
-                      Tap to choose →
-                    </div>
-                  </div>
-                </Card>
+    <p className="mt-6 text-sm leading-7 text-[#D9D9D9]/60">
+      Valid for one pop-up class.
+    </p>
+
+    <div className="mt-4 text-[10px] uppercase tracking-[0.2em] text-[#D9D9D9]/35">
+      Tap to choose →
+    </div>
+  </div>
+</Card>
               </div>
             ))}
           </div>
