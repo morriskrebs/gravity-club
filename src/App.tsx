@@ -72,7 +72,7 @@ const PRICING_ITEMS = [
     name: "POP-UP CREDIT",
     price: "CHF 34",
     note: "Valid for one pop-up class.",
-    link: "https://www.eversports.ch/phoenix/additional-information?cartId=a3037600-aa68-4dc3-8123-8257891665bb&origin=eversport&venueId=26d10fcc-dcc2-4239-9546-956bd4bcb5bc",
+    link: "https://www.eversports.ch/sp/gravity-club/product/00dece7f-68ed-49cf-9d1b-2848f71d4b73",
   },
 ] as const;
 
