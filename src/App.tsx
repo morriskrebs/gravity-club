@@ -1011,20 +1011,22 @@ onClick={() => {
                 <p className="mt-4 text-sm leading-7 text-[#D9D9D9]/68">
                   Everything from booking to class access runs seamlessly through Eversports - so your focus stays on the session.
                 </p>
-                <a
-                  href="https://www.eversports.ch/scl/gravity-club"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={() => {
-                    trackMetaEvent("InitiateCheckout", { content_name: "Eversports Booking Click" });
-                   trackGaEvent("booking_click", {
-  event_category: "conversion",
-  event_label: "eversports_booking",
-});
-className="gc-cta-pulse mt-8 inline-flex w-fit rounded-full bg-[#1FE4D6] px-5 py-2 text-sm font-semibold text-black shadow-[0_0_24px_rgba(31,228,214,0.25)]"
-                 >
-             Book on Eversports
-                </a>
+             <a
+  href="https://www.eversports.ch/scl/gravity-club"
+  target="_blank"
+  rel="noopener noreferrer"
+  onClick={() => {
+    trackMetaEvent("InitiateCheckout", { content_name: "Eversports Booking Click" });
+
+    trackGaEvent("booking_click", {
+      event_category: "conversion",
+      event_label: "eversports_booking",
+    });
+  }}
+  className="gc-cta-pulse mt-8 inline-flex w-fit rounded-full bg-[#1FE4D6] px-5 py-2 text-sm font-semibold text-black shadow-[0_0_24px_rgba(31,228,214,0.25)]"
+>
+          Book on Eversports
+</a>
               </div>
             </Card>
           </div>
