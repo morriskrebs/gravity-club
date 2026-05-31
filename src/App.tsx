@@ -1029,8 +1029,8 @@ className="gc-cta-pulse mt-8 inline-flex w-fit rounded-full bg-[#1FE4D6] px-5 py
           <div className="text-left">
             <SectionTitle
               eyebrow="Pricing"
-              title={<>Choose your training rhythm.</>}
-              copy="Start with the intro offer to experience your first sessions, then move into class packs to build consistency and train regularly."
+              title={<>Founding Sessions.</>}
+              copy="Be among the first to experience Gravity Club Zurich."
             />
           </div>
           <div className="mt-12 grid gap-6 lg:grid-cols-1">
