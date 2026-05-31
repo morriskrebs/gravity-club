@@ -1093,13 +1093,13 @@ onKeyDown={(e) => {
   }
 }}
 >
-             <Card
-                  className={`h-full p-8 ${
-                    index === 1
-                      ? "border-[#1FE4D6]/30 bg-[linear-gradient(180deg,rgba(31,228,214,0.18),rgba(217,217,217,0.04))] lg:scale-[1.03]"
-                      : ""
-                  }`}
-                >
+          <Card
+  className={`h-full p-8 ${
+    true
+      ? "border-[#1FE4D6]/30 bg-[linear-gradient(180deg,rgba(31,228,214,0.18),rgba(217,217,217,0.04))] lg:scale-[1.03]"
+      : ""
+  }`}
+>
                   <div className="grid h-full grid-rows-[36px_auto_1fr]">
                     <div className="flex items-start">
                       {index === 1 ? (
