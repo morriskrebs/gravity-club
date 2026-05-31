@@ -924,37 +924,20 @@ className="aspect-[4/5] w-full rounded-[28px] border border-white/10 object-cove
               <div
                 key={item.title}
                 role="link"
-                tabIndex={0}
-             trackMetaEvent("InitiateCheckout", {
-  content_name: `${item.title} Card Click`,
-});
+          tabIndex={0}
+onClick={() => {
+  trackMetaEvent("InitiateCheckout", {
+    content_name: `${item.title} Card Click`,
+  });
 
-trackGaEvent("class_card_click", {
-  event_category: "engagement",
-  event_label: item.title,
-});
+  trackGaEvent("class_card_click", {
+    event_category: "engagement",
+    event_label: item.title,
+  });
 
-setTimeout(() => {
-  window.location.href = "https://www.eversports.ch/scl/gravity-club";
-}, 200);
-                }}
-               onKeyDown={(e) => {
-  if (e.key === "Enter" || e.key === " ") {
-    e.preventDefault();
-
-    trackMetaEvent("InitiateCheckout", {
-      content_name: `${item.title} Card Click`,
-    });
-
-    trackGaEvent("class_card_click", {
-      event_category: "engagement",
-      event_label: item.title,
-    });
-
-    setTimeout(() => {
-      window.location.href = "https://www.eversports.ch/scl/gravity-club";
-    }, 200);
-  }
+  setTimeout(() => {
+    window.location.href = "https://www.eversports.ch/scl/gravity-club";
+  }, 200);
 }}
                 className="block h-full rounded-[28px] cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1FE4D6] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0A0A0A]"
                 aria-label={`Open ${item.title} booking on Eversports`}
