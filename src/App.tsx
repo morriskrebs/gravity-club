@@ -1102,18 +1102,14 @@ onKeyDown={(e) => {
 >
                   <div className="grid h-full grid-rows-[36px_auto_1fr]">
                     <div className="flex items-start">
-                      {index === 1 ? (
-                        <div className="inline-flex items-center rounded-full border border-[#1FE4D6]/30 bg-[#1FE4D6]/10 px-3 py-1 text-[11px] uppercase tracking-[0.2em] text-[#1FE4D6]">
-                          Intro Offer
-                        </div>
-                      ) : (
-                        <div className="text-xs uppercase tracking-[0.25em] text-[#D9D9D9]/50">{item.name}</div>
-                      )}
+                     <div className="inline-flex items-center rounded-full border border-[#1FE4D6]/30 bg-[#1FE4D6]/10 px-3 py-1 text-[11px] uppercase tracking-[0.2em] text-[#1FE4D6]">
+  POP-UP CREDIT
+</div>
                     </div>
 
                     <div>
                       <div
-                        className={`text-4xl ${index === 1 ? "text-[#1FE4D6]" : "text-[#D9D9D9]"}`}
+                        className="text-4xl text-[#1FE4D6]"
                         style={HEADING_STYLE}
                       >
                         {item.price}
