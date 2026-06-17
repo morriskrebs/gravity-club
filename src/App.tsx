@@ -732,8 +732,8 @@ export default function GravityClubWebsitePreview() {
     });
 
     setTimeout(() => {
-      window.location.href = "https://www.eversports.ch/scl/gravity-club";
-    }, 200);
+  scrollToSection("booking");
+}, 200);
   }}
   className="gc-cta-pulse rounded-full bg-[#1FE4D6] px-5 py-2 text-sm font-semibold text-black shadow-[0_0_24px_rgba(31,228,214,0.25)]"
 >
@@ -815,8 +815,8 @@ export default function GravityClubWebsitePreview() {
   });
 
   setTimeout(() => {
-    window.location.href = "https://www.eversports.ch/scl/gravity-club";
-  }, 200);
+  scrollToSection("booking");
+}, 200);
 }}
                   className={`gc-cta-pulse w-full rounded-full bg-[#1FE4D6] px-7 py-3 text-sm font-semibold text-black shadow-[0_0_24px_rgba(31,228,214,0.35)] sm:w-auto`}
                 >
@@ -936,8 +936,8 @@ onClick={() => {
   });
 
   setTimeout(() => {
-    window.location.href = "https://www.eversports.ch/scl/gravity-club";
-  }, 200);
+  scrollToSection("booking");
+}, 200);
 }}
                 className="block h-full rounded-[28px] cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1FE4D6] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0A0A0A]"
                 aria-label={`Open ${item.title} booking on Eversports`}
