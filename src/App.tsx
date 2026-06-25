@@ -841,7 +841,7 @@ export default function GravityClubWebsitePreview() {
                   <div className="text-center">
                     <div className="text-[11px] uppercase tracking-[0.24em] text-[#D9D9D9]/55">Launch status</div>
                     <div className="mt-3 text-2xl text-[#1FE4D6] sm:mt-4 sm:text-3xl" style={HEADING_STYLE}>
-                      Last Class this Saturday
+                      Last Class June 27th
                     </div>
                   </div>
                 ) : (
