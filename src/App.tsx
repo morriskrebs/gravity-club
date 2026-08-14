@@ -481,6 +481,8 @@ export default function GravityClubWebsitePreview() {
   const gaSrc = `https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`;
 
   const initializeGA = () => {
+    win.gtag?.("js", new Date());
+    win.gtag?.("config", GA_MEASUREMENT_ID);
   };
 
   const existingScript = document.querySelector<HTMLScriptElement>(`script[src="${gaSrc}"]`);
