@@ -73,6 +73,16 @@ const PRICING_ITEMS = [
     price: "CHF 34",
     note: "Valid for one pop-up class.",
     link: "https://www.eversports.ch/sp/gravity-club/product/00dece7f-68ed-49cf-9d1b-2848f71d4b73",
+    badge: null,
+    highlight: false,
+  },
+  {
+    name: "3-CLASS CARD",
+    price: "CHF 92",
+    note: "Come back for more. Get 3 classes for CHF 92 and save CHF 10 - the easiest way to make Gravity Club your weekly thing.",
+    link: "https://www.eversports.ch/sp/gravity-club/product/9db7c6fa-a65c-4e29-85d4-c54ea23ecb73",
+    badge: "SAVE 10%",
+    highlight: true,
   },
 ] as const;
 
@@ -1043,8 +1053,8 @@ onClick={() => {
               copy="Be among the first to experience Gravity Club Zurich."
             />
           </div>
-          <div className="mt-12 grid gap-6 lg:grid-cols-1">
-            {PRICING_ITEMS.map((item, index) => (
+          <div className="mt-12 grid gap-6 sm:grid-cols-2">
+            {PRICING_ITEMS.map((item) => (
 <div
   key={item.name}
   role="link"
@@ -1083,16 +1093,21 @@ onKeyDown={(e) => {
 >
           <Card
   className={`h-full p-8 ${
-    true
-      ? "border-[#1FE4D6]/30 bg-[linear-gradient(180deg,rgba(31,228,214,0.18),rgba(217,217,217,0.04))] lg:scale-[1.03]"
+    item.highlight
+      ? "border-[#1FE4D6]/30 bg-[linear-gradient(180deg,rgba(31,228,214,0.18),rgba(217,217,217,0.04))] sm:scale-[1.03]"
       : ""
   }`}
 >
                   <div className="grid h-full grid-rows-[36px_auto_1fr]">
-                    <div className="flex items-start">
+                    <div className="flex items-start justify-between gap-3">
                      <div className="inline-flex items-center rounded-full border border-[#1FE4D6]/30 bg-[#1FE4D6]/10 px-3 py-1 text-[11px] uppercase tracking-[0.2em] text-[#1FE4D6]">
-  POP-UP CREDIT
+  {item.name}
 </div>
+                    {item.badge ? (
+                      <div className="inline-flex items-center rounded-full bg-[#1FE4D6] px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.2em] text-black">
+                        {item.badge}
+                      </div>
+                    ) : null}
                     </div>
 
                     <div>
