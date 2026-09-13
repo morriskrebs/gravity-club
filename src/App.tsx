@@ -1049,8 +1049,8 @@ onClick={() => {
           <div className="text-left">
             <SectionTitle
               eyebrow="Pricing"
-              title={<>Founding Sessions.</>}
-              copy="Be among the first to experience Gravity Club Zurich."
+              title={<>Round Two.</>}
+              copy="Gravity Club is back in Zurich - grab your spot before it fills up again."
             />
           </div>
           <div className="mt-12 grid gap-6 sm:grid-cols-2">
