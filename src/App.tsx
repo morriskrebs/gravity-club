@@ -69,7 +69,7 @@ const CLASS_ITEMS = [
 
 const PRICING_ITEMS = [
   {
-    name: "POP-UP CREDIT",
+    name: "SINGLE CREDIT",
     price: "CHF 34",
     note: "Valid for one pop-up class.",
     link: "https://www.eversports.ch/sp/gravity-club/product/00dece7f-68ed-49cf-9d1b-2848f71d4b73",
