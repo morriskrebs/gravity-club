@@ -530,7 +530,7 @@ export default function GravityClubWebsitePreview() {
   }, [trackingConsent]);
 
   useEffect(() => {
-    const target = new Date("2026-06-01T18:00:00+02:00").getTime();
+    const target = new Date("2026-10-05T18:00:00+02:00").getTime();
 
     const update = () => {
       const diffRaw = target - Date.now();
@@ -556,6 +556,19 @@ export default function GravityClubWebsitePreview() {
     update();
     const id = window.setInterval(update, 1000);
     return () => window.clearInterval(id);
+  }, []);
+
+  useEffect(() => {
+    const EVERSPORTS_LOADER_SRC = "https://widget-static.eversports.io/loader.js";
+
+    if (document.querySelector(`script[src="${EVERSPORTS_LOADER_SRC}"]`)) {
+      return;
+    }
+
+    const script = document.createElement("script");
+    script.type = "module";
+    script.src = EVERSPORTS_LOADER_SRC;
+    document.body.appendChild(script);
   }, []);
 
   const scrollToSection = (id: string) => {
@@ -843,13 +856,13 @@ export default function GravityClubWebsitePreview() {
                   <div className="text-center">
                     <div className="text-[11px] uppercase tracking-[0.24em] text-[#D9D9D9]/55">Launch status</div>
                     <div className="mt-3 text-2xl text-[#1FE4D6] sm:mt-4 sm:text-3xl" style={HEADING_STYLE}>
-                      We are back at October 5th!
+                      WE ARE LIVE
                     </div>
                   </div>
                 ) : (
                   <>
                     <div className="text-[10px] uppercase tracking-[0.18em] text-[#D9D9D9]/55 sm:text-[11px] sm:tracking-[0.24em]">
-                      Launch countdown · 1 June 2026 · 18:00 Zurich
+                      Launch countdown · 5 October 2026 · 18:00 Zurich
                     </div>
                     <div className="mt-3 grid grid-cols-4 gap-2 sm:mt-4 sm:gap-3">
                       {Object.entries(timeLeft).map(([label, value]) => (
