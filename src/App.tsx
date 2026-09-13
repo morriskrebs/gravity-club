@@ -58,8 +58,7 @@ const CLASS_ITEMS = [
   {
     title: "HIIT by Livia",
     time: "50 min",
-    copy: "Monday evenings with Livia will be full of energy, sweat, and a whole lot of fun! 
-Her classes are a high-intensity interval training which is based on simple, yet playful moves to keep you engaged, allowing you to challenge yourself on whatever level you are.",
+    copy: "Monday evenings with Livia will be full of energy, sweat, and a whole lot of fun! Her classes are a high-intensity interval training which is based on simple, yet playful moves to keep you engaged, allowing you to challenge yourself on whatever level you are.",
   },
   {
     title: "POWER JUMP by Anifa",
