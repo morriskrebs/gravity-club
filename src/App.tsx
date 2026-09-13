@@ -46,7 +46,7 @@ const FAQ_ITEMS = [
   {
     category: "Cancellation",
     question: "Can I cancel my booking?",
-    answer: "Yes. You can cancel free of charge up to 12 hours before the class starts.",
+    answer: "Yes. You can cancel free of charge up to 12 hours before the class starts. You'll get your credit back for a future class - cash refunds are not available.",
   },
 ] as const;
 
@@ -111,7 +111,7 @@ You can request information, correction or deletion of your data at any time by 
 
 const TERMS_TEXT = `Gravity Club is a boutique fitness experience with limited capacity per session.
 
-Bookings are binding. Cancellation is free up to 12 hours before the class starts. Late cancellations and no-shows are charged in full.
+Bookings are binding. Cancellation is free up to 12 hours before the class starts; the class credit is returned to your account for a future booking and cash refunds are not available. Late cancellations and no-shows are charged in full.
 
 Participation is at your own risk. By attending a class, you confirm that you are physically fit, in good health, and able to take part in high-intensity exercise. You agree to follow all instructions given by the coach at all times.
 
