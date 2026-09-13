@@ -56,14 +56,15 @@ const HERO_IMAGES = [
 
 const CLASS_ITEMS = [
   {
-    title: "Energy Class",
+    title: "HIIT by Livia",
     time: "50 min",
-    copy: "Explosive, high-energy training driven by music, rhythm and club lighting. Non-stop movement, sweat and full-room intensity.",
+    copy: "Monday evenings with Livia will be full of energy, sweat, and a whole lot of fun! 
+Her classes are a high-intensity interval training which is based on simple, yet playful moves to keep you engaged, allowing you to challenge yourself on whatever level you are.",
   },
   {
-    title: "Strength Class",
+    title: "POWER JUMP by Anifa",
     time: "50 min",
-    copy: "Slower, controlled strength training on the rebounder. Structured blocks for lower body, upper body and core using bands, tempo and precise execution - finished with a focused HIIT push.",
+    copy: "Get ready to jump, sweat and have fun! A fun and energising full-body workout on the mini trampoline, combining easy step combinations with great music. Low-impact, cardio-focused and perfect for stress relief.",
   },
 ] as const;
 
