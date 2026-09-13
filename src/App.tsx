@@ -71,7 +71,7 @@ const PRICING_ITEMS = [
   {
     name: "SINGLE CREDIT",
     price: "CHF 34",
-    note: "Valid for one pop-up class.",
+    note: "One class to feel it. Most people come back for more.",
     link: "https://www.eversports.ch/sp/gravity-club/product/00dece7f-68ed-49cf-9d1b-2848f71d4b73",
     badge: null,
     highlight: false,
