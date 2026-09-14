@@ -4,8 +4,8 @@ import { Menu, X } from "lucide-react";
 const NAV_ITEMS = [
   ["concept", "Concept"],
   ["classes", "Classes"],
-  ["locations", "Location"],
   ["booking", "Booking"],
+  ["locations", "Location"],
   ["pricing", "Pricing"],
   ["partners", "Hydration"],
   ["faq", "FAQ"],
@@ -993,23 +993,6 @@ onClick={() => {
           </div>
         </section>
 
-        <section id="locations" className="border-y border-white/10 bg-gradient-to-b from-[#1FE4D6]/[0.05] to-transparent">
-          <div className="mx-auto grid max-w-6xl gap-8 px-4 py-14 sm:px-6 sm:py-20 lg:grid-cols-[0.95fr_1.05fr] lg:gap-12 lg:px-10 lg:py-28">
-            <SectionTitle eyebrow="Location" title={<>Kanzlei Club, Zurich.<br />Where it starts.</>} />
-            <div className="grid gap-4 sm:grid-cols-2">
-              {[
-                "Located in the heart of Zurich, Kanzlei Club is one of the city's most iconic nightlife venues.",
-                "For launch, the space transforms into a dark, high-energy environment where workout meets nightlife.",
-                "Just steps from Helvetiaplatz, the location is seamlessly connected to public transport from anywhere in the city.",
-                "After your session, the outdoor summer bar becomes part of the night - stay, connect and ease into the evening.",              ].map((text) => (
-                <Card key={text} className="p-6 text-sm leading-7 text-[#D9D9D9]/68">
-                  {text}
-                </Card>
-              ))}
-            </div>
-          </div>
-        </section>
-
         <section id="booking" className="mx-auto max-w-6xl px-4 py-14 sm:px-6 sm:py-20 lg:px-10 lg:py-28">
           <div className="grid gap-6 rounded-[32px] border border-white/10 bg-white/[0.04] p-5 shadow-[0_18px_80px_rgba(0,0,0,0.22)] sm:p-8 lg:grid-cols-[1fr_0.9fr] lg:gap-8 lg:p-12">
             <div>
@@ -1042,6 +1025,23 @@ onClick={() => {
 ></div>
               </div>
             </Card>
+          </div>
+        </section>
+
+        <section id="locations" className="border-y border-white/10 bg-gradient-to-b from-[#1FE4D6]/[0.05] to-transparent">
+          <div className="mx-auto grid max-w-6xl gap-8 px-4 py-14 sm:px-6 sm:py-20 lg:grid-cols-[0.95fr_1.05fr] lg:gap-12 lg:px-10 lg:py-28">
+            <SectionTitle eyebrow="Location" title={<>Kanzlei Club, Zurich.<br />Where it starts.</>} />
+            <div className="grid gap-4 sm:grid-cols-2">
+              {[
+                "Located in the heart of Zurich, Kanzlei Club is one of the city's most iconic nightlife venues.",
+                "For launch, the space transforms into a dark, high-energy environment where workout meets nightlife.",
+                "Just steps from Helvetiaplatz, the location is seamlessly connected to public transport from anywhere in the city.",
+                "After your session, the outdoor summer bar becomes part of the night - stay, connect and ease into the evening.",              ].map((text) => (
+                <Card key={text} className="p-6 text-sm leading-7 text-[#D9D9D9]/68">
+                  {text}
+                </Card>
+              ))}
+            </div>
           </div>
         </section>
 
