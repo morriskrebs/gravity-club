@@ -125,6 +125,19 @@ By booking a class, you acknowledge and accept these terms in full.`;
 const META_PIXEL_ID = "4479962442290722";
 const GA_MEASUREMENT_ID = "G-62PXNJZY9K";
 const TRACKING_CONSENT_KEY = "gravity-club-tracking-consent";
+const GA_CLIENT_ID_KEY = "gravity-club-ga-client-id";
+
+function getGaClientId(): string {
+  try {
+    const existing = window.localStorage.getItem(GA_CLIENT_ID_KEY);
+    if (existing) return existing;
+    const id = `${Date.now()}.${Math.floor(Math.random() * 1e9)}`;
+    window.localStorage.setItem(GA_CLIENT_ID_KEY, id);
+    return id;
+  } catch {
+    return `${Date.now()}.${Math.floor(Math.random() * 1e9)}`;
+  }
+}
 const SITE_URL = "https://www.gravityclub-rebound.com";
 const OG_IMAGE_URL = "https://www.gravityclub-rebound.com/og-image.jpg";
 const PAGE_TITLE = "Gravity Club Zürich – Rebounder Fitness Classes";
@@ -332,13 +345,33 @@ export default function GravityClubWebsitePreview() {
   const [timeLeft, setTimeLeft] = useState({ days: "00", hours: "00", minutes: "00", seconds: "00" });
   const [isLive, setIsLive] = useState(false);
 
+  const sendServerGaEvent = (eventName: string, params?: Record<string, unknown>) => {
+    if (typeof window === "undefined") return;
+    if (trackingConsent !== "accepted") return;
+    try {
+      fetch("/api/ga-collect", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          client_id: getGaClientId(),
+          events: [{ name: eventName, params }],
+        }),
+        keepalive: true,
+      }).catch(() => {});
+    } catch {
+      // ignore
+    }
+  };
+
   const trackGaEvent = (eventName: string, params?: Record<string, unknown>) => {
     if (typeof window === "undefined") return;
     if (trackingConsent !== "accepted") return;
     const gtag = (window as Window & { gtag?: (...args: unknown[]) => void }).gtag;
-    if (!gtag) return;
-    if (params) gtag("event", eventName, params);
-    else gtag("event", eventName);
+    if (gtag) {
+      if (params) gtag("event", eventName, params);
+      else gtag("event", eventName);
+    }
+    sendServerGaEvent(eventName, params);
   };
 
   const trackMetaEvent = (eventName: string, params?: Record<string, unknown>) => {
@@ -478,6 +511,28 @@ export default function GravityClubWebsitePreview() {
     };
 
     if (GA_MEASUREMENT_ID) {
+  try {
+    fetch("/api/ga-collect", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        client_id: getGaClientId(),
+        events: [
+          {
+            name: "page_view",
+            params: {
+              page_location: window.location.href,
+              page_title: document.title,
+            },
+          },
+        ],
+      }),
+      keepalive: true,
+    }).catch(() => {});
+  } catch {
+    // ignore
+  }
+
   win.dataLayer = win.dataLayer || [];
 
   if (!win.gtag) {
