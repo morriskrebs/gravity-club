@@ -126,6 +126,7 @@ const META_PIXEL_ID = "4479962442290722";
 const GA_MEASUREMENT_ID = "G-62PXNJZY9K";
 const TRACKING_CONSENT_KEY = "gravity-club-tracking-consent";
 const GA_CLIENT_ID_KEY = "gravity-club-ga-client-id";
+const GA_SESSION_ID_KEY = "gravity-club-ga-session-id";
 
 function getGaClientId(): string {
   try {
@@ -136,6 +137,23 @@ function getGaClientId(): string {
     return id;
   } catch {
     return `${Date.now()}.${Math.floor(Math.random() * 1e9)}`;
+  }
+}
+
+// GA4 Measurement Protocol groups server-side events into a session via
+// session_id + engagement_time_msec on every event. Without it, GA4 shows
+// these events with 0 sessions and "Unassigned" channel instead of the real
+// traffic source. sessionStorage keeps this scoped to one browser tab/visit,
+// matching how a GA4 session normally resets.
+function getGaSessionId(): { sessionId: string; isNew: boolean } {
+  try {
+    const existing = window.sessionStorage.getItem(GA_SESSION_ID_KEY);
+    if (existing) return { sessionId: existing, isNew: false };
+    const id = `${Math.floor(Date.now() / 1000)}`;
+    window.sessionStorage.setItem(GA_SESSION_ID_KEY, id);
+    return { sessionId: id, isNew: true };
+  } catch {
+    return { sessionId: `${Math.floor(Date.now() / 1000)}`, isNew: true };
   }
 }
 const SITE_URL = "https://www.gravityclub-rebound.com";
@@ -349,12 +367,18 @@ export default function GravityClubWebsitePreview() {
     if (typeof window === "undefined") return;
     if (trackingConsent !== "accepted") return;
     try {
+      const { sessionId } = getGaSessionId();
       fetch("/api/ga-collect", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           client_id: getGaClientId(),
-          events: [{ name: eventName, params }],
+          events: [
+            {
+              name: eventName,
+              params: { ...params, session_id: sessionId, engagement_time_msec: 1 },
+            },
+          ],
         }),
         keepalive: true,
       }).catch(() => {});
@@ -512,20 +536,25 @@ export default function GravityClubWebsitePreview() {
 
     if (GA_MEASUREMENT_ID) {
   try {
+    const { sessionId, isNew } = getGaSessionId();
+    const sessionParams = { session_id: sessionId, engagement_time_msec: 1 };
+    const events = [
+      ...(isNew ? [{ name: "session_start", params: sessionParams }] : []),
+      {
+        name: "page_view",
+        params: {
+          page_location: window.location.href,
+          page_title: document.title,
+          ...sessionParams,
+        },
+      },
+    ];
     fetch("/api/ga-collect", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         client_id: getGaClientId(),
-        events: [
-          {
-            name: "page_view",
-            params: {
-              page_location: window.location.href,
-              page_title: document.title,
-            },
-          },
-        ],
+        events,
       }),
       keepalive: true,
     }).catch(() => {});
