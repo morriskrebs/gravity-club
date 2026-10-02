@@ -56,7 +56,7 @@ const HERO_IMAGES = [
 
 const CLASS_ITEMS = [
   {
-    title: "HIIT by Livia",
+    title: "REBOUNDER HIIT",
     time: "50 min",
     copy: "Monday evenings with Livia: high-intensity intervals built on simple, playful moves. Full of energy, sweat and fun, on whatever level you are.",
   },
