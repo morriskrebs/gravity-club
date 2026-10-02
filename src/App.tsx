@@ -24,6 +24,11 @@ const FAQ_ITEMS = [
     answer: "Yes. All classes are paid in advance.",
   },
   {
+    category: "Booking",
+    question: "What if a class is full?",
+    answer: "Join the waitlist on Eversports. If a spot opens up, you get notified right away.",
+  },
+  {
     category: "Class",
     question: "Is it suitable for beginners?",
     answer: "Yes. We provide adjustments for different fitness levels.",
@@ -32,6 +37,11 @@ const FAQ_ITEMS = [
     category: "Class",
     question: "Do you have changing rooms or showers on-site?",
     answer: "As Gravity Club is a pop-up experience, our space is intentionally minimal and focused purely on the workout.",
+  },
+  {
+    category: "Before you come",
+    question: "Where exactly is it?",
+    answer: "At Kanzlei Club in Zurich, right next to Kino Xenix and just steps from Helvetiaplatz.",
   },
   {
     category: "Before you come",
