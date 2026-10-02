@@ -58,7 +58,7 @@ const CLASS_ITEMS = [
   {
     title: "REBOUNDER HIIT",
     time: "50 min",
-    copy: "Monday evenings with Livia: high-intensity intervals built on simple, playful moves. Full of energy, sweat and fun, on whatever level you are.",
+    copy: "Your weekly starter with Livia: high-intensity intervals built on simple, playful moves. Full of energy, sweat and fun, on whatever level you are.",
   },
   {
     title: "POWER JUMP",
