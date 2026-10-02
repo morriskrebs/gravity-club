@@ -61,7 +61,7 @@ const CLASS_ITEMS = [
     copy: "Monday evenings with Livia: high-intensity intervals built on simple, playful moves. Full of energy, sweat and fun, on whatever level you are.",
   },
   {
-    title: "POWER JUMP by Anifa",
+    title: "POWER JUMP",
     time: "50 min",
     copy: "A full-body workout on the mini trampoline with easy step combinations and great music. Low-impact, cardio-focused and perfect for stress relief.",
   },
