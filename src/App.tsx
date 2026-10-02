@@ -61,7 +61,7 @@ const FAQ_ITEMS = [
   {
     category: "Cancellation",
     question: "Can I cancel my booking?",
-    answer: "Yes. You can cancel free of charge up to 12 hours before the class starts. You'll get your credit back for a future class - cash refunds are not available.",
+    answer: "Yes. You can cancel free of charge up to 12 hours before the class starts. You'll get your credit back for a future class. It stays valid for the remaining validity period of your pass - cash refunds are not available.",
   },
 ] as const;
 
