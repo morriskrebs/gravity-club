@@ -58,12 +58,12 @@ const CLASS_ITEMS = [
   {
     title: "HIIT by Livia",
     time: "50 min",
-    copy: "Monday evenings with Livia will be full of energy, sweat, and a whole lot of fun! Her classes are a high-intensity interval training which is based on simple, yet playful moves to keep you engaged, allowing you to challenge yourself on whatever level you are.",
+    copy: "Monday evenings with Livia: high-intensity intervals built on simple, playful moves. Full of energy, sweat and fun, on whatever level you are.",
   },
   {
     title: "POWER JUMP by Anifa",
     time: "50 min",
-    copy: "Get ready to jump, sweat and have fun! A fun and energising full-body workout on the mini trampoline, combining easy step combinations with great music. Low-impact, cardio-focused and perfect for stress relief.",
+    copy: "A full-body workout on the mini trampoline with easy step combinations and great music. Low-impact, cardio-focused and perfect for stress relief.",
   },
 ] as const;
 
@@ -79,9 +79,9 @@ const PRICING_ITEMS = [
   {
     name: "3-CLASS CARD",
     price: "CHF 92",
-    note: "Come back for more. Get 3 classes for CHF 92 and save CHF 10 - the easiest way to make Gravity Club your weekly thing.",
+    note: "3 classes. CHF 92. Save CHF 10 - the easiest way to make Gravity Club your weekly ritual.",
     link: "https://www.eversports.ch/sp/gravity-club/product/9db7c6fa-a65c-4e29-85d4-c54ea23ecb73",
-    badge: "SAVE 10%",
+    badge: "SAVE CHF 10",
     highlight: true,
   },
 ] as const;
@@ -343,7 +343,7 @@ function FaqItem({
 }
 
 function getLegalTitle(modal: null | "imprint" | "privacy" | "terms") {
-  return modal === "imprint" ? "Impressum" : modal === "privacy" ? "Datenschutz" : modal === "terms" ? "Terms" : "";
+  return modal === "imprint" ? "Imprint" : modal === "privacy" ? "Privacy" : modal === "terms" ? "Terms" : "";
 }
 
 function getLegalContent(modal: null | "imprint" | "privacy" | "terms") {
@@ -895,7 +895,7 @@ export default function GravityClubWebsitePreview() {
           <div className="relative mx-auto grid max-w-6xl gap-6 px-4 pb-12 pt-6 sm:px-6 sm:pb-16 sm:pt-8 lg:grid-cols-[1.08fr_0.92fr] lg:gap-16 lg:px-10 lg:pb-28 lg:pt-20">
             <div className="flex flex-col justify-center">
               <div className="inline-flex w-fit items-center gap-2 rounded-full border border-[#1FE4D6]/40 bg-[#1FE4D6]/10 px-3 py-1 text-[10px] uppercase tracking-[0.24em] text-[#1FE4D6] sm:hidden">
-                Zürich Launch · 20 Spots
+                Zurich · Round Two · 20 Spots
               </div>
 
             <h1 className="mt-5 text-[2.4rem] leading-[0.9] text-[#D9D9D9] sm:text-[4.2rem] lg:text-[6.2rem]" style={HEADING_STYLE}>
@@ -912,7 +912,7 @@ export default function GravityClubWebsitePreview() {
 </div>
 
               <p className="mt-4 max-w-xl text-[15px] leading-7 text-[#D9D9D9]/70 sm:mt-5 sm:max-w-2xl sm:text-[18px] sm:leading-8">
-                50-minute boutique rebounder fitness classes in Zurich with sound, lighting, energy and limited 20-person capacity.
+                50-minute rebounder classes in Zurich. Loud sound, dark room, 20 spots.
               </p>
 
               <div className="mt-6 flex flex-col gap-4 sm:mt-6 sm:flex-row sm:flex-wrap">
@@ -947,13 +947,13 @@ export default function GravityClubWebsitePreview() {
               </div>
 
               <div className="mt-4 text-[11px] uppercase tracking-[0.22em] text-[#1FE4D6]/75 sm:hidden">
-                50 minutes · 20 spots · Zurich pop-up launch
+                50 minutes · 20 spots · Round Two
               </div>
 
               <div className="mt-8 w-full max-w-xl rounded-[24px] border border-[#1FE4D6]/20 bg-white/[0.04] p-4 backdrop-blur-xl sm:mt-8 sm:rounded-[28px] sm:p-5">
                 {isLive ? (
                   <div className="text-center">
-                    <div className="text-[11px] uppercase tracking-[0.24em] text-[#D9D9D9]/55">Launch status</div>
+                    <div className="text-[11px] uppercase tracking-[0.24em] text-[#D9D9D9]/55">Round Two status</div>
                     <div className="mt-3 text-2xl text-[#1FE4D6] sm:mt-4 sm:text-3xl" style={HEADING_STYLE}>
                       WE ARE LIVE
                     </div>
@@ -961,7 +961,7 @@ export default function GravityClubWebsitePreview() {
                 ) : (
                   <>
                     <div className="text-[10px] uppercase tracking-[0.18em] text-[#D9D9D9]/55 sm:text-[11px] sm:tracking-[0.24em]">
-                      Launch countdown · 5 October 2026 · 18:00 Zurich
+                      Round Two countdown · 5 October 2026 · 18:00 Zurich
                     </div>
                     <div className="mt-3 grid grid-cols-4 gap-2 sm:mt-4 sm:gap-3">
                       {Object.entries(timeLeft).map(([label, value]) => (
@@ -1030,8 +1030,8 @@ className="aspect-[4/5] w-full rounded-[28px] border border-white/10 object-cove
         <section id="classes" className="mx-auto max-w-6xl px-4 py-14 sm:px-6 sm:py-20 lg:px-10 lg:py-28">
           <SectionTitle
             eyebrow="Classes"
-            title={<>Signature formats<br />designed to hook.</>}
-            copy="Structured for repeat attendance, community energy and a premium experience from first visit to weekly ritual."
+            title={<>Two formats.<br />One weekly ritual.</>}
+            copy="Structured for repeat attendance, community energy and a premium experience from your first visit on."
           />
           <div className="mt-10 grid gap-6 md:grid-cols-2">
             {CLASS_ITEMS.map((item) => (
@@ -1072,7 +1072,7 @@ onClick={() => {
                         {item.copy}
                       </p>
                       <div className="mt-4 text-[10px] uppercase tracking-[0.2em] text-[#D9D9D9]/35">
-                        Tap to book →
+                        Book →
                       </div>
                     </div>
                   </div>
@@ -1095,7 +1095,7 @@ onClick={() => {
                 </div>
               </div>
               <p className="mt-5 max-w-xl text-[17px] leading-8 text-[#D9D9D9]/70">
-                Every booking runs through Eversports. Choose your class, complete payment, and secure your place instantly. Once a class is full, you can join the waitlist and get notified if a spot opens up.
+                Every booking runs through Eversports. Choose your class, pay online and your spot is yours. Once a class is full, you can join the waitlist and get notified if a spot opens up.
               </p>
             </div>
 
@@ -1121,8 +1121,8 @@ onClick={() => {
           <div className="text-left">
             <SectionTitle
               eyebrow="Pricing"
-              title={<>Round Two.</>}
-              copy="Gravity Club is back in Zurich - grab your spot before it fills up again."
+              title={<>Round Two.<br />Pick your pass.</>}
+              copy="Start with one class or save CHF 10 with the 3-Class Card."
             />
           </div>
           <div className="mt-12 grid gap-6 sm:grid-cols-2">
@@ -1195,7 +1195,7 @@ onKeyDown={(e) => {
 
                     <p className="mt-6 text-sm leading-7 text-[#D9D9D9]/60">{item.note}</p>
                     <div className="mt-4 text-[10px] uppercase tracking-[0.2em] text-[#D9D9D9]/35">
-                      Tap to choose →
+                      Choose →
                     </div>
                   </div>
                 </Card>
@@ -1210,7 +1210,7 @@ onKeyDown={(e) => {
             <div className="grid gap-4 sm:grid-cols-2">
               {[
                 "Located in the heart of Zurich, Kanzlei Club is one of the city's most iconic nightlife venues.",
-                "For launch, the space transforms into a dark, high-energy environment where workout meets nightlife.",
+                "Every session, the space transforms into a dark, high-energy environment where workout meets nightlife.",
                 "Just steps from Helvetiaplatz, the location is seamlessly connected to public transport from anywhere in the city.",
                 "After your session, the outdoor summer bar becomes part of the night - stay, connect and ease into the evening.",              ].map((text) => (
                 <Card key={text} className="p-6 text-sm leading-7 text-[#D9D9D9]/68">
@@ -1347,7 +1347,7 @@ src="/PEAQ_Logo_white_Claim.png"
                   required
                   className="rounded-2xl border border-white/10 bg-black/40 px-4 py-3 text-sm outline-none placeholder:text-[#D9D9D9]/30"
                   rows={5}
-                  placeholder="Tell us if you're interested in classes, partnerships, or venue collaborations"
+                  placeholder="How can we help?"
                 />
               </div>
               <button
@@ -1399,10 +1399,10 @@ src="/PEAQ_Logo_white_Claim.png"
           <div>© {new Date().getFullYear()} Gravity Club</div>
           <div className="flex gap-4">
             <button type="button" onClick={() => setLegalModal("imprint")} className="hover:text-[#1FE4D6]">
-              Impressum
+              Imprint
             </button>
             <button type="button" onClick={() => setLegalModal("privacy")} className="hover:text-[#1FE4D6]">
-              Datenschutz
+              Privacy
             </button>
             <button type="button" onClick={() => setLegalModal("terms")} className="hover:text-[#1FE4D6]">
               Terms
