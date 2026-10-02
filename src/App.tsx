@@ -1015,7 +1015,7 @@ className="aspect-[4/5] w-full rounded-[28px] border border-white/10 object-cove
     <SectionTitle eyebrow="The Concept" title={<>Sweat, but<br />make it a party.</>} />
    <div className="max-w-[680px] text-[17px] leading-relaxed text-[#D9D9D9]/80">
   <p>Gravity Club turns fitness into a night out.</p>
-  <p>Dark room. Loud sound. 20 people moving in sync.</p>
+  <p>Dark room. Loud sound. 20 people. No holding back.</p>
   <p>50 minutes on a rebounder, built on beats, not on counting reps.</p>
   <p>It’s not only about working out.</p>
   <p className="text-[#1FE4D6] my-[0.6em]">It’s about showing up.</p>
