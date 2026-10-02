@@ -63,7 +63,7 @@ const CLASS_ITEMS = [
   {
     title: "POWER JUMP",
     time: "50 min",
-    copy: "A full-body workout on the mini trampoline with easy step combinations and great music. Low-impact, cardio-focused and perfect for stress relief.",
+    copy: "With Anifa: a full-body workout on the mini trampoline with easy step combinations and great music. Low-impact, cardio-focused and perfect for stress relief.",
   },
 ] as const;
 
