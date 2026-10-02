@@ -161,7 +161,7 @@ function getGaSessionId(): { sessionId: string; isNew: boolean } {
 }
 const SITE_URL = "https://www.gravityclub-rebound.com";
 const OG_IMAGE_URL = "https://www.gravityclub-rebound.com/og-image.jpg";
-const PAGE_TITLE = "Gravity Club Zürich – Rebounder Fitness Classes";
+const PAGE_TITLE = "Gravity Club Zurich – Rebounder Fitness Classes";
 const PAGE_DESCRIPTION =
   "Boutique rebounder fitness classes in Zurich. 50-minute sessions with club energy, limited spots and premium experience. Book Gravity Club now.";
 const EMAILJS_SERVICE_ID = "service_i97vsjn";
