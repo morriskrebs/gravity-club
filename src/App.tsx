@@ -1016,12 +1016,11 @@ className="aspect-[4/5] w-full rounded-[28px] border border-white/10 object-cove
    <div className="max-w-[680px] text-[17px] leading-relaxed text-[#D9D9D9]/80">
   <p>Gravity Club turns fitness into a night out.</p>
   <p>Dark room. Loud sound. 20 people moving in sync.</p>
+  <p>50 minutes on a rebounder, built on beats, not on counting reps.</p>
   <p>It’s not only about working out.</p>
   <p className="text-[#1FE4D6] my-[0.6em]">It’s about showing up.</p>
   <p>
-    Built as a boutique pop-up experience in Zurich, each session combines training,
-    music and atmosphere into something people don’t just try once - but come back
-    to every week.
+    Round Two is here: same room, same energy, more reasons to come back every week.
   </p>
 </div>
   </div>
