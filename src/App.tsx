@@ -29,6 +29,11 @@ const FAQ_ITEMS = [
     answer: "Join the waitlist on Eversports. If a spot opens up, you get notified right away.",
   },
   {
+    category: "Booking",
+    question: "Can I bring a friend?",
+    answer: "Absolutely. Each person needs their own booking, so book your spots together while there's still room.",
+  },
+  {
     category: "Class",
     question: "Is it suitable for beginners?",
     answer: "Yes. We provide adjustments for different fitness levels.",
@@ -41,7 +46,7 @@ const FAQ_ITEMS = [
   {
     category: "Before you come",
     question: "Where exactly is it?",
-    answer: "At Kanzlei Club in Zurich, right next to Kino Xenix and just steps from Helvetiaplatz.",
+    answer: "At Kanzlei Club in Zurich: the building directly to the left of Kino Xenix, just steps from Helvetiaplatz.",
   },
   {
     category: "Before you come",
