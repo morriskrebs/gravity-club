@@ -86,6 +86,9 @@ const PRICING_ITEMS = [
   },
 ] as const;
 
+const META_CURRENCY = "CHF";
+const META_DEFAULT_VALUE = 34;
+
 const HEADING_STYLE: React.CSSProperties = {
   fontFamily: '"Space Grotesk", Inter, ui-sans-serif, system-ui, sans-serif',
   fontWeight: 700,
@@ -403,7 +406,9 @@ export default function GravityClubWebsitePreview() {
     if (trackingConsent !== "accepted") return;
     const fbq = (window as Window & { fbq?: (...args: unknown[]) => void }).fbq;
     if (!fbq) return;
-    if (params) fbq("track", eventName, params);
+    if (eventName === "InitiateCheckout") {
+      fbq("track", eventName, { value: META_DEFAULT_VALUE, ...params, currency: META_CURRENCY });
+    } else if (params) fbq("track", eventName, params);
     else fbq("track", eventName);
   };
 
@@ -1130,6 +1135,7 @@ onClick={() => {
   onClick={() => {
   trackMetaEvent("InitiateCheckout", {
     content_name: `${item.name} Pricing Click`,
+      value: Number(item.price.replace(/[^0-9.]/g, "")),
   });
 
   trackGaEvent("begin_checkout", {
@@ -1145,6 +1151,7 @@ onKeyDown={(e) => {
   if (e.key === "Enter") {
     trackMetaEvent("InitiateCheckout", {
       content_name: `${item.name} Pricing Click`,
+      value: Number(item.price.replace(/[^0-9.]/g, "")),
     });
 
     trackGaEvent("begin_checkout", {
