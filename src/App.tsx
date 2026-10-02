@@ -1104,7 +1104,7 @@ onClick={() => {
                   Everything from booking to class access runs seamlessly through Eversports - so your focus stays on the session.
                 </p>
        <div
-  data-eversports-widget-id="f91e08d4-ff78-4189-a47c-679a78baede7"
+  data-eversports-widget-id="7ece6f8d-f8d1-4310-8f2e-e432c2cfbb0a"
   className="mt-8"
 ></div>
               </div>
