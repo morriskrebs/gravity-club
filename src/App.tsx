@@ -1226,8 +1226,8 @@ onKeyDown={(e) => {
                 "Located in the heart of Zurich, Kanzlei Club is one of the city's most iconic nightlife venues.",
                 "Every session, the space transforms into a dark, high-energy environment where workout meets nightlife.",
                 "Just steps from Helvetiaplatz, the location is seamlessly connected to public transport from anywhere in the city.",
-              ].map((text) => (
-                <Card key={text} className="p-6 text-sm leading-7 text-[#D9D9D9]/68">
+              ].map((text, i) => (
+                <Card key={text} className={`p-6 text-sm leading-7 text-[#D9D9D9]/68${i === 2 ? " sm:col-span-2" : ""}`}>
                   {text}
                 </Card>
               ))}
