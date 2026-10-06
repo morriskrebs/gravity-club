@@ -830,7 +830,7 @@ export default function GravityClubWebsitePreview() {
       <header className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-[#0A0A0A]/90 backdrop-blur-2xl">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 sm:px-6 lg:px-10">
           <div className="flex items-center">
-  <img src="/logo.png" alt="Gravity Club" className="h-16 sm:h-20 w-auto" />
+  <img src="/logo.png" alt="Gravity Club logo" width={2504} height={1138} className="h-16 sm:h-20 w-auto" />
 </div>
 
           <nav className="hidden items-center gap-2 md:flex">
@@ -903,7 +903,7 @@ export default function GravityClubWebsitePreview() {
       <main className="pt-[72px] sm:pt-[78px]">
         <section className="relative overflow-hidden border-b border-white/10">
           <div className="absolute inset-0">
-            <img src={HERO_IMAGES[0]} alt="Gravity Club hero" className="h-full w-full object-cover opacity-25" />
+            <img src={HERO_IMAGES[0]} alt="Group rebounder fitness class in a dark club at Gravity Club Zurich" width={1672} height={941} fetchPriority="high" className="h-full w-full object-cover opacity-25" />
             <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-black/55 to-[#0A0A0A]" />
           </div>
 
@@ -1002,7 +1002,9 @@ export default function GravityClubWebsitePreview() {
               <Card className="relative col-span-2 overflow-hidden p-0">
                 <img
                   src={HERO_IMAGES[0]}
-                  alt="Signature class"
+                  alt="Rebounder fitness class with club lighting at Gravity Club Zurich"
+                  width={1672}
+                  height={941}
                   className="h-[240px] w-full object-cover sm:h-[300px] lg:h-[340px]"
                 />
                 <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#0A0A0A] via-[#0A0A0A]/65 to-transparent p-6">
@@ -1014,12 +1016,18 @@ export default function GravityClubWebsitePreview() {
               </Card>
               <img
   src="/woman.jpg"
-  alt="Energy training"
+  alt="Woman training on a rebounder at Gravity Club Zurich"
+  width={1122}
+  height={1402}
+  loading="lazy"
 className="aspect-[4/5] w-full rounded-[28px] border border-white/10 object-cover"/>
 
 <img
   src="/man.jpg"
-  alt="Strength training"
+  alt="Man doing resistance band exercises on a rebounder at Gravity Club Zurich"
+  width={1122}
+  height={1402}
+  loading="lazy"
 className="aspect-[4/5] w-full rounded-[28px] border border-white/10 object-cover"/>
             </div>
           </div>
@@ -1256,17 +1264,26 @@ Part of every session. Part of the experience.`}
                 <img
 src="/PEAQ_Logo_white_Claim.png"
                   alt="PEAQ Nutrition logo"
+                  width={1418}
+                  height={506}
+                  loading="lazy"
                   className="h-20 object-contain"
                 />
               </Card>
               <img
-                src="peaq_sip.jpg"
-                alt="hydration"
+                src="/peaq_sip.jpg"
+                alt="Drinking PEAQ hydration during a Gravity Club session"
+                width={1600}
+                height={1600}
+                loading="lazy"
                 className="h-28 w-full rounded-[20px] object-cover sm:h-36 lg:h-44"
               />
               <img
-                src="peaq_bottle.jpg"
-                alt="hydration"
+                src="/peaq_bottle.jpg"
+                alt="PEAQ hydration bottle at Gravity Club Zurich"
+                width={1600}
+                height={1600}
+                loading="lazy"
                 className="h-28 w-full rounded-[20px] object-cover sm:h-36 lg:h-44"
               />
             </div>

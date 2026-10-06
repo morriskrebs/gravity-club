@@ -1,0 +1,10 @@
+{
+  "redirects": [
+    {
+      "source": "/(.*)",
+      "has": [{ "type": "host", "value": "gravityclub-rebound.com" }],
+      "destination": "https://www.gravityclub-rebound.com/$1",
+      "permanent": true
+    }
+  ]
+}
