@@ -379,7 +379,7 @@ export default function GravityClubWebsitePreview() {
   const [formStartedAt] = useState(() => Date.now());
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [timeLeft, setTimeLeft] = useState({ days: "00", hours: "00", minutes: "00", seconds: "00" });
-  const [isLive, setIsLive] = useState(false);
+  const [isLive, setIsLive] = useState(() => Date.now() >= new Date("2026-10-05T18:00:00+02:00").getTime());
 
   const sendServerGaEvent = (eventName: string, params?: Record<string, unknown>) => {
     if (typeof window === "undefined") return;
