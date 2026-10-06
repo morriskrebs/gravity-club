@@ -358,7 +358,7 @@ function FaqItem({
 }
 
 function getLegalTitle(modal: null | "imprint" | "privacy" | "terms") {
-  return modal === "imprint" ? "Imprint" : modal === "privacy" ? "Privacy" : modal === "terms" ? "Terms" : "";
+  return modal === "imprint" ? "Impressum" : modal === "privacy" ? "Privacy" : modal === "terms" ? "Terms" : "";
 }
 
 function getLegalContent(modal: null | "imprint" | "privacy" | "terms") {
@@ -1430,7 +1430,7 @@ src="/PEAQ_Logo_white_Claim.png"
           <div>© {new Date().getFullYear()} Gravity Club</div>
           <div className="flex gap-4">
             <button type="button" onClick={() => setLegalModal("imprint")} className="hover:text-[#1FE4D6]">
-              Imprint
+              Impressum
             </button>
             <button type="button" onClick={() => setLegalModal("privacy")} className="hover:text-[#1FE4D6]">
               Privacy
