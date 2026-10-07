@@ -3,10 +3,6 @@ import { Menu, X } from "lucide-react";
 import { CONTENT, IMPRINT_TEXT, SITE_URL, pathFor, type Content, type Lang, type PageId } from "./i18n";
 import { canonicalUrl, getPageMeta } from "./seo";
 
-const HERO_IMAGES = [
-  "/hero.jpg",
-] as const;
-
 const META_CURRENCY = "CHF";
 const META_DEFAULT_VALUE = 34;
 
@@ -1110,38 +1106,6 @@ export default function GravityClubWebsitePreview({ lang, page }: { lang: Lang; 
               </div>
             </div>
 
-              <div className="mt-2 hidden grid-cols-2 gap-5 self-end sm:grid">
-              <Card className="relative col-span-2 overflow-hidden p-0">
-                <img
-                  src={HERO_IMAGES[0]}
-                  alt={t.hero.signatureAlt}
-                  width={1672}
-                  height={941}
-                  className="h-[240px] w-full object-cover sm:h-[300px] lg:h-[340px]"
-                />
-                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#0A0A0A] via-[#0A0A0A]/65 to-transparent p-6">
-                  <div className="text-[11px] uppercase tracking-[0.28em] text-[#1FE4D6]">{t.hero.signature}</div>
-                  <div className="mt-2 text-2xl text-[#D9D9D9]" style={HEADING_STYLE}>
-                    {t.hero.signatureLine}
-                  </div>
-                </div>
-              </Card>
-              <img
-  src="/woman.jpg"
-  alt={t.hero.womanAlt}
-  width={1122}
-  height={1402}
-  loading="lazy"
-className="aspect-[4/5] w-full rounded-[28px] border border-white/10 object-cover"/>
-
-<img
-  src="/man.jpg"
-  alt={t.hero.manAlt}
-  width={1122}
-  height={1402}
-  loading="lazy"
-className="aspect-[4/5] w-full rounded-[28px] border border-white/10 object-cover"/>
-            </div>
           </div>
         </section>
 
