@@ -926,25 +926,6 @@ export default function GravityClubWebsitePreview({ lang, page }: { lang: Lang; 
           </nav>
 
           <div className="flex items-center gap-3">
-            <div className="flex items-center rounded-full border border-white/10 bg-white/5 p-0.5 text-[11px] uppercase tracking-[0.14em]" role="group" aria-label={t.ui.languageLabel}>
-              {(["en", "de"] as Lang[]).map((l) =>
-                l === lang ? (
-                  <span key={l} className="rounded-full bg-[#1FE4D6] px-2.5 py-1 font-semibold text-black" aria-current="true">
-                    {l}
-                  </span>
-                ) : (
-                  <a
-                    key={l}
-                    href={pathFor(l, page)}
-                    hrefLang={l}
-                    lang={l}
-                    className="rounded-full px-2.5 py-1 text-[#D9D9D9]/70 hover:text-[#1FE4D6]"
-                  >
-                    {l}
-                  </a>
-                )
-              )}
-            </div>
             <button
   type="button"
   onClick={() => {
@@ -1523,7 +1504,7 @@ src="/PEAQ_Logo_white_Claim.png"
               {t.ui.instagram}
             </a>
           </nav>
-          <a href={pathFor(otherLang, page)} hrefLang={otherLang} lang={otherLang} className="uppercase tracking-[0.14em] hover:text-[#1FE4D6]">
+          <a href={pathFor(otherLang, page)} hrefLang={otherLang} lang={otherLang} className="text-[11px] uppercase tracking-[0.14em] opacity-50 hover:text-[#1FE4D6] hover:opacity-100">
             {otherLang === "de" ? "Deutsch" : "English"}
           </a>
         </div>
