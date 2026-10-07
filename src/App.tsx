@@ -1,109 +1,10 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Menu, X } from "lucide-react";
-
-const NAV_ITEMS = [
-  ["concept", "Concept"],
-  ["classes", "Classes"],
-  ["booking", "Booking"],
-  ["pricing", "Pricing"],
-  ["locations", "Location"],
-  ["partners", "Hydration"],
-  ["faq", "FAQ"],
-  ["contact", "Contact"],
-] as const;
-
-const FAQ_ITEMS = [
-  {
-    category: "Booking",
-    question: "How do I book a class?",
-    answer: "You book your class online. Your spot is only secured after payment.",
-  },
-  {
-    category: "Booking",
-    question: "Do I need to pay in advance?",
-    answer: "Yes. All classes are paid in advance.",
-  },
-  {
-    category: "Booking",
-    question: "What if a class is full?",
-    answer: "Join the waitlist on Eversports. If a spot opens up, you are booked into the class and notified right away. By joining, you agree that this booking is valid.",
-  },
-  {
-    category: "Booking",
-    question: "Can I bring a friend?",
-    answer: "Absolutely. Each person needs their own booking, so book your spots together while there's still room.",
-  },
-  {
-    category: "Class",
-    question: "Is it suitable for beginners?",
-    answer: "Yes. We provide adjustments for different fitness levels.",
-  },
-  {
-    category: "Class",
-    question: "Do you have changing rooms or showers on-site?",
-    answer: "As Gravity Club is a pop-up experience, our space is intentionally minimal and focused purely on the workout.",
-  },
-  {
-    category: "Before you come",
-    question: "Where exactly is it?",
-    answer: "At Kanzlei Club in Zurich: the building directly to the left of Kino Xenix, just steps from Helvetiaplatz.",
-  },
-  {
-    category: "Before you come",
-    question: "What should I bring?",
-    answer: "Workout clothes, water, a towel and the right energy.",
-  },
-  {
-    category: "Before you come",
-    question: "When should I arrive?",
-    answer: "Please arrive 10–15 minutes before the class starts.",
-  },
-  {
-    category: "Cancellation",
-    question: "Can I cancel my booking?",
-    answer: "Yes. You can cancel free of charge up to 12 hours before the class starts. You'll get your credit back for a future class. It stays valid for the remaining validity period of your pass - cash refunds are not available.",
-  },
-  {
-    category: "Cancellation",
-    question: "What happens if I don't show up?",
-    answer: "If you miss a class without cancelling, your credit is used and a no-show fee of CHF 15 is invoiced to you by email after the class.",
-  },
-] as const;
+import { CONTENT, IMPRINT_TEXT, SITE_URL, pathFor, type Content, type Lang, type PageId } from "./i18n";
+import { canonicalUrl, getPageMeta } from "./seo";
 
 const HERO_IMAGES = [
   "/hero.jpg",
-] as const;
-
-const CLASS_ITEMS = [
-  {
-    title: "REBOUNDER HIIT",
-    time: "50 min",
-    copy: "Your weekly starter with Livia: high-intensity intervals built on simple, playful moves. Full of energy, sweat and fun, on whatever level you are.",
-  },
-  {
-    title: "POWER JUMP",
-    time: "50 min",
-    copy: "With Anifa: a full-body workout on the mini trampoline with easy step combinations and great music. Low-impact, cardio-focused and perfect for stress relief.",
-  },
-] as const;
-
-const PRICING_ITEMS = [
-  {
-    name: "SINGLE CREDIT",
-    price: "CHF 34",
-    note: "One class to feel it. Most people come back for more.",
-    link: "https://www.eversports.ch/sp/gravity-club/product/00dece7f-68ed-49cf-9d1b-2848f71d4b73",
-    badge: null,
-    highlight: false,
-  },
-  {
-    name: "3-CLASS CARD",
-    price: "CHF 92",
-    note: "3 classes. CHF 92. Save CHF 10 - the easiest way to make Gravity Club your weekly ritual.",
-    link: "https://www.eversports.ch/sp/gravity-club/product/9db7c6fa-a65c-4e29-85d4-c54ea23ecb73",
-    badge: "SAVE CHF 10",
-    highlight: true,
-  },
 ] as const;
 
 const META_CURRENCY = "CHF";
@@ -114,38 +15,6 @@ const HEADING_STYLE: React.CSSProperties = {
   fontWeight: 700,
   letterSpacing: "-0.03em",
 };
-
-const IMPRINT_TEXT = `Morris Krebs
-Bächlerstrasse 9
-8046 Zürich
-Schweiz
-
-E-Mail: hello@gravityclub-rebound.com`;
-
-const PRIVACY_TEXT = `We collect and process personal data only to operate Gravity Club, manage bookings and respond to inquiries.
-
-This includes information you provide via forms, booking platforms and direct communication.
-
-We use selected third-party tools (e.g. analytics and booking systems) to improve the experience and ensure smooth operations.
-
-Your data is handled responsibly and never sold to third parties.
-
-You can request information, correction or deletion of your data at any time by contacting us at hello@gravityclub-rebound.com.`;
-
-const TERMS_TEXT = `Gravity Club is a boutique fitness experience with limited capacity per session.
-
-Bookings are binding. Cancellation is free up to 12 hours before the class starts; the class credit is returned to your account for a future booking and stays valid for the remaining validity period of your pass. Cash refunds are not available. Late cancellations are charged in full. No-shows (not attending a booked class without cancelling) are charged in full plus a no-show fee of CHF 15, which is invoiced by email after the class and payable via the payment link in that email.
-
-Customers who join the waitlist confirm that they agree to be booked into the class if a spot becomes available, and that this booking is valid and binding.
-
-Participation is at your own risk. By attending a class, you confirm that you are physically fit, in good health, and able to take part in high-intensity exercise. You agree to follow all instructions given by the coach at all times.
-
-For safety reasons, all rebounders (fitness trampolines) used during classes are designed for a maximum user weight of 140 kg. By participating, you confirm that you do not exceed this limit. Gravity Club reserves the right to refuse or terminate participation at any time if there are reasonable concerns regarding safety, health, or compliance with instructions.
-Participation despite exceeding the stated weight limit, providing false information, or disregarding instructions is strictly at your own risk and releases Gravity Club from any and all liability.
-
-Gravity Club is not liable for injuries, accidents, health issues or loss of personal belongings, except in cases of gross negligence or intent.
-
-By booking a class or joining the waitlist, you acknowledge and accept these terms in full.`;
 
 const META_PIXEL_ID = "4479962442290722";
 const GA_MEASUREMENT_ID = "G-62PXNJZY9K";
@@ -181,11 +50,8 @@ function getGaSessionId(): { sessionId: string; isNew: boolean } {
     return { sessionId: `${Math.floor(Date.now() / 1000)}`, isNew: true };
   }
 }
-const SITE_URL = "https://www.gravityclub-rebound.com";
-const OG_IMAGE_URL = "https://www.gravityclub-rebound.com/og-image.jpg";
-const PAGE_TITLE = "Gravity Club Zurich – Rebounder Fitness Classes";
-const PAGE_DESCRIPTION =
-  "Boutique rebounder fitness classes in Zurich. 50-minute sessions with club energy, limited spots and premium experience. Book Gravity Club now.";
+const OG_IMAGE_URL = `${SITE_URL}/og-image.jpg`;
+const INSTAGRAM_URL = "https://www.instagram.com/gravityclub.zurich";
 const EMAILJS_SERVICE_ID = "service_i97vsjn";
 const EMAILJS_TEMPLATE_ID = "template_jqw77qu";
 const EMAILJS_PUBLIC_KEY = "a7pGbsGGBrnjFd9Se";
@@ -233,10 +99,12 @@ function Card({ children, className = "" }: { children: React.ReactNode; classNa
 function LegalModal({
   title,
   content,
+  closeLabel,
   onClose,
 }: {
   title: string;
   content: string;
+  closeLabel: string;
   onClose: () => void;
 }) {
   const dialogRef = useRef<HTMLDivElement | null>(null);
@@ -310,7 +178,7 @@ function LegalModal({
             type="button"
             onClick={onClose}
             className="rounded-full border border-white/10 bg-white/5 p-2 text-[#D9D9D9]"
-            aria-label="Close legal modal"
+            aria-label={closeLabel}
           >
             <X size={16} />
           </button>
@@ -364,15 +232,236 @@ function FaqItem({
   );
 }
 
-function getLegalTitle(modal: null | "imprint" | "privacy" | "terms") {
-  return modal === "imprint" ? "Impressum" : modal === "privacy" ? "Privacy" : modal === "terms" ? "Terms" : "";
+function getLegalTitle(t: Content, modal: null | "imprint" | "privacy" | "terms") {
+  return modal === "imprint" ? t.footer.imprint : modal === "privacy" ? t.footer.privacy : modal === "terms" ? t.footer.terms : "";
 }
 
-function getLegalContent(modal: null | "imprint" | "privacy" | "terms") {
-  return modal === "imprint" ? IMPRINT_TEXT : modal === "privacy" ? PRIVACY_TEXT : modal === "terms" ? TERMS_TEXT : "";
+function getLegalContent(t: Content, modal: null | "imprint" | "privacy" | "terms") {
+  return modal === "imprint" ? IMPRINT_TEXT : modal === "privacy" ? t.legal.privacy : modal === "terms" ? t.legal.terms : "";
 }
 
-export default function GravityClubWebsitePreview() {
+function Lines({ lines }: { lines: string[] }) {
+  return (
+    <>
+      {lines.map((line, i) => (
+        <React.Fragment key={line}>
+          {i > 0 ? <br /> : null}
+          {line}
+        </React.Fragment>
+      ))}
+    </>
+  );
+}
+
+function SubPageBreadcrumb({ lang, t, title }: { lang: Lang; t: Content; title: string }) {
+  return (
+    <nav aria-label="Breadcrumb" className="text-[11px] uppercase tracking-[0.2em] text-[#D9D9D9]/50">
+      <a href={pathFor(lang, "home")} className="hover:text-[#1FE4D6]">
+        Gravity Club
+      </a>
+      <span className="mx-2">/</span>
+      <a href={pathFor(lang, "home", "#classes")} className="hover:text-[#1FE4D6]">
+        {t.ui.allClasses}
+      </a>
+      <span className="mx-2">/</span>
+      <span className="text-[#1FE4D6]/80">{title}</span>
+    </nav>
+  );
+}
+
+function BulletList({ items }: { items: string[] }) {
+  return (
+    <ul className="mt-5 space-y-3 text-[15px] leading-7 text-[#D9D9D9]/75">
+      {items.map((item) => (
+        <li key={item} className="flex gap-3">
+          <span className="mt-[11px] h-1.5 w-1.5 shrink-0 rounded-full bg-[#1FE4D6]" />
+          <span>{item}</span>
+        </li>
+      ))}
+    </ul>
+  );
+}
+
+function ClassPageView({
+  lang,
+  t,
+  id,
+  onBook,
+}: {
+  lang: Lang;
+  t: Content;
+  id: "hiit" | "powerjump";
+  onBook: (label: string) => void;
+}) {
+  const c = t.classPages[id];
+  const other = id === "hiit" ? "powerjump" : "hiit";
+  const image = id === "hiit" ? "/man.jpg" : "/woman.jpg";
+  const bookHref = pathFor(lang, "home", "#booking");
+  const handleBook = (e: React.MouseEvent) => {
+    e.preventDefault();
+    onBook(c.h1);
+    setTimeout(() => {
+      window.location.href = bookHref;
+    }, 200);
+  };
+
+  return (
+    <section className="mx-auto max-w-6xl px-4 py-14 sm:px-6 sm:py-20 lg:px-10 lg:py-24">
+      <SubPageBreadcrumb lang={lang} t={t} title={c.h1} />
+      <div className="mt-8 grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:gap-14">
+        <div className="flex flex-col justify-center">
+          <div className="text-sm uppercase tracking-[0.28em] text-[#1FE4D6]">{c.eyebrow} · {c.trainer}</div>
+          <h1 className="mt-4 text-[2.4rem] leading-[1] text-[#D9D9D9] sm:text-[3.4rem]" style={HEADING_STYLE}>
+            {c.h1}
+          </h1>
+          <p className="mt-5 max-w-xl text-[17px] leading-8 text-[#D9D9D9]/75">{c.intro}</p>
+          <div className="mt-7">
+            <a
+              href={bookHref}
+              onClick={handleBook}
+              className="gc-cta-pulse inline-flex rounded-full bg-[#1FE4D6] px-7 py-3 text-sm font-semibold text-black shadow-[0_0_24px_rgba(31,228,214,0.35)]"
+            >
+              {c.bookCta}
+            </a>
+          </div>
+        </div>
+        <img
+          src={image}
+          alt={c.imageAlt}
+          width={1122}
+          height={1402}
+          fetchPriority="high"
+          className="aspect-[4/5] w-full rounded-[28px] border border-white/10 object-cover"
+        />
+      </div>
+
+      <div className="mt-14 grid gap-6 md:grid-cols-2">
+        <Card className="p-8">
+          <h2 className="text-2xl text-[#D9D9D9]" style={HEADING_STYLE}>
+            {c.expectTitle}
+          </h2>
+          <BulletList items={c.expect} />
+        </Card>
+        <Card className="p-8">
+          <h2 className="text-2xl text-[#D9D9D9]" style={HEADING_STYLE}>
+            {c.goodTitle}
+          </h2>
+          <BulletList items={c.good} />
+        </Card>
+      </div>
+
+      <Card className="mt-6 border-[#1FE4D6]/30 bg-[linear-gradient(180deg,rgba(31,228,214,0.14),rgba(217,217,217,0.04))] p-8">
+        <h2 className="text-2xl text-[#D9D9D9]" style={HEADING_STYLE}>
+          {c.bookTitle}
+        </h2>
+        <p className="mt-4 max-w-2xl text-[15px] leading-7 text-[#D9D9D9]/75">{c.bookCopy}</p>
+        <div className="mt-6">
+          <a
+            href={bookHref}
+            onClick={handleBook}
+            className="inline-flex rounded-full bg-[#1FE4D6] px-7 py-3 text-sm font-semibold text-black"
+          >
+            {c.bookCta}
+          </a>
+        </div>
+      </Card>
+
+      <div className="mt-10 text-sm">
+        <a href={pathFor(lang, other)} className="text-[#1FE4D6] underline-offset-4 hover:underline">
+          {c.seeAlso} →
+        </a>
+      </div>
+    </section>
+  );
+}
+
+function LocationPageView({ lang, t, onBook }: { lang: Lang; t: Content; onBook: (label: string) => void }) {
+  const c = t.locationPage;
+  const bookHref = pathFor(lang, "home", "#booking");
+  const handleBook = (e: React.MouseEvent) => {
+    e.preventDefault();
+    onBook("Location page");
+    setTimeout(() => {
+      window.location.href = bookHref;
+    }, 200);
+  };
+
+  return (
+    <section className="mx-auto max-w-6xl px-4 py-14 sm:px-6 sm:py-20 lg:px-10 lg:py-24">
+      <nav aria-label="Breadcrumb" className="text-[11px] uppercase tracking-[0.2em] text-[#D9D9D9]/50">
+        <a href={pathFor(lang, "home")} className="hover:text-[#1FE4D6]">
+          Gravity Club
+        </a>
+        <span className="mx-2">/</span>
+        <span className="text-[#1FE4D6]/80">{c.eyebrow}</span>
+      </nav>
+      <div className="mt-8 grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:gap-14">
+        <div className="flex flex-col justify-center">
+          <div className="text-sm uppercase tracking-[0.28em] text-[#1FE4D6]">{c.eyebrow}</div>
+          <h1 className="mt-4 text-[2.4rem] leading-[1] text-[#D9D9D9] sm:text-[3.4rem]" style={HEADING_STYLE}>
+            {c.h1}
+          </h1>
+          <p className="mt-5 max-w-xl text-[17px] leading-8 text-[#D9D9D9]/75">{c.intro}</p>
+        </div>
+        <img
+          src="/hero.jpg"
+          alt={c.imageAlt}
+          width={1672}
+          height={941}
+          fetchPriority="high"
+          className="w-full rounded-[28px] border border-white/10 object-cover"
+        />
+      </div>
+
+      <div className="mt-14 grid gap-6 md:grid-cols-2">
+        <Card className="p-8">
+          <h2 className="text-2xl text-[#D9D9D9]" style={HEADING_STYLE}>
+            {c.findTitle}
+          </h2>
+          <BulletList items={c.find} />
+        </Card>
+        <Card className="p-8">
+          <h2 className="text-2xl text-[#D9D9D9]" style={HEADING_STYLE}>
+            {c.insideTitle}
+          </h2>
+          <BulletList items={c.inside} />
+        </Card>
+      </div>
+
+      <Card className="mt-6 border-[#1FE4D6]/30 bg-[linear-gradient(180deg,rgba(31,228,214,0.14),rgba(217,217,217,0.04))] p-8">
+        <h2 className="text-2xl text-[#D9D9D9]" style={HEADING_STYLE}>
+          {c.ctaTitle}
+        </h2>
+        <p className="mt-4 max-w-2xl text-[15px] leading-7 text-[#D9D9D9]/75">{c.ctaCopy}</p>
+        <div className="mt-6 flex flex-wrap gap-4">
+          <a
+            href={bookHref}
+            onClick={handleBook}
+            className="inline-flex rounded-full bg-[#1FE4D6] px-7 py-3 text-sm font-semibold text-black"
+          >
+            {c.ctaButton}
+          </a>
+          <a
+            href={pathFor(lang, "hiit")}
+            className="inline-flex rounded-full border border-white/10 bg-white/5 px-7 py-3 text-sm text-[#D9D9D9]"
+          >
+            {t.classes.items[0].title}
+          </a>
+          <a
+            href={pathFor(lang, "powerjump")}
+            className="inline-flex rounded-full border border-white/10 bg-white/5 px-7 py-3 text-sm text-[#D9D9D9]"
+          >
+            {t.classes.items[1].title}
+          </a>
+        </div>
+      </Card>
+    </section>
+  );
+}
+
+export default function GravityClubWebsitePreview({ lang, page }: { lang: Lang; page: PageId }) {
+  const t = CONTENT[lang];
+  const otherLang: Lang = lang === "en" ? "de" : "en";
   const [trackingConsent, setTrackingConsent] = useState<"accepted" | "declined" | "unset">("unset");
   const [consentInitialized, setConsentInitialized] = useState(false);
   const [legalModal, setLegalModal] = useState<null | "imprint" | "privacy" | "terms">(null);
@@ -435,7 +524,10 @@ export default function GravityClubWebsitePreview() {
   };
 
   useEffect(() => {
+    const { title: PAGE_TITLE, description: PAGE_DESCRIPTION } = getPageMeta(lang, page);
+    const canonical = canonicalUrl(lang, page);
     document.title = PAGE_TITLE;
+    document.documentElement.lang = lang;
 
     const upsertMetaTag = (selector: string, attributes: Record<string, string>) => {
       let tag = document.head.querySelector<HTMLMetaElement>(selector);
@@ -455,59 +547,19 @@ export default function GravityClubWebsitePreview() {
       Object.entries(attributes).forEach(([key, value]) => tag?.setAttribute(key, value));
     };
 
-    upsertMetaTag('meta[name="description"]', {
-      name: "description",
-      content: PAGE_DESCRIPTION,
-    });
-    upsertMetaTag('meta[name="robots"]', {
-      name: "robots",
-      content: "index, follow",
-    });
-    upsertMetaTag('meta[name="theme-color"]', {
-      name: "theme-color",
-      content: "#0A0A0A",
-    });
-    upsertMetaTag('meta[property="og:title"]', {
-      property: "og:title",
-      content: PAGE_TITLE,
-    });
-    upsertMetaTag('meta[property="og:description"]', {
-      property: "og:description",
-      content: PAGE_DESCRIPTION,
-    });
-    upsertMetaTag('meta[property="og:type"]', {
-      property: "og:type",
-      content: "website",
-    });
-    upsertMetaTag('meta[property="og:url"]', {
-      property: "og:url",
-      content: SITE_URL,
-    });
-    upsertMetaTag('meta[property="og:image"]', {
-      property: "og:image",
-      content: OG_IMAGE_URL,
-    });
-    upsertMetaTag('meta[name="twitter:card"]', {
-      name: "twitter:card",
-      content: "summary_large_image",
-    });
-    upsertMetaTag('meta[name="twitter:title"]', {
-      name: "twitter:title",
-      content: PAGE_TITLE,
-    });
-    upsertMetaTag('meta[name="twitter:description"]', {
-      name: "twitter:description",
-      content: PAGE_DESCRIPTION,
-    });
-    upsertMetaTag('meta[name="twitter:image"]', {
-      name: "twitter:image",
-      content: OG_IMAGE_URL,
-    });
-
-    upsertLinkTag('link[rel="canonical"]', {
-      rel: "canonical",
-      href: SITE_URL,
-    });
+    upsertMetaTag('meta[name="description"]', { name: "description", content: PAGE_DESCRIPTION });
+    upsertMetaTag('meta[name="robots"]', { name: "robots", content: "index, follow" });
+    upsertMetaTag('meta[name="theme-color"]', { name: "theme-color", content: "#0A0A0A" });
+    upsertMetaTag('meta[property="og:title"]', { property: "og:title", content: PAGE_TITLE });
+    upsertMetaTag('meta[property="og:description"]', { property: "og:description", content: PAGE_DESCRIPTION });
+    upsertMetaTag('meta[property="og:type"]', { property: "og:type", content: "website" });
+    upsertMetaTag('meta[property="og:url"]', { property: "og:url", content: canonical });
+    upsertMetaTag('meta[property="og:image"]', { property: "og:image", content: OG_IMAGE_URL });
+    upsertMetaTag('meta[name="twitter:card"]', { name: "twitter:card", content: "summary_large_image" });
+    upsertMetaTag('meta[name="twitter:title"]', { name: "twitter:title", content: PAGE_TITLE });
+    upsertMetaTag('meta[name="twitter:description"]', { name: "twitter:description", content: PAGE_DESCRIPTION });
+    upsertMetaTag('meta[name="twitter:image"]', { name: "twitter:image", content: OG_IMAGE_URL });
+    upsertLinkTag('link[rel="canonical"]', { rel: "canonical", href: canonical });
     upsertLinkTag('link[rel="icon"]', {
       rel: "icon",
       href: `data:image/svg+xml,${encodeURIComponent(
@@ -529,7 +581,7 @@ export default function GravityClubWebsitePreview() {
       if (document.head.contains(link1)) document.head.removeChild(link1);
       if (document.head.contains(link2)) document.head.removeChild(link2);
     };
-  }, []);
+  }, [lang, page]);
 
   useEffect(() => {
     if (typeof window === "undefined") return;
@@ -680,6 +732,7 @@ export default function GravityClubWebsitePreview() {
   }, []);
 
   useEffect(() => {
+    if (page !== "home") return;
     const EVERSPORTS_LOADER_SRC = "https://widget-static.eversports.io/loader.js";
 
     if (document.querySelector(`script[src="${EVERSPORTS_LOADER_SRC}"]`)) {
@@ -690,13 +743,26 @@ export default function GravityClubWebsitePreview() {
     script.type = "module";
     script.src = EVERSPORTS_LOADER_SRC;
     document.body.appendChild(script);
-  }, []);
+  }, [page]);
 
   const scrollToSection = (id: string) => {
     const el = document.getElementById(id);
     if (el) {
       setMobileMenuOpen(false);
       el.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
+
+  const handleSubPageBook = (label: string) => {
+    trackMetaEvent("InitiateCheckout", { content_name: `${label} CTA Click` });
+    trackGaEvent("cta_click", { event_category: "conversion", event_label: label });
+  };
+
+  const goToBooking = () => {
+    if (page === "home") {
+      scrollToSection("booking");
+    } else {
+      window.location.href = pathFor(lang, "home", "#booking");
     }
   };
 
@@ -762,20 +828,20 @@ export default function GravityClubWebsitePreview() {
 
     if (Date.now() - formStartedAt < 2500) {
       setFormSent(false);
-      setFormFeedback("Please wait a moment before submitting.");
+      setFormFeedback(t.contact.errWait);
       return;
     }
 
     if (!name.trim() || !email.trim() || !message.trim()) {
       setFormSent(false);
-      setFormFeedback("Please complete all fields.");
+      setFormFeedback(t.contact.errFields);
       return;
     }
 
     const trimmedEmail = email.trim();
     if (!trimmedEmail.includes("@") || !trimmedEmail.includes(".")) {
       setFormSent(false);
-      setFormFeedback("Please enter a valid email address.");
+      setFormFeedback(t.contact.errEmail);
       return;
     }
 
@@ -807,7 +873,7 @@ export default function GravityClubWebsitePreview() {
       }
 
       setFormSent(true);
-      setFormFeedback("Thanks - your message has been sent.");
+      setFormFeedback(t.contact.ok);
       setName("");
       setEmail("");
       setMessage("");
@@ -816,44 +882,73 @@ export default function GravityClubWebsitePreview() {
     } catch (error) {
       const messageText = error instanceof Error ? error.message : "Unknown error";
       setFormSent(false);
-      setFormFeedback(messageText && messageText !== "Unknown error" ? "Sending failed. " + messageText : "Sending failed. Please try again in a moment.");
+      setFormFeedback(messageText && messageText !== "Unknown error" ? t.contact.errPrefix + messageText : t.contact.errGeneric);
     } finally {
       setFormSubmitting(false);
     }
   };
 
-  const legalTitle = getLegalTitle(legalModal);
-  const legalContent = getLegalContent(legalModal);
+  const legalTitle = getLegalTitle(t, legalModal);
+  const legalContent = getLegalContent(t, legalModal);
 
   return (
     <div
       className="min-h-screen bg-[#0A0A0A] text-[#D9D9D9]"
       style={{ fontFamily: "Inter, ui-sans-serif, system-ui, sans-serif" }}
     >
-      {legalModal ? <LegalModal title={legalTitle} content={legalContent} onClose={() => setLegalModal(null)} /> : null}
+      {legalModal ? <LegalModal title={legalTitle} content={legalContent} closeLabel={t.legal.closeLabel} onClose={() => setLegalModal(null)} /> : null}
 
       <div className="pointer-events-none fixed inset-0 bg-[radial-gradient(circle_at_top,_rgba(31,228,214,0.16),_transparent_32%)]" />
 
       <header className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-[#0A0A0A]/90 backdrop-blur-2xl">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 sm:px-6 lg:px-10">
-          <div className="flex items-center">
+          <a href={pathFor(lang, "home")} className="flex items-center" aria-label="Gravity Club">
   <img src="/logo.png" alt="Gravity Club logo" width={2504} height={1138} className="h-16 sm:h-20 w-auto" />
-</div>
+</a>
 
           <nav className="hidden items-center gap-2 md:flex">
-            {NAV_ITEMS.map(([id, label]) => (
-              <button
-                key={id}
-                type="button"
-                onClick={() => scrollToSection(id)}
-                className="rounded-full px-4 py-2 text-sm text-[#D9D9D9]/72 transition hover:bg-[#1FE4D6]/10 hover:text-[#1FE4D6]"
-              >
-                {label}
-              </button>
-            ))}
+            {t.nav.map(([id, label]) =>
+              page === "home" ? (
+                <button
+                  key={id}
+                  type="button"
+                  onClick={() => scrollToSection(id)}
+                  className="rounded-full px-4 py-2 text-sm text-[#D9D9D9]/72 transition hover:bg-[#1FE4D6]/10 hover:text-[#1FE4D6]"
+                >
+                  {label}
+                </button>
+              ) : (
+                <a
+                  key={id}
+                  href={pathFor(lang, "home", `#${id}`)}
+                  className="rounded-full px-4 py-2 text-sm text-[#D9D9D9]/72 transition hover:bg-[#1FE4D6]/10 hover:text-[#1FE4D6]"
+                >
+                  {label}
+                </a>
+              )
+            )}
           </nav>
 
           <div className="flex items-center gap-3">
+            <div className="flex items-center rounded-full border border-white/10 bg-white/5 p-0.5 text-[11px] uppercase tracking-[0.14em]" role="group" aria-label={t.ui.languageLabel}>
+              {(["en", "de"] as Lang[]).map((l) =>
+                l === lang ? (
+                  <span key={l} className="rounded-full bg-[#1FE4D6] px-2.5 py-1 font-semibold text-black" aria-current="true">
+                    {l}
+                  </span>
+                ) : (
+                  <a
+                    key={l}
+                    href={pathFor(l, page)}
+                    hrefLang={l}
+                    lang={l}
+                    className="rounded-full px-2.5 py-1 text-[#D9D9D9]/70 hover:text-[#1FE4D6]"
+                  >
+                    {l}
+                  </a>
+                )
+              )}
+            </div>
             <button
   type="button"
   onClick={() => {
@@ -868,19 +963,19 @@ export default function GravityClubWebsitePreview() {
     });
 
     setTimeout(() => {
-  scrollToSection("booking");
+  goToBooking();
 }, 200);
   }}
   className="gc-cta-pulse rounded-full bg-[#1FE4D6] px-5 py-2 text-sm font-semibold text-black shadow-[0_0_24px_rgba(31,228,214,0.25)]"
 >
-  {isLive ? "Book now" : "Secure your spot"}
+  {isLive ? t.ui.bookNow : t.ui.secureSpot}
 </button>
 
 <button
   type="button"
   onClick={() => setMobileMenuOpen((v) => !v)}
   className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/5 md:hidden"
-  aria-label="Toggle menu"
+  aria-label={t.ui.toggleMenu}
   aria-expanded={mobileMenuOpen}
   aria-controls="mobile-navigation"
 >
@@ -892,49 +987,59 @@ export default function GravityClubWebsitePreview() {
         {mobileMenuOpen ? (
           <div id="mobile-navigation" className="border-t border-white/10 bg-[#0A0A0A]/96 px-4 py-4 md:hidden">
             <div className="flex flex-col gap-2">
-              {NAV_ITEMS.map(([id, label]) => (
-                <button
-                  key={id}
-                  type="button"
-                  onClick={() => scrollToSection(id)}
-                  className="rounded-2xl bg-white/5 px-4 py-3 text-left text-sm text-[#D9D9D9]/80"
-                >
-                  {label}
-                </button>
-              ))}
+              {t.nav.map(([id, label]) =>
+                page === "home" ? (
+                  <button
+                    key={id}
+                    type="button"
+                    onClick={() => scrollToSection(id)}
+                    className="rounded-2xl bg-white/5 px-4 py-3 text-left text-sm text-[#D9D9D9]/80"
+                  >
+                    {label}
+                  </button>
+                ) : (
+                  <a
+                    key={id}
+                    href={pathFor(lang, "home", `#${id}`)}
+                    className="rounded-2xl bg-white/5 px-4 py-3 text-left text-sm text-[#D9D9D9]/80"
+                  >
+                    {label}
+                  </a>
+                )
+              )}
             </div>
           </div>
         ) : null}
       </header>
 
       <main className="pt-[72px] sm:pt-[78px]">
+        {page === "home" ? (
+        <>
         <section className="relative overflow-hidden border-b border-white/10">
           <div className="absolute inset-0">
-            <img src={HERO_IMAGES[0]} alt="Group rebounder fitness class in a dark club at Gravity Club Zurich" width={1672} height={941} fetchPriority="high" className="h-full w-full object-cover opacity-25" />
+            <img src={HERO_IMAGES[0]} alt={t.hero.heroAlt} width={1672} height={941} fetchPriority="high" className="h-full w-full object-cover opacity-25" />
             <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-black/55 to-[#0A0A0A]" />
           </div>
 
           <div className="relative mx-auto grid max-w-6xl gap-6 px-4 pb-12 pt-6 sm:px-6 sm:pb-16 sm:pt-8 lg:grid-cols-[1.08fr_0.92fr] lg:gap-16 lg:px-10 lg:pb-28 lg:pt-20">
             <div className="flex flex-col justify-center">
               <div className="inline-flex w-fit items-center gap-2 rounded-full border border-[#1FE4D6]/40 bg-[#1FE4D6]/10 px-3 py-1 text-[10px] uppercase tracking-[0.24em] text-[#1FE4D6] sm:hidden">
-                Zurich · Round Two · 20 Spots
+                {t.ui.mobileBadge}
               </div>
 
             <h1 className="mt-5 text-[2.4rem] leading-[0.9] text-[#D9D9D9] sm:text-[4.2rem] lg:text-[6.2rem]" style={HEADING_STYLE}>
-  Rebound.<br />
-  Sweat.<br />
-  Connect.
+  <Lines lines={t.hero.h1} />
 </h1>
               <div className="mt-3 text-[2.2rem] leading-[0.98] text-[#1FE4D6] sm:text-[3rem] lg:text-[5rem]" style={HEADING_STYLE}>
-  Zurich&apos;s
+  {t.hero.sub[0]}
   <br />
-  <span className="whitespace-nowrap">rebounder fitness</span>
+  <span className="whitespace-nowrap">{t.hero.sub[1]}</span>
   <br />
-  <span className="whitespace-nowrap">in a club atmosphere</span>
+  <span className="whitespace-nowrap">{t.hero.sub[2]}</span>
 </div>
 
               <p className="mt-4 max-w-xl text-[15px] leading-7 text-[#D9D9D9]/70 sm:mt-5 sm:max-w-2xl sm:text-[18px] sm:leading-8">
-                50-minute rebounder classes in Zurich. Loud sound, dark room, 20 spots.
+                {t.hero.copy}
               </p>
 
               <div className="mt-6 flex flex-col gap-4 sm:mt-6 sm:flex-row sm:flex-wrap">
@@ -956,7 +1061,7 @@ export default function GravityClubWebsitePreview() {
 }}
                   className={`gc-cta-pulse w-full rounded-full bg-[#1FE4D6] px-7 py-3 text-sm font-semibold text-black shadow-[0_0_24px_rgba(31,228,214,0.35)] sm:w-auto`}
                 >
-                  {isLive ? "Book now" : "Secure your spot"}
+                  {isLive ? t.ui.bookNow : t.ui.secureSpot}
                 </button>
                 <button
                   type="button"
@@ -964,26 +1069,26 @@ export default function GravityClubWebsitePreview() {
                   className="hidden rounded-full border border-white/10 bg-white/5 px-7 py-3 text-sm text-[#D9D9D9] sm:inline-flex"
                   style={HEADING_STYLE}
                 >
-                  See pricing
+                  {t.ui.seePricing}
                 </button>
               </div>
 
               <div className="mt-4 text-[11px] uppercase tracking-[0.22em] text-[#1FE4D6]/75 sm:hidden">
-                50 minutes · 20 spots · Round Two
+                {lang === "de" ? "50 Minuten · 20 Plätze · Runde zwei" : "50 minutes · 20 spots · Round Two"}
               </div>
 
               <div className="mt-8 w-full max-w-xl rounded-[24px] border border-[#1FE4D6]/20 bg-white/[0.04] p-4 backdrop-blur-xl sm:mt-8 sm:rounded-[28px] sm:p-5">
                 {isLive ? (
                   <div className="text-center">
-                    <div className="text-[11px] uppercase tracking-[0.24em] text-[#D9D9D9]/55">Round Two status</div>
+                    <div className="text-[11px] uppercase tracking-[0.24em] text-[#D9D9D9]/55">{t.ui.liveStatusLabel}</div>
                     <div className="mt-3 text-2xl text-[#1FE4D6] sm:mt-4 sm:text-3xl" style={HEADING_STYLE}>
-                      WE ARE LIVE
+                      {t.ui.live}
                     </div>
                   </div>
                 ) : (
                   <>
                     <div className="text-[10px] uppercase tracking-[0.18em] text-[#D9D9D9]/55 sm:text-[11px] sm:tracking-[0.24em]">
-                      Round Two countdown · 5 October 2026 · 18:00 Zurich
+                      {t.ui.countdownLabel}
                     </div>
                     <div className="mt-3 grid grid-cols-4 gap-2 sm:mt-4 sm:gap-3">
                       {Object.entries(timeLeft).map(([label, value]) => (
@@ -995,7 +1100,7 @@ export default function GravityClubWebsitePreview() {
                             {value}
                           </div>
                           <div className="mt-1 text-[9px] uppercase tracking-[0.18em] text-[#D9D9D9]/50 sm:text-[10px] sm:tracking-[0.22em]">
-                            {label}
+                            {t.ui.countdownUnits[label as keyof typeof t.ui.countdownUnits]}
                           </div>
                         </div>
                       ))}
@@ -1009,21 +1114,21 @@ export default function GravityClubWebsitePreview() {
               <Card className="relative col-span-2 overflow-hidden p-0">
                 <img
                   src={HERO_IMAGES[0]}
-                  alt="Rebounder fitness class with club lighting at Gravity Club Zurich"
+                  alt={t.hero.signatureAlt}
                   width={1672}
                   height={941}
                   className="h-[240px] w-full object-cover sm:h-[300px] lg:h-[340px]"
                 />
                 <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#0A0A0A] via-[#0A0A0A]/65 to-transparent p-6">
-                  <div className="text-[11px] uppercase tracking-[0.28em] text-[#1FE4D6]">Signature Experience</div>
+                  <div className="text-[11px] uppercase tracking-[0.28em] text-[#1FE4D6]">{t.hero.signature}</div>
                   <div className="mt-2 text-2xl text-[#D9D9D9]" style={HEADING_STYLE}>
-                    Club energy. Boutique. Precision.
+                    {t.hero.signatureLine}
                   </div>
                 </div>
               </Card>
               <img
   src="/woman.jpg"
-  alt="Woman training on a rebounder at Gravity Club Zurich"
+  alt={t.hero.womanAlt}
   width={1122}
   height={1402}
   loading="lazy"
@@ -1031,7 +1136,7 @@ className="aspect-[4/5] w-full rounded-[28px] border border-white/10 object-cove
 
 <img
   src="/man.jpg"
-  alt="Man doing resistance band exercises on a rebounder at Gravity Club Zurich"
+  alt={t.hero.manAlt}
   width={1122}
   height={1402}
   loading="lazy"
@@ -1042,28 +1147,25 @@ className="aspect-[4/5] w-full rounded-[28px] border border-white/10 object-cove
 
         <section id="concept" className="border-y border-white/10 bg-white/[0.02]">
   <div className="mx-auto grid max-w-6xl gap-8 px-4 py-14 sm:px-6 sm:py-20 lg:grid-cols-[0.9fr_1.1fr] lg:gap-12 lg:px-10 lg:py-28">
-    <SectionTitle eyebrow="The Concept" title={<>Sweat, but<br />make it a party.</>} />
+    <SectionTitle eyebrow={t.concept.eyebrow} title={<Lines lines={t.concept.title} />} />
    <div className="max-w-[680px] text-[17px] leading-relaxed text-[#D9D9D9]/80">
-  <p>Gravity Club turns fitness into a night out.</p>
-  <p>Dark room. Loud sound. 20 people. No holding back.</p>
-  <p>50 minutes on a rebounder, built on beats, not on counting reps.</p>
-  <p>It’s not only about working out.</p>
-  <p className="text-[#1FE4D6] my-[0.6em]">It’s about showing up.</p>
-  <p>
-    Round Two is here: same room, same energy, more reasons to come back every week.
-  </p>
+  {t.concept.lines.map((line) => (
+    <p key={line}>{line}</p>
+  ))}
+  <p className="text-[#1FE4D6] my-[0.6em]">{t.concept.accent}</p>
+  <p>{t.concept.closing}</p>
 </div>
   </div>
 </section>
 
         <section id="classes" className="mx-auto max-w-6xl px-4 py-14 sm:px-6 sm:py-20 lg:px-10 lg:py-28">
           <SectionTitle
-            eyebrow="Classes"
-            title={<>Two formats.<br />One weekly ritual.</>}
-            copy="Structured for repeat attendance, community energy and a premium experience from your first visit on."
+            eyebrow={t.classes.eyebrow}
+            title={<Lines lines={t.classes.title} />}
+            copy={t.classes.copy}
           />
           <div className="mt-10 grid gap-6 md:grid-cols-2">
-            {CLASS_ITEMS.map((item) => (
+            {t.classes.items.map((item) => (
               <div
                 key={item.title}
                 role="link"
@@ -1083,7 +1185,7 @@ onClick={() => {
 }, 200);
 }}
                 className="block h-full rounded-[28px] cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1FE4D6] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0A0A0A]"
-                aria-label={`Open ${item.title} booking on Eversports`}
+                aria-label={`${item.title}: ${t.ui.book}`}
               >
                 <Card className="h-full p-8 transition-all duration-300 hover:-translate-y-1 hover:border-[#1FE4D6]/30 hover:bg-[#D9D9D9]/[0.06] hover:shadow-[0_18px_60px_rgba(31,228,214,0.10)] active:scale-[0.98] active:bg-[#D9D9D9]/[0.08] cursor-pointer">
                   <div className="grid h-full grid-rows-[56px_1fr]">
@@ -1100,8 +1202,15 @@ onClick={() => {
                       <p className="text-[15px] leading-7 text-[#D9D9D9]/68">
                         {item.copy}
                       </p>
-                      <div className="mt-4 text-[10px] uppercase tracking-[0.2em] text-[#D9D9D9]/35">
-                        Book →
+                      <div className="mt-4 flex items-center gap-5 text-[10px] uppercase tracking-[0.2em] text-[#D9D9D9]/35">
+                        <span>{t.ui.book}</span>
+                        <a
+                          href={pathFor(lang, item.id)}
+                          onClick={(e) => e.stopPropagation()}
+                          className="text-[#1FE4D6]/80 underline-offset-4 hover:text-[#1FE4D6] hover:underline"
+                        >
+                          {t.ui.details}
+                        </a>
                       </div>
                     </div>
                   </div>
@@ -1114,28 +1223,28 @@ onClick={() => {
         <section id="booking" className="mx-auto max-w-6xl px-4 py-14 sm:px-6 sm:py-20 lg:px-10 lg:py-28">
           <div className="grid gap-6 rounded-[32px] border border-white/10 bg-white/[0.04] p-5 shadow-[0_18px_80px_rgba(0,0,0,0.22)] sm:p-8 lg:grid-cols-[1fr_0.9fr] lg:gap-8 lg:p-12">
             <div>
-              <SectionTitle eyebrow="Booking" title={<>Book your class fast.<br />Train with us in Zurich.</>} />
+              <SectionTitle eyebrow={t.booking.eyebrow} title={<Lines lines={t.booking.title} />} />
               <div className="mt-5 flex flex-wrap items-center gap-3">
                 <div className="rounded-full border border-[#1FE4D6]/30 bg-[#1FE4D6]/10 px-3 py-1 text-[11px] uppercase tracking-[0.24em] text-[#1FE4D6]">
-                  20 Spots Only
+                  {t.booking.spots}
                 </div>
                 <div className="rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 text-[11px] uppercase tracking-[0.24em] text-[#D9D9D9]/55">
-                  12h Cancellation Window
+                  {t.booking.cancelWindow}
                 </div>
               </div>
               <p className="mt-5 max-w-xl text-[17px] leading-8 text-[#D9D9D9]/70">
-                Every booking runs through Eversports. Choose your class, pay online and your spot is yours. Once a class is full, you can join the waitlist and be booked in if a spot opens up.
+                {t.booking.copy}
               </p>
             </div>
 
             <Card className="bg-black/30 p-4 sm:p-6">
               <div className="rounded-[28px] border border-white/10 bg-[linear-gradient(180deg,rgba(31,228,214,0.10),rgba(217,217,217,0.03))] p-6">
-                <div className="text-xs uppercase tracking-[0.24em] text-[#D9D9D9]/50">Booking Partner</div>
+                <div className="text-xs uppercase tracking-[0.24em] text-[#D9D9D9]/50">{t.booking.partner}</div>
                 <div className="mt-3 text-3xl text-[#1FE4D6]" style={HEADING_STYLE}>
                   Eversports
                 </div>
                 <p className="mt-4 text-sm leading-7 text-[#D9D9D9]/68">
-                  Everything from booking to class access runs seamlessly through Eversports - so your focus stays on the session.
+                  {t.booking.partnerCopy}
                 </p>
        <div
   data-eversports-widget-id="7ece6f8d-f8d1-4310-8f2e-e432c2cfbb0a"
@@ -1149,13 +1258,13 @@ onClick={() => {
         <section id="pricing" className="mx-auto max-w-6xl px-4 py-14 sm:px-6 sm:py-20 lg:px-10 lg:py-28">
           <div className="text-left">
             <SectionTitle
-              eyebrow="Pricing"
-              title={<>Round Two.<br />Pick your pass.</>}
-              copy="Start with one class or save CHF 10 with the 3-Class Card."
+              eyebrow={t.pricing.eyebrow}
+              title={<Lines lines={t.pricing.title} />}
+              copy={t.pricing.copy}
             />
           </div>
           <div className="mt-12 grid gap-6 sm:grid-cols-2">
-            {PRICING_ITEMS.map((item) => (
+            {t.pricing.items.map((item) => (
 <div
   key={item.name}
   role="link"
@@ -1224,7 +1333,7 @@ onKeyDown={(e) => {
 
                     <p className="mt-6 text-sm leading-7 text-[#D9D9D9]/60">{item.note}</p>
                     <div className="mt-4 text-[10px] uppercase tracking-[0.2em] text-[#D9D9D9]/35">
-                      Choose →
+                      {t.ui.choose}
                     </div>
                   </div>
                 </Card>
@@ -1235,17 +1344,19 @@ onKeyDown={(e) => {
 
         <section id="locations" className="border-y border-white/10 bg-gradient-to-b from-[#1FE4D6]/[0.05] to-transparent">
           <div className="mx-auto grid max-w-6xl gap-8 px-4 py-14 sm:px-6 sm:py-20 lg:grid-cols-[0.95fr_1.05fr] lg:gap-12 lg:px-10 lg:py-28">
-            <SectionTitle eyebrow="Location" title={<>Kanzlei Club, Zurich.<br />Where it starts.</>} />
+            <SectionTitle eyebrow={t.location.eyebrow} title={<Lines lines={t.location.title} />} />
             <div className="grid gap-4 sm:grid-cols-2">
-              {[
-                "Located in the heart of Zurich, Kanzlei Club is one of the city's most iconic nightlife venues.",
-                "Just steps from Helvetiaplatz, the location is seamlessly connected to public transport from anywhere in the city.",
-                "Every session, the space transforms into a dark, high-energy environment where workout meets nightlife.",
-              ].map((text, i) => (
+              {t.location.cards.map((text, i) => (
                 <Card key={text} className={`p-6 text-sm leading-7 text-[#D9D9D9]/68${i === 2 ? " sm:col-span-2" : ""}`}>
                   {text}
                 </Card>
               ))}
+              <a
+                href={pathFor(lang, "location")}
+                className="text-sm text-[#1FE4D6] underline-offset-4 hover:underline sm:col-span-2"
+              >
+                {t.location.moreInfo}
+              </a>
             </div>
           </div>
         </section>
@@ -1254,23 +1365,16 @@ onKeyDown={(e) => {
           <div className="grid gap-6 rounded-[32px] border border-white/10 bg-white/[0.04] p-5 shadow-[0_18px_80px_rgba(0,0,0,0.22)] sm:p-8 lg:grid-cols-[1fr_0.9fr] lg:gap-8 lg:p-12">
             <div>
               <SectionTitle
-                eyebrow="Hydration Partner"
-                title={<>Hydrated by PEAQ</>}
-                copy={`Built around clean ingredients and functional performance, PEAQ focuses on effective hydration without unnecessary additives.
-
-Designed to support energy, recovery and consistency - it fits seamlessly into the Gravity Club training experience.
-
-Infused Swiss mountain water, rich in natural minerals, vitamins and magnesium.
-No sugar. No sweeteners. No colorants. No calories.
-
-Part of every session. Part of the experience.`}
+                eyebrow={t.partners.eyebrow}
+                title={<>{t.partners.title}</>}
+                copy={t.partners.copy}
               />
             </div>
             <div className="grid grid-cols-2 gap-3 sm:gap-4">
               <Card className="col-span-2 flex items-center justify-center p-7">
                 <img
 src="/PEAQ_Logo_white_Claim.png"
-                  alt="PEAQ Nutrition logo"
+                  alt={t.partners.logoAlt}
                   width={1418}
                   height={506}
                   loading="lazy"
@@ -1279,7 +1383,7 @@ src="/PEAQ_Logo_white_Claim.png"
               </Card>
               <img
                 src="/peaq_sip.jpg"
-                alt="Drinking PEAQ hydration during a Gravity Club session"
+                alt={t.partners.sipAlt}
                 width={1600}
                 height={1600}
                 loading="lazy"
@@ -1287,7 +1391,7 @@ src="/PEAQ_Logo_white_Claim.png"
               />
               <img
                 src="/peaq_bottle.jpg"
-                alt="PEAQ hydration bottle at Gravity Club Zurich"
+                alt={t.partners.bottleAlt}
                 width={1600}
                 height={1600}
                 loading="lazy"
@@ -1300,11 +1404,11 @@ src="/PEAQ_Logo_white_Claim.png"
         <section id="faq" className="mx-auto max-w-6xl px-4 py-14 sm:px-6 sm:py-20 lg:px-10 lg:py-28">
           <div className="grid gap-8 lg:grid-cols-[0.92fr_1.08fr] lg:gap-12">
             <SectionTitle
-              eyebrow="FAQ"
-              title={<>First time at <span className="whitespace-nowrap">Gravity Club</span>?<br />Everything you need to know before your first class.</>}
+              eyebrow={t.faq.eyebrow}
+              title={<>{t.faq.titleLead}<span className="whitespace-nowrap">{t.faq.titleBrand}</span>{t.faq.titleTail}<br />{t.faq.titleSub}</>}
             />
             <div className="space-y-3">
-              {FAQ_ITEMS.map((item) => (
+              {t.faq.items.map((item) => (
                 <FaqItem
                   key={`${item.category}-${item.question}`}
                   category={item.category}
@@ -1320,9 +1424,9 @@ src="/PEAQ_Logo_white_Claim.png"
           <div className="grid gap-8 rounded-[32px] border border-white/10 bg-[linear-gradient(180deg,rgba(31,228,214,0.12),rgba(217,217,217,0.04))] p-6 shadow-[0_24px_90px_rgba(0,0,0,0.26)] sm:p-10 lg:grid-cols-[1fr_0.9fr] lg:p-12">
             <div>
               <SectionTitle
-                eyebrow="Get in Touch"
-                title={<>Get in touch with us.</>}
-                copy="Have questions about classes, partnerships, or locations? Send us a message and we'll get back to you."
+                eyebrow={t.contact.eyebrow}
+                title={<>{t.contact.title}</>}
+                copy={t.contact.copy}
               />
             </div>
             <form className="relative grid gap-4" onSubmit={handleSubmit}>
@@ -1330,7 +1434,7 @@ src="/PEAQ_Logo_white_Claim.png"
                 className="pointer-events-none absolute left-[-9999px] top-auto h-px w-px overflow-hidden opacity-0"
                 aria-hidden="true"
               >
-                <label htmlFor="company-website">Leave this field empty</label>
+                <label htmlFor="company-website">{t.contact.honeypot}</label>
                 <input
                   id="company-website"
                   name="company-website"
@@ -1343,7 +1447,7 @@ src="/PEAQ_Logo_white_Claim.png"
               </div>
               <div className="grid gap-2">
                 <label htmlFor="contact-name" className="text-xs uppercase tracking-[0.18em] text-[#D9D9D9]/55">
-                  Name
+                  {t.contact.nameLabel}
                 </label>
                 <input
                   id="contact-name"
@@ -1354,12 +1458,12 @@ src="/PEAQ_Logo_white_Claim.png"
                   required
                   autoComplete="name"
                   className="rounded-2xl border border-white/10 bg-black/40 px-4 py-3 text-sm outline-none placeholder:text-[#D9D9D9]/30"
-                  placeholder="Your name"
+                  placeholder={t.contact.namePlaceholder}
                 />
               </div>
               <div className="grid gap-2">
                 <label htmlFor="contact-email" className="text-xs uppercase tracking-[0.18em] text-[#D9D9D9]/55">
-                  Email
+                  {t.contact.emailLabel}
                 </label>
                 <input
                   id="contact-email"
@@ -1370,12 +1474,12 @@ src="/PEAQ_Logo_white_Claim.png"
                   required
                   autoComplete="email"
                   className="rounded-2xl border border-white/10 bg-black/40 px-4 py-3 text-sm outline-none placeholder:text-[#D9D9D9]/30"
-                  placeholder="Email address"
+                  placeholder={t.contact.emailPlaceholder}
                 />
               </div>
               <div className="grid gap-2">
                 <label htmlFor="contact-message" className="text-xs uppercase tracking-[0.18em] text-[#D9D9D9]/55">
-                  Message
+                  {t.contact.messageLabel}
                 </label>
                 <textarea
                   id="contact-message"
@@ -1385,7 +1489,7 @@ src="/PEAQ_Logo_white_Claim.png"
                   required
                   className="rounded-2xl border border-white/10 bg-black/40 px-4 py-3 text-sm outline-none placeholder:text-[#D9D9D9]/30"
                   rows={5}
-                  placeholder="How can we help?"
+                  placeholder={t.contact.messagePlaceholder}
                 />
               </div>
               <button
@@ -1393,7 +1497,7 @@ src="/PEAQ_Logo_white_Claim.png"
                 disabled={formSubmitting}
                 className="gc-cta-pulse rounded-full bg-[#1FE4D6] px-5 py-2 text-sm font-semibold text-black shadow-[0_0_24px_rgba(31,228,214,0.25)]"              
                 >
-                {formSubmitting ? "Sending..." : "Ask us anything"}
+                {formSubmitting ? t.contact.sending : t.contact.submit}
               </button>
               {formFeedback ? (
                 <p className={`text-sm ${formSent ? "text-[#1FE4D6]" : "text-[#ff8e8e]"}`}>{formFeedback}</p>
@@ -1402,13 +1506,20 @@ src="/PEAQ_Logo_white_Claim.png"
           </div>
         </section>
 
+        </>
+        ) : page === "location" ? (
+          <LocationPageView lang={lang} t={t} onBook={handleSubPageBook} />
+        ) : (
+          <ClassPageView lang={lang} t={t} id={page} onBook={handleSubPageBook} />
+        )}
+
         {consentInitialized && trackingConsent === "unset" ? (
           <div className="fixed inset-x-4 bottom-4 z-[95] max-w-xl rounded-[24px] border border-white/10 bg-[#0A0A0A]/95 p-4 shadow-[0_18px_70px_rgba(0,0,0,0.45)] backdrop-blur-2xl sm:left-6 sm:right-auto">
             <div className="text-[11px] uppercase tracking-[0.24em] text-[#1FE4D6]" style={HEADING_STYLE}>
-              Improve your experience
+              {t.consent.title}
             </div>
             <p className="mt-2 text-sm leading-6 text-[#D9D9D9]/72">
-              We use analytics to understand how you interact with Gravity Club and to continuously improve the experience, classes and booking flow. This helps us build a better product for you.
+              {t.consent.text}
             </p>
             <div className="mt-4 flex flex-col gap-2 sm:flex-row">
               <button
@@ -1417,7 +1528,7 @@ src="/PEAQ_Logo_white_Claim.png"
                 className="rounded-full bg-[#1FE4D6] px-5 py-3 text-sm text-black"
                 style={HEADING_STYLE}
               >
-                Improve experience
+                {t.consent.accept}
               </button>
               <button
                 type="button"
@@ -1425,7 +1536,7 @@ src="/PEAQ_Logo_white_Claim.png"
                 className="rounded-full border border-white/10 bg-white/5 px-5 py-3 text-sm text-[#D9D9D9]"
                 style={HEADING_STYLE}
               >
-                Decline
+                {t.consent.decline}
               </button>
             </div>
           </div>
@@ -1433,17 +1544,36 @@ src="/PEAQ_Logo_white_Claim.png"
       </main>
 
       <footer className="border-t border-white/10 px-4 py-6 text-xs text-[#D9D9D9]/50 sm:px-6 lg:px-10">
-        <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-3">
+        <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-x-6 gap-y-3 border-b border-white/5 pb-5">
+          <nav aria-label="Footer" className="flex flex-wrap gap-x-5 gap-y-2">
+            <a href={pathFor(lang, "hiit")} className="hover:text-[#1FE4D6]">
+              {t.classes.items[0].title}
+            </a>
+            <a href={pathFor(lang, "powerjump")} className="hover:text-[#1FE4D6]">
+              {t.classes.items[1].title}
+            </a>
+            <a href={pathFor(lang, "location")} className="hover:text-[#1FE4D6]">
+              {t.ui.footerLocation}
+            </a>
+            <a href={INSTAGRAM_URL} rel="noopener" target="_blank" className="hover:text-[#1FE4D6]">
+              {t.ui.instagram}
+            </a>
+          </nav>
+          <a href={pathFor(otherLang, page)} hrefLang={otherLang} lang={otherLang} className="uppercase tracking-[0.14em] hover:text-[#1FE4D6]">
+            {otherLang === "de" ? "Deutsch" : "English"}
+          </a>
+        </div>
+        <div className="mx-auto mt-5 flex max-w-6xl flex-wrap items-center justify-between gap-3">
           <div>© {new Date().getFullYear()} Gravity Club</div>
           <div className="flex gap-4">
             <button type="button" onClick={() => setLegalModal("imprint")} className="hover:text-[#1FE4D6]">
-              Impressum
+              {t.footer.imprint}
             </button>
             <button type="button" onClick={() => setLegalModal("privacy")} className="hover:text-[#1FE4D6]">
-              Privacy
+              {t.footer.privacy}
             </button>
             <button type="button" onClick={() => setLegalModal("terms")} className="hover:text-[#1FE4D6]">
-              Terms
+              {t.footer.terms}
             </button>
           </div>
         </div>
