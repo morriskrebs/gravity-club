@@ -145,7 +145,7 @@ Participation despite exceeding the stated weight limit, providing false informa
 
 Gravity Club is not liable for injuries, accidents, health issues or loss of personal belongings, except in cases of gross negligence or intent.
 
-By booking a class, you acknowledge and accept these terms in full.`;
+By booking a class or joining the waitlist, you acknowledge and accept these terms in full.`;
 
 const META_PIXEL_ID = "4479962442290722";
 const GA_MEASUREMENT_ID = "G-62PXNJZY9K";
