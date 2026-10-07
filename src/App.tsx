@@ -51,7 +51,7 @@ const FAQ_ITEMS = [
   {
     category: "Before you come",
     question: "What should I bring?",
-    answer: "Workout clothes, water and the right energy.",
+    answer: "Workout clothes, water, a towel and the right energy.",
   },
   {
     category: "Before you come",
