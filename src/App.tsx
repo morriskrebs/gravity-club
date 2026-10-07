@@ -1017,7 +1017,7 @@ export default function GravityClubWebsitePreview({ lang, page }: { lang: Lang; 
         <>
         <section className="relative overflow-hidden border-b border-white/10">
           <div className="absolute inset-0">
-            <img src={HERO_IMAGES[0]} alt={t.hero.heroAlt} width={1672} height={941} fetchPriority="high" className="h-full w-full object-cover opacity-25" />
+            <img src="/hero-bg.jpg" alt={t.hero.heroAlt} width={1500} height={2000} fetchPriority="high" className="h-full w-full object-cover object-[50%_58%] opacity-40" />
             <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-black/55 to-[#0A0A0A]" />
           </div>
 
