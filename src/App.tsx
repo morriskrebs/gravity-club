@@ -291,7 +291,6 @@ function ClassPageView({
 }) {
   const c = t.classPages[id];
   const other = id === "hiit" ? "powerjump" : "hiit";
-  const image = id === "hiit" ? "/man.jpg" : "/woman.jpg";
   const bookHref = pathFor(lang, "home", "#booking");
   const handleBook = (e: React.MouseEvent) => {
     e.preventDefault();
@@ -304,7 +303,7 @@ function ClassPageView({
   return (
     <section className="mx-auto max-w-6xl px-4 py-14 sm:px-6 sm:py-20 lg:px-10 lg:py-24">
       <SubPageBreadcrumb lang={lang} t={t} title={c.h1} />
-      <div className="mt-8 grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:gap-14">
+      <div className="mt-8">
         <div className="flex flex-col justify-center">
           <div className="text-sm uppercase tracking-[0.28em] text-[#1FE4D6]">{c.eyebrow} · {c.trainer}</div>
           <h1 className="mt-4 text-[2.4rem] leading-[1] text-[#D9D9D9] sm:text-[3.4rem]" style={HEADING_STYLE}>
@@ -321,14 +320,6 @@ function ClassPageView({
             </a>
           </div>
         </div>
-        <img
-          src={image}
-          alt={c.imageAlt}
-          width={1122}
-          height={1402}
-          fetchPriority="high"
-          className="aspect-[4/5] w-full rounded-[28px] border border-white/10 object-cover"
-        />
       </div>
 
       <div className="mt-14 grid gap-6 md:grid-cols-2">
