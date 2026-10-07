@@ -26,7 +26,7 @@ const FAQ_ITEMS = [
   {
     category: "Booking",
     question: "What if a class is full?",
-    answer: "Join the waitlist on Eversports. If a spot opens up, you get notified right away.",
+    answer: "Join the waitlist on Eversports. If a spot opens up, you are booked into the class and notified right away. By joining, you agree that this booking is valid.",
   },
   {
     category: "Booking",
@@ -135,6 +135,8 @@ You can request information, correction or deletion of your data at any time by 
 const TERMS_TEXT = `Gravity Club is a boutique fitness experience with limited capacity per session.
 
 Bookings are binding. Cancellation is free up to 12 hours before the class starts; the class credit is returned to your account for a future booking and stays valid for the remaining validity period of your pass. Cash refunds are not available. Late cancellations are charged in full. No-shows (not attending a booked class without cancelling) are charged in full plus a no-show fee of CHF 15, which is invoiced by email after the class and payable via the payment link in that email.
+
+Customers who join the waitlist confirm that they agree to be booked into the class if a spot becomes available, and that this booking is valid and binding.
 
 Participation is at your own risk. By attending a class, you confirm that you are physically fit, in good health, and able to take part in high-intensity exercise. You agree to follow all instructions given by the coach at all times.
 
@@ -1122,7 +1124,7 @@ onClick={() => {
                 </div>
               </div>
               <p className="mt-5 max-w-xl text-[17px] leading-8 text-[#D9D9D9]/70">
-                Every booking runs through Eversports. Choose your class, pay online and your spot is yours. Once a class is full, you can join the waitlist and get notified if a spot opens up.
+                Every booking runs through Eversports. Choose your class, pay online and your spot is yours. Once a class is full, you can join the waitlist and be booked in if a spot opens up.
               </p>
             </div>
 
