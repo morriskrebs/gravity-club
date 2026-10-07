@@ -391,10 +391,10 @@ function LocationPageView({ lang, t, onBook }: { lang: Lang; t: Content; onBook:
           <p className="mt-5 max-w-xl text-[17px] leading-8 text-[#D9D9D9]/75">{c.intro}</p>
         </div>
         <img
-          src="/hero.jpg"
+          src="/hero-bg.jpg"
           alt={c.imageAlt}
-          width={1672}
-          height={941}
+          width={2000}
+          height={1500}
           fetchPriority="high"
           className="w-full rounded-[28px] border border-white/10 object-cover"
         />
