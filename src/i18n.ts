@@ -544,7 +544,7 @@ Part of every session. Part of the experience.`,
     },
     hero: {
       h1: ["Springen.", "Schwitzen.", "Verbinden."],
-      sub: ["Zürichs", "Rebounder-Fitness", "in Club-Atmosphäre"],
+      sub: ["Zürichs", "Trampolin-Fitness", "in Club-Atmosphäre"],
       copy: "50-Minuten-Rebounder-Klassen in Zürich. Laute Musik, dunkler Raum, 20 Plätze.",
       signature: "Signature Experience",
       signatureLine: "Club-Energie. Boutique. Präzision.",
