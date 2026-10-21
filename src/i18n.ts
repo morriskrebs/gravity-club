@@ -84,6 +84,10 @@ export type Content = {
     allClasses: string;
     footerClasses: string;
     footerLocation: string;
+    mapTitle: string;
+    mapLoad: string;
+    mapPrivacy: string;
+    mapOpen: string;
     instagram: string;
   };
   hero: {
@@ -257,6 +261,10 @@ export const CONTENT: Record<Lang, Content> = {
       allClasses: "All classes",
       footerClasses: "Classes",
       footerLocation: "Location",
+      mapTitle: "Map: Kanzlei Club, Kanzleistrasse 56, Zurich",
+      mapLoad: "Show map",
+      mapPrivacy: "The map is loaded from Google Maps. By showing it, data is transmitted to Google.",
+      mapOpen: "Open in Google Maps",
       instagram: "Instagram",
     },
     hero: {
@@ -540,6 +548,10 @@ Part of every session. Part of the experience.`,
       allClasses: "Alle Kurse",
       footerClasses: "Kurse",
       footerLocation: "Standort",
+      mapTitle: "Karte: Kanzlei Club, Kanzleistrasse 56, Zürich",
+      mapLoad: "Karte anzeigen",
+      mapPrivacy: "Die Karte wird von Google Maps geladen. Beim Anzeigen werden Daten an Google übermittelt.",
+      mapOpen: "In Google Maps öffnen",
       instagram: "Instagram",
     },
     hero: {

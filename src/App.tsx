@@ -362,6 +362,49 @@ function ClassPageView({
   );
 }
 
+const MAPS_QUERY = "Kanzlei Club, Kanzleistrasse 56, 8004 Zürich";
+const MAPS_OPEN_URL = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(MAPS_QUERY)}`;
+const MAPS_EMBED_URL = `https://www.google.com/maps?q=${encodeURIComponent(MAPS_QUERY)}&output=embed`;
+
+function MapEmbed({ t }: { t: Content }) {
+  const [show, setShow] = useState(false);
+  return (
+    <div className="overflow-hidden rounded-[28px] border border-white/10 bg-white/[0.03]">
+      <div className="relative h-[320px] w-full sm:h-[400px]">
+        {show ? (
+          <iframe
+            src={MAPS_EMBED_URL}
+            title={t.ui.mapTitle}
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            allowFullScreen
+            className="h-full w-full border-0"
+          />
+        ) : (
+          <div className="flex h-full flex-col items-center justify-center gap-4 px-6 text-center">
+            <div className="text-lg text-[#D9D9D9]" style={HEADING_STYLE}>
+              Kanzlei Club · Kanzleistrasse 56 · 8004 Zürich
+            </div>
+            <button
+              type="button"
+              onClick={() => setShow(true)}
+              className="rounded-full bg-[#1FE4D6] px-6 py-2.5 text-sm font-semibold text-black"
+            >
+              {t.ui.mapLoad}
+            </button>
+            <p className="max-w-md text-xs leading-5 text-[#D9D9D9]/55">{t.ui.mapPrivacy}</p>
+          </div>
+        )}
+      </div>
+      <div className="border-t border-white/10 px-5 py-3 text-sm">
+        <a href={MAPS_OPEN_URL} target="_blank" rel="noopener" className="text-[#1FE4D6] underline-offset-4 hover:underline">
+          {t.ui.mapOpen} →
+        </a>
+      </div>
+    </div>
+  );
+}
+
 function LocationPageView({ lang, t, onBook }: { lang: Lang; t: Content; onBook: (label: string) => void }) {
   const c = t.locationPage;
   const bookHref = pathFor(lang, "home", "#booking");
@@ -413,6 +456,10 @@ function LocationPageView({ lang, t, onBook }: { lang: Lang; t: Content; onBook:
           </h2>
           <BulletList items={c.inside} />
         </Card>
+      </div>
+
+      <div className="mt-6">
+        <MapEmbed t={t} />
       </div>
 
       <Card className="mt-6 border-[#1FE4D6]/30 bg-[linear-gradient(180deg,rgba(31,228,214,0.14),rgba(217,217,217,0.04))] p-8">
@@ -1293,6 +1340,9 @@ onKeyDown={(e) => {
               >
                 {t.location.moreInfo}
               </a>
+              <div className="sm:col-span-2">
+                <MapEmbed t={t} />
+              </div>
             </div>
           </div>
         </section>
