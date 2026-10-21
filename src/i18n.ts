@@ -175,6 +175,8 @@ This includes information you provide via forms, booking platforms and direct co
 
 We use selected third-party tools (e.g. analytics and booking systems) to improve the experience and ensure smooth operations.
 
+On our location pages we offer an embedded Google Maps map. It is only loaded after you click "Show map". Once loaded, your IP address and usage data are transmitted to Google (Google LLC, USA) and may be processed there. Without this click, no data is sent to Google Maps.
+
 Your data is handled responsibly and never sold to third parties.
 
 You can request information, correction or deletion of your data at any time by contacting us at hello@gravityclub-rebound.com.`;
@@ -199,6 +201,8 @@ const PRIVACY_DE = `Wir erheben und verarbeiten personenbezogene Daten nur, um G
 Dazu gehören Angaben, die Sie über Formulare, Buchungsplattformen und direkte Kommunikation machen.
 
 Wir setzen ausgewählte Tools von Drittanbietern ein (z. B. Analyse- und Buchungssysteme), um das Erlebnis zu verbessern und einen reibungslosen Ablauf sicherzustellen.
+
+Auf unseren Standortseiten bieten wir eine eingebettete Karte von Google Maps an. Sie wird erst geladen, nachdem Sie auf «Karte anzeigen» geklickt haben. Nach dem Laden werden Ihre IP-Adresse und Nutzungsdaten an Google (Google LLC, USA) übermittelt und dort möglicherweise verarbeitet. Ohne diesen Klick werden keine Daten an Google Maps gesendet.
 
 Ihre Daten werden verantwortungsvoll behandelt und nie an Dritte verkauft.
 
@@ -344,7 +348,7 @@ export const CONTENT: Record<Lang, Content> = {
     },
     location: {
       eyebrow: "Location",
-      title: ["Kanzlei Club, Zurich.", "Where it starts."],
+      title: ["Kanzlei Club, Zurich."],
       cards: [
         "Located in the heart of Zurich, Kanzlei Club is one of the city's most iconic nightlife venues.",
         "Just steps from Helvetiaplatz, the location is seamlessly connected to public transport from anywhere in the city.",
@@ -631,7 +635,7 @@ Part of every session. Part of the experience.`,
     },
     location: {
       eyebrow: "Standort",
-      title: ["Kanzlei Club, Zürich.", "Hier geht's los."],
+      title: ["Kanzlei Club, Zürich."],
       cards: [
         "Mitten in Zürich gelegen, ist der Kanzlei Club einer der bekanntesten Nightlife-Orte der Stadt.",
         "Nur wenige Schritte vom Helvetiaplatz entfernt, ist der Ort aus der ganzen Stadt bestens mit dem öffentlichen Verkehr erreichbar.",
