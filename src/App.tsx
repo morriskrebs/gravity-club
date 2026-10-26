@@ -434,10 +434,10 @@ function LocationPageView({ lang, t, onBook }: { lang: Lang; t: Content; onBook:
           <p className="mt-5 max-w-xl text-[17px] leading-8 text-[#D9D9D9]/75">{c.intro}</p>
         </div>
         <img
-          src="/kanzlei-club.jpg"
-          alt={c.exteriorAlt}
-          width={1360}
-          height={907}
+          src="/hero-bg.jpg"
+          alt={c.imageAlt}
+          width={2000}
+          height={1500}
           fetchPriority="high"
           className="w-full rounded-[28px] border border-white/10 object-cover"
         />
@@ -458,7 +458,15 @@ function LocationPageView({ lang, t, onBook }: { lang: Lang; t: Content; onBook:
         </Card>
       </div>
 
-      <div className="mt-6">
+      <div className="mt-6 grid gap-4 md:grid-cols-2">
+        <img
+          src="/kanzlei-club.jpg"
+          alt={c.exteriorAlt}
+          width={1360}
+          height={907}
+          loading="lazy"
+          className="h-full min-h-[240px] w-full rounded-[28px] border border-white/10 object-cover"
+        />
         <MapEmbed t={t} />
       </div>
 
