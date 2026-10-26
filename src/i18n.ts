@@ -162,6 +162,7 @@ export type Content = {
     ctaCopy: string;
     ctaButton: string;
     imageAlt: string;
+    exteriorAlt: string;
   };
   schema: { gymDescription: string; priceRange: string };
 };
@@ -504,6 +505,7 @@ Part of every session. Part of the experience.`,
       ctaCopy: "Choose your class, pay online and your spot is yours. 20 spots per class.",
       ctaButton: "See schedule and book",
       imageAlt: "Gravity Club rebounder class in a dark club at Kanzlei Club in Zurich",
+      exteriorAlt: "Kanzlei Club building at night, directly next to Kino Xenix in Zurich",
     },
     schema: {
       gymDescription:
@@ -791,6 +793,7 @@ Teil jeder Session. Teil des Erlebnisses.`,
       ctaCopy: "Wähle deine Klasse, bezahle online und dein Platz gehört dir. 20 Plätze pro Klasse.",
       ctaButton: "Stundenplan ansehen und buchen",
       imageAlt: "Gravity-Club-Rebounderklasse in einem dunklen Club im Kanzlei Club in Zürich",
+      exteriorAlt: "Das Gebäude des Kanzlei Club bei Nacht, direkt neben dem Kino Xenix in Zürich",
     },
     schema: {
       gymDescription:

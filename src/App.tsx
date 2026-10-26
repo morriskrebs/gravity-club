@@ -458,6 +458,15 @@ function LocationPageView({ lang, t, onBook }: { lang: Lang; t: Content; onBook:
         </Card>
       </div>
 
+      <img
+        src="/kanzlei-club.jpg"
+        alt={c.exteriorAlt}
+        width={1360}
+        height={907}
+        loading="lazy"
+        className="mt-6 w-full rounded-[28px] border border-white/10 object-cover"
+      />
+
       <div className="mt-6">
         <MapEmbed t={t} />
       </div>
