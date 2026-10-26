@@ -184,7 +184,7 @@ You can request information, correction or deletion of your data at any time by 
 
 const TERMS_EN = `Gravity Club is a boutique fitness experience with limited capacity per session.
 
-Bookings are binding. Cancellation is free up to 12 hours before the class starts; the class credit is returned to your account for a future booking and stays valid for the remaining validity period of your pass. Cash refunds are not available. Late cancellations are charged in full. No-shows (not attending a booked class without cancelling) are charged in full plus a no-show fee of CHF 15, which is invoiced by email after the class and payable via the payment link in that email.
+Bookings are binding. Cancellation is free up to 12 hours before the class starts; the class credit is returned to your account for a future booking and stays valid for the remaining validity period of your pass. Cash refunds are not available. Late cancellations are charged in full. No-shows (not attending a booked class without cancelling) are charged in full.
 
 Customers who join the waitlist confirm that they agree to be booked into the class if a spot becomes available, and that this booking is valid and binding.
 
@@ -211,7 +211,7 @@ Sie können jederzeit Auskunft, Berichtigung oder Löschung Ihrer Daten verlange
 
 const TERMS_DE = `Gravity Club ist ein Boutique-Fitnesserlebnis mit begrenzter Teilnehmerzahl pro Klasse.
 
-Buchungen sind verbindlich. Die Stornierung ist bis 12 Stunden vor Klassenbeginn kostenlos; das Klassen-Guthaben wird Ihrem Konto für eine spätere Buchung gutgeschrieben und bleibt für die restliche Gültigkeitsdauer Ihrer Karte gültig. Eine Barauszahlung ist nicht möglich. Späte Stornierungen werden vollständig verrechnet. Bei Nichterscheinen (No-Show, d. h. Nichtteilnahme an einer gebuchten Klasse ohne Stornierung) wird die Klasse vollständig verrechnet, zusätzlich fällt eine No-Show-Gebühr von CHF 15 an, die nach der Klasse per E-Mail in Rechnung gestellt und über den Zahlungslink in dieser E-Mail beglichen wird.
+Buchungen sind verbindlich. Die Stornierung ist bis 12 Stunden vor Klassenbeginn kostenlos; das Klassen-Guthaben wird Ihrem Konto für eine spätere Buchung gutgeschrieben und bleibt für die restliche Gültigkeitsdauer Ihrer Karte gültig. Eine Barauszahlung ist nicht möglich. Späte Stornierungen werden vollständig verrechnet. Bei Nichterscheinen (No-Show, d. h. Nichtteilnahme an einer gebuchten Klasse ohne Stornierung) wird die Klasse vollständig verrechnet.
 
 Kundinnen und Kunden, die sich auf die Warteliste setzen, bestätigen, dass sie damit einverstanden sind, in die Klasse eingebucht zu werden, sobald ein Platz frei wird, und dass diese Buchung gültig und verbindlich ist.
 
@@ -389,7 +389,7 @@ Part of every session. Part of the experience.`,
         { category: "Before you come", question: "What should I bring?", answer: "Workout clothes, water, a towel and the right energy." },
         { category: "Before you come", question: "When should I arrive?", answer: "Please arrive 10–15 minutes before the class starts." },
         { category: "Cancellation", question: "Can I cancel my booking?", answer: "Yes. You can cancel free of charge up to 12 hours before the class starts. You'll get your credit back for a future class. It stays valid for the remaining validity period of your pass - cash refunds are not available." },
-        { category: "Cancellation", question: "What happens if I don't show up?", answer: "If you miss a class without cancelling, your credit is used and a no-show fee of CHF 15 is invoiced to you by email after the class." },
+        { category: "Cancellation", question: "What happens if I don't show up?", answer: "If you miss a class without cancelling, your credit is used." },
       ],
     },
     contact: {
@@ -677,7 +677,7 @@ Teil jeder Session. Teil des Erlebnisses.`,
         { category: "Vor dem Besuch", question: "Was soll ich mitbringen?", answer: "Sportkleidung, Wasser, ein Handtuch und die richtige Energie." },
         { category: "Vor dem Besuch", question: "Wann soll ich ankommen?", answer: "Bitte komm 10–15 Minuten vor Klassenbeginn." },
         { category: "Stornierung", question: "Kann ich meine Buchung stornieren?", answer: "Ja. Bis 12 Stunden vor Klassenbeginn ist die Stornierung kostenlos. Du erhältst dein Guthaben für eine spätere Klasse zurück. Es bleibt für die restliche Gültigkeitsdauer deiner Karte gültig - eine Barauszahlung ist nicht möglich." },
-        { category: "Stornierung", question: "Was passiert, wenn ich nicht erscheine?", answer: "Wenn du eine Klasse ohne Stornierung verpasst, wird dein Guthaben verbraucht und nach der Klasse stellen wir dir per E-Mail eine No-Show-Gebühr von CHF 15 in Rechnung." },
+        { category: "Stornierung", question: "Was passiert, wenn ich nicht erscheine?", answer: "Wenn du eine Klasse ohne Stornierung verpasst, wird dein Guthaben verbraucht." },
       ],
     },
     contact: {
