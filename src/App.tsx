@@ -434,10 +434,10 @@ function LocationPageView({ lang, t, onBook }: { lang: Lang; t: Content; onBook:
           <p className="mt-5 max-w-xl text-[17px] leading-8 text-[#D9D9D9]/75">{c.intro}</p>
         </div>
         <img
-          src="/hero-bg.jpg"
-          alt={c.imageAlt}
-          width={2000}
-          height={1500}
+          src="/kanzlei-club.jpg"
+          alt={c.exteriorAlt}
+          width={1360}
+          height={907}
           fetchPriority="high"
           className="w-full rounded-[28px] border border-white/10 object-cover"
         />
@@ -457,15 +457,6 @@ function LocationPageView({ lang, t, onBook }: { lang: Lang; t: Content; onBook:
           <BulletList items={c.inside} />
         </Card>
       </div>
-
-      <img
-        src="/kanzlei-club.jpg"
-        alt={c.exteriorAlt}
-        width={1360}
-        height={907}
-        loading="lazy"
-        className="mt-6 w-full rounded-[28px] border border-white/10 object-cover"
-      />
 
       <div className="mt-6">
         <MapEmbed t={t} />
