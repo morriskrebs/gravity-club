@@ -1340,18 +1340,18 @@ onKeyDown={(e) => {
               >
                 {t.location.moreInfo}
               </a>
-              <img
-                src="/kanzlei-club.jpg"
-                alt={t.locationPage.exteriorAlt}
-                width={1360}
-                height={907}
-                loading="lazy"
-                className="w-full rounded-[28px] border border-white/10 object-cover sm:col-span-2"
-              />
-              <div className="sm:col-span-2">
-                <MapEmbed t={t} />
-              </div>
             </div>
+          </div>
+          <div className="mx-auto grid max-w-6xl gap-4 px-4 pb-14 sm:px-6 sm:pb-20 md:grid-cols-2 lg:px-10 lg:pb-28">
+            <img
+              src="/kanzlei-club.jpg"
+              alt={t.locationPage.exteriorAlt}
+              width={1360}
+              height={907}
+              loading="lazy"
+              className="h-full min-h-[240px] w-full rounded-[28px] border border-white/10 object-cover"
+            />
+            <MapEmbed t={t} />
           </div>
         </section>
 
