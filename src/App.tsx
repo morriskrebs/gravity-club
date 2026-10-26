@@ -1340,6 +1340,14 @@ onKeyDown={(e) => {
               >
                 {t.location.moreInfo}
               </a>
+              <img
+                src="/kanzlei-club.jpg"
+                alt={t.locationPage.exteriorAlt}
+                width={1360}
+                height={907}
+                loading="lazy"
+                className="w-full rounded-[28px] border border-white/10 object-cover sm:col-span-2"
+              />
               <div className="sm:col-span-2">
                 <MapEmbed t={t} />
               </div>
